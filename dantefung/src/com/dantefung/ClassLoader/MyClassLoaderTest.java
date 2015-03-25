@@ -30,10 +30,10 @@ public class MyClassLoaderTest extends ClassLoader{
 
 	private static void cypher(InputStream ips, OutputStream ops) throws Exception
 	{
-		int b = -1;
+		int b = -1;//32位。4个字节。十六进制表示：0xffffffff
 		while((b=ips.read()) != -1)
 		{
-			ops.write(b*0xff);
+			ops.write(b*0xff);//把0->1 1->0
 		}
 	}
 

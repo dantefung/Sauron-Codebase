@@ -9,6 +9,6 @@ public class Client {
 		
 		Moveable m = (Moveable)Proxy.newProxyInstance(Moveable.class, h);
 		
-		m.move();//调用用户自定义接口中的方法。
+		m.move();//调用动态生成的类中用户自定义接口中的方法。
 	}
 }
