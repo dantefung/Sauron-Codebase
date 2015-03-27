@@ -14,10 +14,6 @@ import java.io.File;
  * 				是：就输出该文件的名称
  * 				否：不搭理他。
  * 			否：不搭理它。
- * 
- * 
- * 
- * 
  * ***/
 public class FileFilterDemo {
 
