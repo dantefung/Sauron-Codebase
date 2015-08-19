@@ -1,6 +1,6 @@
 package com.dantefung.beanutils;
 
-//使用beanutils操纵bean属性（第三方jar包）
+//浣跨敤beanutils鎿嶇旱bean灞炴�э紙绗笁鏂筳ar鍖咃級
 public class Demo1 {
 	
 

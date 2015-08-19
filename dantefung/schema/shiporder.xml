@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dantefung:shiporder orderid="" xmlns:dantefung="http://www.itcast.cn"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.itcast.cn shiporder.xsd">
+
+	<dantefung:orderperson1>123</dantefung:orderperson1>
+
+	<dantefung:shipto>
+		<dantefung:name></dantefung:name>
+		<dantefung:address></dantefung:address>
+		<dantefung:city></dantefung:city>
+		<dantefung:country></dantefung:country>
+	</dantefung:shipto>
+
+	<dantefung:item>
+        <dantefung:title>nihao</dantefung:title>
+	    <dantefung:note>zhangsan</dantefung:note>
+        <dantefung:quantity>12</dantefung:quantity>
+        <dantefung:price>1.0</dantefung:price>
+	</dantefung:item>
+
+</dantefung:shiporder>
+     

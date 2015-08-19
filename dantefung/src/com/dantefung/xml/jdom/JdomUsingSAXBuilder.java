@@ -14,9 +14,9 @@ import org.jdom2.input.SAXBuilder;
 import org.jdom2.util.IteratorIterable;
  
 /*
- * ³ö´¦£ºhttp://www.studytrails.com/java/xml/jdom2/java-xml-jdom2-SAXBuilderExample.jsp
- * Ê±¼ä£º2015/2/15
- * Ä¿µÄ£ºDanteFungÑ§Ï°Ö®ÓÃ¡£
+ * å‡ºå¤„ï¼šhttp://www.studytrails.com/java/xml/jdom2/java-xml-jdom2-SAXBuilderExample.jsp
+ * æ—¶é—´ï¼š2015/2/15
+ * ç›®çš„ï¼šDanteFungå­¦ä¹ ä¹‹ç”¨ã€‚
  * */
 public class JdomUsingSAXBuilder {
  
@@ -27,20 +27,20 @@ public class JdomUsingSAXBuilder {
  
         // Use a SAX builder
         SAXBuilder builder = new SAXBuilder();
-        //·½Ê½1£º´ÓÎÄ¼ş»òÁ÷ÖĞ½âÎö³ö·ûºÏJDOMÄ£ĞÍµÄXMLÊ÷.
+        //æ–¹å¼1ï¼šä»æ–‡ä»¶æˆ–æµä¸­è§£æå‡ºç¬¦åˆJDOMæ¨¡å‹çš„XMLæ ‘.
         Document jdomDoc = builder.build(new JdomUsingSAXBuilder().getClass().getClassLoader().getResourceAsStream(fileName));
        
-        //·½Ê½2£ºbuild a JDOM2 Document using the SAXBuilder.
+        //æ–¹å¼2ï¼šbuild a JDOM2 Document using the SAXBuilder.
 //        Document jdomDoc = builder.build(new File(file1));  
  														  
-                                                              /*ÕâÑùĞ´µÄ»°£¬ÏµÍ³ÊÇÄ¬ÈÏµ½ÎÒÃÇµÄjava¹¤³ÌÏÂ
+                                                              /*è¿™æ ·å†™çš„è¯ï¼Œç³»ç»Ÿæ˜¯é»˜è®¤åˆ°æˆ‘ä»¬çš„javaå·¥ç¨‹ä¸‹
 	                                                           *tomcat-web-dtd.xml
 													           *
-													           *Í¬Ò»¸ùÄ¿Â¼ÏÂ£¬ÈôÏà¶ÔÓÚÎÒÃÇµ±Ç°¹¤³ÌÃ»ÓĞtomcat-web-dtd.xmlÎÄ¼ş
-													           *Ôò»á±¨´í£º
+													           *åŒä¸€æ ¹ç›®å½•ä¸‹ï¼Œè‹¥ç›¸å¯¹äºæˆ‘ä»¬å½“å‰å·¥ç¨‹æ²¡æœ‰tomcat-web-dtd.xmlæ–‡ä»¶
+													           *åˆ™ä¼šæŠ¥é”™ï¼š
 													           *thread "main" java.io.FileNotFoundException: 
 													           *F:\ImportToEclipse\dantefung\tomcat-web-dtd.xml 
-													           *(ÏµÍ³ÕÒ²»µ½Ö¸¶¨µÄÎÄ¼ş¡££©
+													           *(ç³»ç»Ÿæ‰¾ä¸åˆ°æŒ‡å®šçš„æ–‡ä»¶ã€‚ï¼‰
 													           */
  
         // get the document type
@@ -56,11 +56,11 @@ public class JdomUsingSAXBuilder {
         // iterate through the descendants and print non-Text and non-Comment values
         /*
          * CType: Content Type.
-         * CTypeÎªÒ»¸öÃ¶¾ÙÀàĞÍµÄÀà¡£
-         * Text¡¢CommentµÈ¶¼ÊÇ¸ÃÀàÖĞµÄÔªËØ£¨¸ÃÀàµÄÄäÃûÄÚ²¿×ÓÀà£©¡£
+         * CTypeä¸ºä¸€ä¸ªæšä¸¾ç±»å‹çš„ç±»ã€‚
+         * Textã€Commentç­‰éƒ½æ˜¯è¯¥ç±»ä¸­çš„å…ƒç´ ï¼ˆè¯¥ç±»çš„åŒ¿åå†…éƒ¨å­ç±»ï¼‰ã€‚
          * 
          * */
-        IteratorIterable<Content> contents = web_app.getDescendants();//Éè¼ÆÄ£Ê½ÖĞµÄµü´úÆ÷-- --¶ÔÏóĞĞÎªĞÍÄ£Ê½¡£
+        IteratorIterable<Content> contents = web_app.getDescendants();//è®¾è®¡æ¨¡å¼ä¸­çš„è¿­ä»£å™¨-- --å¯¹è±¡è¡Œä¸ºå‹æ¨¡å¼ã€‚
         while (contents.hasNext()) {
             Content web_app_content = contents.next();
             if (!web_app_content.getCType().equals(CType.Text) && !web_app_content.getCType().equals(CType.Comment)) {

@@ -3,9 +3,9 @@ package com.dantefung.chainOfResponsibility.filter;
 import java.util.ArrayList;
 import java.util.List;
 
-/**TomcatÄÚÊÇ½Ó¿Ú¡£
+/**Tomcatå†…æ˜¯æ¥å£ã€‚
  * 
- * ¹¤¾ßÀà£¬ÃæÏòÇĞÆ¬Ë¼Ïë¡£AOP¡£--dantefung×Ô¼ºµÄ¸ĞÎò
+ * å·¥å…·ç±»ï¼Œé¢å‘åˆ‡ç‰‡æ€æƒ³ã€‚AOPã€‚--dantefungè‡ªå·±çš„æ„Ÿæ‚Ÿ
  * 
  * @author DanteFung
  *
@@ -16,10 +16,10 @@ public class FilterChain implements Filter {
 	public FilterChain addFilter(Filter f)
 	{
 		this.filters.add(f);
-		return this;//ÕâÑùĞ´µÄºÃ´¦¾ÍÊÇ¿ÉÒÔÊµÏÖÁ´Ê½±à³Ì¡£
+		return this;//è¿™æ ·å†™çš„å¥½å¤„å°±æ˜¯å¯ä»¥å®ç°é“¾å¼ç¼–ç¨‹ã€‚
 	}
 	
-	//½«FilterÁ´Ìõ¿´³ÉÒ»¸öÕûÌå£¬ÄÇÃ´Õâ¸öÕûÌåÒ²ÊÇÒ»¸ö´óµÄFilter£¬ÔòÒ²ÓĞdoFilter£¨£©·½·¨¡£
+	//å°†Filteré“¾æ¡çœ‹æˆä¸€ä¸ªæ•´ä½“ï¼Œé‚£ä¹ˆè¿™ä¸ªæ•´ä½“ä¹Ÿæ˜¯ä¸€ä¸ªå¤§çš„Filterï¼Œåˆ™ä¹Ÿæœ‰doFilterï¼ˆï¼‰æ–¹æ³•ã€‚
 	public String doFilter(String str)
 	{
 		String r =str;

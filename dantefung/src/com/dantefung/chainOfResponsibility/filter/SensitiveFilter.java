@@ -5,7 +5,7 @@ public class SensitiveFilter implements Filter {
 	@Override
 	public String doFilter(String str) 
 	{
-		String r = str.replace("±»¾ÍÒµ","¾ÍÒµ").replace("Ãô¸Ğ", "");
+		String r = str.replace("è¢«å°±ä¸š","å°±ä¸š").replace("æ•æ„Ÿ", "");
 		return r;
 	}
 

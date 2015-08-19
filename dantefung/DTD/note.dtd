@@ -1,0 +1,6 @@
+<!ELEMENT note (to*,from+,heading?,(body+|message))>
+  <!ELEMENT to      (#PCDATA)>
+  <!ELEMENT from    EMPTY>
+  <!ELEMENT heading ANY>
+  <!ELEMENT body    (#PCDATA)>
+  <!ATTLIST body id ID  #REQUIRED>
