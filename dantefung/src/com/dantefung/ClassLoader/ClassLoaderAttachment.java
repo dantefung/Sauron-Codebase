@@ -1,7 +1,7 @@
-package com.dantefung.ClassLoader;
+锘縫ackage com.dantefung.ClassLoader;
 
 import java.util.Date;
-//复制该类的完整路径名称："I:\百度云同步盘\dantefung\bin\com\dantefung\classloader\ClassLoaderAttachment.class"
+//澶嶅埗璇ョ被鐨勫畬鏁磋矾寰勫悕绉帮細"I:\鐧惧害浜戝悓姝ョ洏\dantefung\bin\com\dantefung\classloader\ClassLoaderAttachment.class"
 //Run as -->Open Run Dialog..-->
 public class ClassLoaderAttachment extends Date {
 	public String toString()

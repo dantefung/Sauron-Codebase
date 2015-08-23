@@ -12,6 +12,23 @@
 	<classpathentry kind="lib" path="jars/xercesImpl.jar"/>
 	<classpathentry kind="lib" path="jars/xml-apis.jar"/>
 	<classpathentry kind="lib" path="lib/mysql-connector-java-3.1.13-bin.jar"/>
+	<classpathentry kind="lib" path="jars/httpcore-4.4.1.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="jars/commons-codec-1.9.jar"/>
+	<classpathentry kind="lib" path="jars/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="jars/httpclient-4.4.1.jar"/>
+	<classpathentry kind="lib" path="jars/fluent-hc-4.4.1.jar"/>
+	<classpathentry kind="lib" path="jars/httpclient-cache-4.4.1.jar"/>
+	<classpathentry kind="lib" path="jars/httpclient-win-4.4.1.jar"/>
+	<classpathentry kind="lib" path="jars/httpmime-4.4.1.jar"/>
+	<classpathentry kind="lib" path="jars/jna-4.1.0.jar"/>
+	<classpathentry kind="lib" path="jars/jna-platform-4.1.0.jar"/>
+	<classpathentry kind="lib" path="lib/com.springsource.org.apache.commons.httpclient-3.1.0.jar"/>
+	<classpathentry kind="lib" path="lib/commons-codec-1.8-javadoc.jar"/>
+	<classpathentry kind="lib" path="lib/commons-codec-1.8-sources.jar"/>
+	<classpathentry kind="lib" path="lib/commons-codec-1.8-test-sources.jar"/>
+	<classpathentry kind="lib" path="lib/commons-codec-1.8-tests.jar"/>
+	<classpathentry kind="lib" path="lib/commons-codec-1.8.jar"/>
+	<classpathentry kind="lib" path="lib/commons-logging-api.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

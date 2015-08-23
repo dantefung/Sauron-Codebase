@@ -1,4 +1,4 @@
-package com.dantefung.ClassLoader;
+ï»¿package com.dantefung.ClassLoader;
 
 public class EXTClassLoaderTest {
 
@@ -8,7 +8,7 @@ public class EXTClassLoaderTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		/**Àà¼ÓÔØÆ÷µÄÎ¯ÍĞ»úÖÆ**/
+		/**ç±»åŠ è½½å™¨çš„å§”æ‰˜æœºåˆ¶**/
 		//D:\ruanjian\myeclipse\Common\binary\com.sun.java.jdk.win32.x86_1.6.0.013\jre\lib\ext\dantefung.jar
 		System.out.println(
 				EXTClassLoaderTest.class.getClassLoader().getClass().getName()

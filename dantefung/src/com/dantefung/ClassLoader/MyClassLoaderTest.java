@@ -1,4 +1,4 @@
-package com.dantefung.ClassLoader;
+ï»¿package com.dantefung.ClassLoader;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
@@ -6,13 +6,13 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Date;
-//Ä£°åÉè¼ÆÄ£Ê½¡£
-//Run as -->Open Run Dialog..£¨Run configuration£©-->
+//æ¨¡æ¿è®¾è®¡æ¨¡å¼ã€‚
+//Run as -->Open Run Dialog..ï¼ˆRun configurationï¼‰-->
 public class MyClassLoaderTest extends ClassLoader{
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
-		String srcPath = args[0];//I:\°Ù¶ÈÔÆÍ¬²½ÅÌ\dantefung\bin\com\dantefung\classloader\ClassLoaderAttachment.class
+		String srcPath = args[0];//I:\ç™¾åº¦äº‘åŒæ­¥ç›˜\dantefung\bin\com\dantefung\classloader\ClassLoaderAttachment.class
 		String destDir = args[1];//dantelib
 		FileInputStream fis = new FileInputStream(srcPath);
 		String destFileName = srcPath.substring(srcPath.lastIndexOf('\\')+1);
@@ -30,10 +30,10 @@ public class MyClassLoaderTest extends ClassLoader{
 
 	private static void cypher(InputStream ips, OutputStream ops) throws Exception
 	{
-		int b = -1;//32Î»¡£4¸ö×Ö½Ú¡£Ê®Áù½øÖÆ±íÊ¾£º0xffffffff
+		int b = -1;//32ä½ã€‚4ä¸ªå­—èŠ‚ã€‚åå…­è¿›åˆ¶è¡¨ç¤ºï¼š0xffffffff
 		while((b=ips.read()) != -1)
 		{
-			ops.write(b*0xff);//°Ñ0->1 1->0
+			ops.write(b*0xff);//æŠŠ0->1 1->0
 		}
 	}
 
@@ -41,15 +41,15 @@ public class MyClassLoaderTest extends ClassLoader{
 		
 	@Override
 	protected Class<?> findClass(String name) throws ClassNotFoundException {
-		String classFileName = classDir + "\\" + name + ".class";//µÃµ½¸ÃÀàµÄÂ·¾¶
+		String classFileName = classDir + "\\" + name + ".class";//å¾—åˆ°è¯¥ç±»çš„è·¯å¾„
 		FileInputStream fis;
 		try {
-			fis = new FileInputStream(classFileName);//ÓÃFileInputStrem¼ÓÔØ	
+			fis = new FileInputStream(classFileName);//ç”¨FileInputStremåŠ è½½	
 			ByteArrayOutputStream bos = new ByteArrayOutputStream();
 			cypher(fis,bos);
 			fis.close();
 			byte[] bytes = bos.toByteArray();
-		return  defineClass(bytes,0,bytes.length);//×ª³É×Ö½ÚÂë¡£
+		return  defineClass(bytes,0,bytes.length);//è½¬æˆå­—èŠ‚ç ã€‚
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

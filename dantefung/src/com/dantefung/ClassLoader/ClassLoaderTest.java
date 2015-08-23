@@ -1,4 +1,4 @@
-package com.dantefung.ClassLoader;
+ï»¿package com.dantefung.ClassLoader;
 
 public class ClassLoaderTest {
 
@@ -8,12 +8,12 @@ public class ClassLoaderTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		//CLASSPATHÖ¸¶¨µÄËùÓĞjar»òÄ¿Â¼¡£
+		//CLASSPATHæŒ‡å®šçš„æ‰€æœ‰jaræˆ–ç›®å½•ã€‚
 		System.out.println(
 				ClassLoaderTest.class.getClassLoader().getClass().getName()
 				);
 		
-		//BootStrap Àà¼ÓÔØÆ÷     JRE/lib/rt.jar  C++Ğ´µÄ  ´¦ÓÚjvmÄÚºË
+		//BootStrap ç±»åŠ è½½å™¨     JRE/lib/rt.jar  C++å†™çš„  å¤„äºjvmå†…æ ¸
 		System.out.println(
 				System.class.getClassLoader()
 				);

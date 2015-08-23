@@ -4,7 +4,7 @@ public class FaceFilter implements Filter {
 
 	@Override
 	public String doFilter(String str) {
-		return str.replace(":ï¼‰", "^_^");
+		return str.replace(":£©", "^_^");
 	}
 
 }
