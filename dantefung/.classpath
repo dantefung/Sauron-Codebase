@@ -14,8 +14,8 @@
 	<classpathentry kind="lib" path="jars/xml-apis.jar"/>
 	<classpathentry kind="lib" path="lib/mysql-connector-java-3.1.13-bin.jar"/>
 	<classpathentry kind="lib" path="jars/httpcore-4.4.1.jar"/>
-	<classpathentry kind="lib" path="dom4j_lib/dom4j-1.6.1.jar"/>
-	<classpathentry kind="lib" path="dom4j_lib/jaxen-1.1.6.jar"/>
+	<classpathentry kind="lib" path="F:/Git/Java_Learning_path/dantefung/dom4j_lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="F:/Git/Java_Learning_path/dantefung/dom4j_lib/jaxen-1.1.6.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="jars/commons-codec-1.9.jar"/>
 	<classpathentry kind="lib" path="jars/commons-logging-1.2.jar"/>
