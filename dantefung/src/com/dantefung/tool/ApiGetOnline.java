@@ -125,7 +125,7 @@ public class ApiGetOnline {
     }  
     public static void main(String[] args) {  
 //        String url = "http://www.jb51.net/tools"; 
-        String url = "http://tomcat.apache.org/tomcat-5.5-doc/catalina/docs/api";
+        String url = "http://www-cs-students.stanford.edu/~blynn/gitmagic/intl/zh_cn";
         String froot = "D:\\api";  
 //        create(url, froot, "zhengze.html");
         create(url, froot, "");

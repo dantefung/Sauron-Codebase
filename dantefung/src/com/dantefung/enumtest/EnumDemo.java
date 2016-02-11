@@ -5,6 +5,7 @@ public class EnumDemo {
 		WeekDay weekday = WeekDay.MON;
 		WeekDay weekday2 = WeekDay.FRI;
 		System.out.println(weekday2);
+		System.out.println(weekday2.localValue());
 		
 	}
 
