@@ -1,6 +1,7 @@
 package com.dantefung.net.tcp;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -27,6 +28,10 @@ public class TomcatDemo extends Thread
 	{
 	    try
 	    {
+	    	InputStream in = socket.getInputStream();
+	    	byte[] buf = new byte[1024];
+			int length = in.read(buf);
+			System.out.println("tcp的服务端接收到的数据：" + new String(buf,0,length));
 		    OutputStream out = socket.getOutputStream();
 		    // 向浏览器输出数据
 		    out.write("<font size='36px' color='red'>你好啊，浏览器！！！</font>".getBytes());
