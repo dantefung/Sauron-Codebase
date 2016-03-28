@@ -17,6 +17,8 @@
 	<classpathentry kind="lib" path="F:/Git/Java_Learning_path/dantefung/dom4j_lib/dom4j-1.6.1.jar"/>
 	<classpathentry kind="lib" path="F:/Git/Java_Learning_path/dantefung/dom4j_lib/jaxen-1.1.6.jar"/>
 	<classpathentry kind="lib" path="httpclientLib/org.json-20150729.jar"/>
+	<classpathentry kind="lib" path="mail-lib/activation.jar"/>
+	<classpathentry kind="lib" path="mail-lib/mail.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="jars/commons-codec-1.9.jar"/>
 	<classpathentry kind="lib" path="jars/commons-logging-1.2.jar"/>
