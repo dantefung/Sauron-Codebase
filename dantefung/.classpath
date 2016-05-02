@@ -19,6 +19,25 @@
 	<classpathentry kind="lib" path="httpclientLib/org.json-20150729.jar"/>
 	<classpathentry kind="lib" path="mail-lib/activation.jar"/>
 	<classpathentry kind="lib" path="mail-lib/mail.jar"/>
+	<classpathentry kind="lib" path="jadcoverter-lib/commons-cli-1.2.jar"/>
+	<classpathentry kind="lib" path="jadcoverter-lib/commons-io-1.4.jar"/>
+	<classpathentry kind="lib" path="jadcoverter-lib/jodconverter-2.2.2.jar"/>
+	<classpathentry kind="lib" path="jadcoverter-lib/jodconverter-cli-2.2.2.jar"/>
+	<classpathentry kind="lib" path="jadcoverter-lib/juh-3.0.1.jar"/>
+	<classpathentry kind="lib" path="jadcoverter-lib/jurt-3.0.1.jar"/>
+	<classpathentry kind="lib" path="jadcoverter-lib/ridl-3.0.1.jar"/>
+	<classpathentry kind="lib" path="jadcoverter-lib/slf4j-api-1.5.6.jar"/>
+	<classpathentry kind="lib" path="jadcoverter-lib/slf4j-jdk14-1.5.6.jar"/>
+	<classpathentry kind="lib" path="jadcoverter-lib/unoil-3.0.1.jar"/>
+	<classpathentry kind="lib" path="jadcoverter-lib/xstream-1.3.1.jar"/>
+	<classpathentry kind="lib" path="jacob-lib/jacob.jar"/>
+	<classpathentry kind="lib" path="poi-lib/commons-codec-1.9.jar"/>
+	<classpathentry kind="lib" path="poi-lib/commons-logging-1.1.3.jar"/>
+	<classpathentry kind="lib" path="poi-lib/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="poi-lib/poi-3.13-20150929.jar"/>
+	<classpathentry kind="lib" path="poi-lib/poi-ooxml-3.13-20150929.jar"/>
+	<classpathentry kind="lib" path="poi-lib/poi-scratchpad-3.13-20150929.jar"/>
+	<classpathentry kind="lib" path="poi-lib/xmlbeans-2.6.0.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="jars/commons-codec-1.9.jar"/>
 	<classpathentry kind="lib" path="jars/commons-logging-1.2.jar"/>
