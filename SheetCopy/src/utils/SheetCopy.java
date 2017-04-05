@@ -1,11 +1,5 @@
-/***
- * SheetCopy.java
+/**
  * 
- * Create Version: $version:1.1
- * Author: tangjw
- * Create Date: 2011-4-1
- * 
- * Copyright (c) 2009 ÉÏº£¶÷·½ĞÅÏ¢¼¼ÊõÓĞÏŞ¹«Ë¾ Corporation. All Right Reserved.
  */
 package utils;
 
@@ -15,14 +9,15 @@ import org.jawin.win32.Ole32;
 
 
 /**
- * MonitorAndReport--en.fang.report.util.SheetCopy.java
- * ------------------------------------
- * @author Administrator
- * @create 2011-4-1ÉÏÎç10:33:39
- * @ĞŞ¸Ä Administrator
- * @version $version:1.1  $date:2011-4-1ÉÏÎç10:33:39
- * -------------------------------------
- * TODO
+ * 
+ * ClassName: SheetCopy <br/>
+ * Function: TODO ADD FUNCTION. <br/>
+ * Reason: TODO ADD REASON(å¯é€‰). <br/>
+ * date: 2016-11-24 ä¸‹åˆ6:02:08 <br/>
+ *
+ * @author Dante Fung
+ * @version 
+ * @since JDK 1.6
  */
 public class SheetCopy implements Runnable{
 	
@@ -69,11 +64,11 @@ public class SheetCopy implements Runnable{
 		try  
 	      {   
 	    	  Ole32.CoInitialize();
-		      DispatchPtr app = new DispatchPtr("Excel.Application");//ĞÂ½¨Ò»¸ö¶ÔÏó
+		      DispatchPtr app = new DispatchPtr("Excel.Application");//ï¿½Â½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 		      app.put("Visible", false);   
-		      DispatchPtr preses = (DispatchPtr)app.get("Workbooks");//È¡µÄµ±Ç°µÄ½ø³Ì
-			  DispatchPtr pres = (DispatchPtr) preses.invoke("open", xlsfile);//´ò¿ªppt//,"MsoTriState.msoFalse, MsoTriState.msoFalse, MsoTriState.msoFalse");
+		      DispatchPtr preses = (DispatchPtr)app.get("Workbooks");//È¡ï¿½Äµï¿½Ç°ï¿½Ä½ï¿½ï¿½
+			  DispatchPtr pres = (DispatchPtr) preses.invoke("open", xlsfile);//ï¿½ï¿½ppt//,"MsoTriState.msoFalse, MsoTriState.msoFalse, MsoTriState.msoFalse");
 			  pres.invoke("SaveCopyAs",saveAsFile);
 			  pres.invoke("Close", false);
 			  app.invoke("Quit");

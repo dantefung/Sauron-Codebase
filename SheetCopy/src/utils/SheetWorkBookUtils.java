@@ -1,17 +1,29 @@
 package utils;
 
 /**
- * ˵����
- *	 1����sourceĿ¼��jacob.dll����һ�ݵ�ʹ�õ�jdk/bin��
- *   2 ������һ�ݵ�c:/windows/system32 ��
- * @author Administrator
+ * 
+ * ClassName: SheetWorkBookUtils <br/>
+ * Function: TODO ADD FUNCTION. <br/>
+ * Reason: TODO ADD REASON(可选). <br/>
+ * date: 2016-11-24 下午6:04:04 <br/>
  *
+ * @author Dante Fung
+ * @version 
+ * @since JDK 1.6
  */
 public class SheetWorkBookUtils {
 	/**
-	 * ���Ե�ַ����
+	 * 
+	 * saveCopyAs:(这里用一句话描述这个方法的作用). <br/>
+	 * TODO(这里描述这个方法适用条件 – 可选).<br/>
+	 * TODO(这里描述这个方法的执行流程 – 可选).<br/>
+	 * TODO(这里描述这个方法的使用方法 – 可选).<br/>
+	 * TODO(这里描述这个方法的注意事项 – 可选).<br/>
+	 *
+	 * @author Dante Fung
 	 * @param xlsfile
 	 * @param saveAsFile
+	 * @since JDK 1.6
 	 */
 	@SuppressWarnings({ "deprecation", "static-access" })
 	public static void saveCopyAs(String xlsfile, String saveAsFile){
