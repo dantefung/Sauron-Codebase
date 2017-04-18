@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<title>中国大陆省份重绘</title>
+	
+	<link rel="stylesheet" href="http://cache.amap.com/lbs/static/main.css" />
+	<script src="js/guangdong.js"></script>
+	<script src="js/yunnan.js"></script>
+	<script src="js/sichuan.js"></script>
+	<script src="js/guangxi.js"></script>
+	<script src="js/fujian.js"></script>
+	<script src="js/zhejiang.js"></script>
+	<script src="js/jiangsu.js"></script>
+	<script src="js/shandong.js"></script>
+	<script src="js/hebei.js"></script>
+	<script src="js/liaoning.js"></script>
+	<script src="js/beijing.js"></script>
+	<script src="js/tianjin.js"></script>
+	<script src="js/chongqing.js"></script>
+	<script src="js/guizhou.js"></script>
+	<script src="js/hunan.js"></script>
+	<script src="js/jiangxi.js"></script>
+	<script src="js/anhui.js"></script>
+	<script src="js/hubei.js"></script>
+	<script src="js/henan.js"></script>
+	<script src="js/shanxi.js"></script>
+	<script src="js/shan-xi.js"></script>
+	<script src="js/neimenggu.js"></script>
+	<script src="js/gansu.js"></script>
+	<script src="js/qinghai.js"></script>
+	<script src="js/ningxia.js"></script>
+	<script src="js/heilongjiang.js"></script>
+	<script src="js/jilin.js"></script>
+	<script src="js/xinjiang.js"></script>
+	<script src="js/xizang.js"></script>
+	<script src="js/hainan.js"></script>
+	<script src="js/taiwang.js"></script>
+	<script src="js/shanghai.js"></script>
+	<script src="js/xianggang.js"></script>
+	
+<script src="http://webapi.amap.com/maps?v=1.3&key=67a3d02ee08a80f0e4d5538cd003b9e1"></script>
+ <style>
+ 	#map-div {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+ </style>
+</head>
+<body>
+	<div id="map-div" class="map-div"></div>
+</body>
+
+	<script>
+var map;
+var centerPoint = new AMap.LngLat(114.147949,22.258597);
+map = new AMap.Map("map-div",{center:centerPoint,zoom:5});  
+var c1 = new AMap.Circle({map:map,zIndex:1000,center:new AMap.LngLat(118.532893,23.140623),radius:500000,fillOpacity:0.4,fillColor:"#ffe000"});
+
+var province = [guangdong,yunnan,sichuan,guangxi,fujian,zhejiang,jiangsu,shandong,hebei,liaoning,beijing,tianjin,chongqing,
+guizhou,hunan,jiangxi,anhui,hubei,henan,shanxi,shanXi,neimenggu,gansu,ningxia,heilongjiang,jilin,xinjiang,xizang,hainan,
+taiwang,qinghai,shanghai,xianggang];
+
+for(var i=0;i<province.length;i++){
+    var polygon = new AMap.Polygon({
+      map:map,
+      strokeWeight:0,
+      path:province[i],
+      fillOpacity:1,
+      fillColor:'#FCF9F2',
+      strokeColor:'#A19F99',
+      zIndex:5000
+    });
+}     
+	</script>
+</html>
+
+
