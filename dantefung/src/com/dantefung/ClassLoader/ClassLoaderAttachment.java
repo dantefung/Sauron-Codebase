@@ -1,4 +1,4 @@
-﻿package com.dantefung.ClassLoader;
+package com.dantefung.ClassLoader;
 
 import java.util.Date;
 //复制该类的完整路径名称："I:\百度云同步盘\dantefung\bin\com\dantefung\classloader\ClassLoaderAttachment.class"

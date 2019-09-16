@@ -1,4 +1,4 @@
-﻿package com.dantefung.ClassLoader;
+package com.dantefung.ClassLoader;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;

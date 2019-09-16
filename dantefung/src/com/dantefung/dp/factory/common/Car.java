@@ -1,4 +1,4 @@
-﻿package com.dantefung.dp.factory.common;
+package com.dantefung.dp.factory.common;
 
 public class Car implements Moveable {
 

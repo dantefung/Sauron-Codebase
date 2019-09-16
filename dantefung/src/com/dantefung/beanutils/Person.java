@@ -1,4 +1,4 @@
-﻿package com.dantefung.beanutils;
+package com.dantefung.beanutils;
 
 public class Person {//javabean   面向对象编程，用户一将数据提交过来，我们就要用对象进行封装。
 

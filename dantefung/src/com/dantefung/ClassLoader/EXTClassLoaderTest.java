@@ -1,4 +1,4 @@
-﻿package com.dantefung.ClassLoader;
+package com.dantefung.ClassLoader;
 
 public class EXTClassLoaderTest {
 

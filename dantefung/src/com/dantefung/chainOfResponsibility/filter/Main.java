@@ -1,4 +1,4 @@
-﻿package com.dantefung.chainOfResponsibility.filter;
+package com.dantefung.chainOfResponsibility.filter;
 
 /**
  * @autor DanteFung

@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<beans>
-	<bean id="AdminsDao" class="com.dantefung.dp.factory.AdminsDaoImpl"></bean>
-	<bean id="AdminsService" class="cn.itcast.goods.service.impl.AdminsServiceImpl"></bean>
-</beans>
