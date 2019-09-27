@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.dantefung</groupId>
+    <artifactId>solon-kernel-codebase</artifactId>
+    <version>1.0.0</version>
+
+    <properties>
+        <poi.version>3.13</poi.version>
+        <common.io.version>2.5</common.io.version>
+        <hutool.version>4.5.6</hutool.version>
+        <jacob.version>1.14.3</jacob.version>
+        <httpclient.version>4.4.1</httpclient.version>
+        <jdom.version>2.0.5</jdom.version>
+        <dom4j.version>1.6.1</dom4j.version>
+        <javamail.version>1.6.2</javamail.version>
+        <org.json.version>20150729</org.json.version>
+        <jodconverter.version>2.2.1</jodconverter.version>
+        <junit.version>4.11</junit.version>
+        <springsource.httpclient.version>3.1.0</springsource.httpclient.version>
+        <mysql.version>8.0.17</mysql.version>
+    </properties>
+
+    <dependencies>
+
+        <!---->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${common.io.version}</version>
+        </dependency>
+
+        <!--EXCEL导入导出相关 START-->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>${poi.version}</version>
+        </dependency>
+        <!--EXCEL导入导出相关 END-->
+
+        <!--
+        JACOB is a JAVA-COM Bridge that allows you to call COM Automation components from Java.
+        It uses JNI to make native calls to the COM libraries.
+        JACOB runs on x86 and x64 environments supporting 32 bit and 64 bit JVMs.
+        -->
+        <dependency>
+            <groupId>net.sf.jacob-project</groupId>
+            <artifactId>jacob</artifactId>
+            <version>${jacob.version}</version>
+        </dependency>
+
+        <!--Apache HTTP 客户端-->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>${httpclient.version}</version>
+        </dependency>
+
+        <!--spring 的httpclient-->
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/com.springsource.org.apache.commons.httpclient -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>com.springsource.org.apache.commons.httpclient</artifactId>
+            <version>${springsource.httpclient.version}</version>
+        </dependency>
+
+        <!--
+            XML 解析工具Jdom
+        -->
+        <dependency>
+            <groupId>org.jdom</groupId>
+            <artifactId>jdom2</artifactId>
+            <version>${jdom.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/dom4j/dom4j -->
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>${dom4j.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>${javamail.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>${org.json.version}</version>
+        </dependency>
+
+        <!--
+            JODConverter converts between different office documents formats, using OpenOffice.org.
+        -->
+        <dependency>
+            <groupId>com.artofsolving</groupId>
+            <artifactId>jodconverter</artifactId>
+            <version>${jodconverter.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>7</source>
+                    <target>7</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
