@@ -2,7 +2,7 @@
  * Project Name:dantefung
  * File Name:Facade.java
  * Package Name:com.dantefung.dp.facade
- * Date:2016-3-17ÏÂÎç12:55:14
+ * Date:2016-3-17ä¸‹åˆ12:55:14
  * Copyright (c) 2016, fhlin0611@foxmail.com All Rights Reserved.
  *
 */
@@ -12,7 +12,7 @@ package com.dantefung.dp.facade;
  * ClassName:Facade <br/>
  * Function: TODO ADD FUNCTION. <br/>
  * Reason:	 TODO ADD REASON. <br/>
- * Date:     2016-3-17 ÏÂÎç12:55:14 <br/>
+ * Date:     2016-3-17 ä¸‹åˆ12:55:14 <br/>
  * @author   Dante Fung
  * @version  
  * @since    JDK 1.6
@@ -20,12 +20,12 @@ package com.dantefung.dp.facade;
  */
 public class Facade
 {
-	// ¶¨Òå±»Facede·â×°µÄÈı¸ö²¿ÃÅ
+	// å®šä¹‰è¢«Facedeå°è£…çš„ä¸‰ä¸ªéƒ¨é—¨
 	private Payment pay;
 	private Cook cook;
 	private Waiter waiter;
 	
-	// ¹¹ÔìÆ÷
+	// æ„é€ å™¨
 	public Facade()
 	{
 		this.pay = new PaymentImpl();
@@ -35,7 +35,7 @@ public class Facade
 	
 	public void serveFood()
 	{
-		// ÒÀ´Îµ÷ÓÃÈı¸ö²¿ÃÅµÄ·½·¨£¬·â×°³ÉÒ»¸öserveFood£¨£©·½·¨
+		// ä¾æ¬¡è°ƒç”¨ä¸‰ä¸ªéƒ¨é—¨çš„æ–¹æ³•ï¼Œå°è£…æˆä¸€ä¸ªserveFoodï¼ˆï¼‰æ–¹æ³•
 		String food = pay.pay();
 		food = cook.cook(food);
 		waiter.serve(food);

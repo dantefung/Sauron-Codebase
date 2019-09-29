@@ -2,7 +2,7 @@
  * Project Name:TestDemo
  * File Name:Html2Word.java
  * Package Name:com.dantefung.util
- * Date:2016-4-1…œŒÁ2:26:10
+ * Date:2016-4-1‰∏äÂçà2:26:10
  * Copyright (c) 2016, fhlin0611@foxmail.com All Rights Reserved.
  *
 */
@@ -18,7 +18,7 @@ import com.jacob.com.Variant;
  * ClassName:Html2Word <br/>
  * Function: TODO ADD FUNCTION. <br/>
  * Reason:	 TODO ADD REASON. <br/>
- * Date:     2016-4-1 …œŒÁ2:26:10 <br/>
+ * Date:     2016-4-1 ‰∏äÂçà2:26:10 <br/>
  * @author   Dante Fung
  * @version  
  * @since    JDK 1.6
@@ -27,7 +27,7 @@ import com.jacob.com.Variant;
 public class Html2Word
 {
 	public static void htmlToWord(String html, String docFile) {    
-        ActiveXComponent app = new ActiveXComponent("Word.Application"); // ∆Ù∂Øword        
+        ActiveXComponent app = new ActiveXComponent("Word.Application"); // ÂêØÂä®word        
         try {    
             app.setProperty("Visible", new Variant(false));    
             Dispatch docs = app.getProperty("Documents").toDispatch();    

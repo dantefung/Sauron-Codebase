@@ -8,37 +8,37 @@ import java.net.Socket;
 import java.util.HashSet;
 
 /**
- * tcp´«ÊäÎÄ¼şµÄ·şÎñÆ÷£¬·şÎñ¶ËÒª½ÓÊÜ¶à¸ö¿Í»§¶ËµÄÁ¬½Ó£¬
- * Ò»µ©½¨Á¢Á¬½Ó£¬ÂíÉÏ¸ø¿Í»§¶Ë·¢ËÍÍ¼Æ¬Êı¾İ
+ * tcpä¼ è¾“æ–‡ä»¶çš„æœåŠ¡å™¨ï¼ŒæœåŠ¡ç«¯è¦æ¥å—å¤šä¸ªå®¢æˆ·ç«¯çš„è¿æ¥ï¼Œ
+ * ä¸€æ—¦å»ºç«‹è¿æ¥ï¼Œé©¬ä¸Šç»™å®¢æˆ·ç«¯å‘é€å›¾ç‰‡æ•°æ®
  * 
  * @author Dante Fung
  *
  */
 public class ImageServer extends Thread
 {
-	// µ¥Ïß³Ì°æ±¾µÄ´úÂë
+	// å•çº¿ç¨‹ç‰ˆæœ¬çš„ä»£ç 
 	/*@Override
 	public void run()
 	{
 		try
         {
-	        // 1¡¢½¨Á¢tcp·şÎñ¶Ë
+	        // 1ã€å»ºç«‹tcpæœåŠ¡ç«¯
 			ServerSocket serverSocket = new ServerSocket(9090);
-			// 2¡¢½ÓÊÕ¿Í»§¶ËµÄÇëÇóÁ¬½Ó
+			// 2ã€æ¥æ”¶å®¢æˆ·ç«¯çš„è¯·æ±‚è¿æ¥
 			Socket socket = serverSocket.accept();
-			// 3¡¢¸ø¿Í»§¶Ë·¢ËÍÍ¼Æ¬Êı¾İ
-			// 3.1¡¢»ñÈ¡ÊäÈëÁ÷¶ÔÏó
+			// 3ã€ç»™å®¢æˆ·ç«¯å‘é€å›¾ç‰‡æ•°æ®
+			// 3.1ã€è·å–è¾“å…¥æµå¯¹è±¡
 			BufferedInputStream bis = new BufferedInputStream(new FileInputStream("c:aa.jpg"));
-			// 3.2¡¢»ñÈ¡Êä³öÁ÷¶ÔÏó
+			// 3.2ã€è·å–è¾“å‡ºæµå¯¹è±¡
 			OutputStream out = socket.getOutputStream();
-			// 3.3¡¢»ØĞ´Í¼Æ¬Êı¾İ
+			// 3.3ã€å›å†™å›¾ç‰‡æ•°æ®
 			byte[] buf = new byte[1024];
 			int len = 0;
 			while((len = bis.read(buf)) != -1)
 			{
 				out.write(buf, 0, len);
 			}
-			// 4¡¢ÊÍ·Å×ÊÔ´
+			// 4ã€é‡Šæ”¾èµ„æº
 			bis.close();
 			socket.close();
         }
@@ -49,11 +49,11 @@ public class ImageServer extends Thread
         }
 	}*/
 	
-	// ¸ÄÔìÎª¶àÏß³Ì°æ±¾µÄ´úÂë
+	// æ”¹é€ ä¸ºå¤šçº¿ç¨‹ç‰ˆæœ¬çš„ä»£ç 
 	
 	private Socket socket;
 	
-	// ÓÃÓÚ´æ´¢ipµØÖ·
+	// ç”¨äºå­˜å‚¨ipåœ°å€
 	private HashSet<String> ips = new HashSet<String>();
 	
 	public ImageServer(Socket socket)
@@ -66,12 +66,12 @@ public class ImageServer extends Thread
 	{
 		try
 		{
-			// 3¡¢¸ø¿Í»§¶Ë·¢ËÍÍ¼Æ¬Êı¾İ
-			// 3.1¡¢»ñÈ¡ÊäÈëÁ÷¶ÔÏó
+			// 3ã€ç»™å®¢æˆ·ç«¯å‘é€å›¾ç‰‡æ•°æ®
+			// 3.1ã€è·å–è¾“å…¥æµå¯¹è±¡
 			BufferedInputStream bis = new BufferedInputStream(new FileInputStream("c:aa.jpg"));
-			// 3.2¡¢»ñÈ¡Êä³öÁ÷¶ÔÏó
+			// 3.2ã€è·å–è¾“å‡ºæµå¯¹è±¡
 			OutputStream out = socket.getOutputStream();
-			// 3.3¡¢»ØĞ´Í¼Æ¬Êı¾İ
+			// 3.3ã€å›å†™å›¾ç‰‡æ•°æ®
 			byte[] buf = new byte[1024];
 			int len = 0;
 			while((len = bis.read(buf)) != -1)
@@ -79,20 +79,20 @@ public class ImageServer extends Thread
 				out.write(buf, 0, len);
 			}
 			
-			// »ñÈ¡¶Ô·½µÄIPµØÖ·¶ÔÏó
+			// è·å–å¯¹æ–¹çš„IPåœ°å€å¯¹è±¡
 			String ip = socket.getInetAddress().getHostAddress();
 			/**
-			 * ÓÉÓÚÊÇ¶à¸ö¿Í»§¶Ë¿ÉÒÔÏÂÔØÇÒÃ¿¸ö¿Í»§¶Ë¶ÀÁ¢ÇÒÎ¨Ò»£¬Òò´Ë£¬Í³¼ÆµÄÊ±ºò
-			 * ²»Ó¦¸ÃÓĞÖØ¸´µÄipµØÖ·£¬ËùÒÔ£¬ÎÒÃÇ½«Ñ¡ÓÃÒ»¸ö¼¯ºÏÀ´´æ´¢£¬¸ù¾İÒÔÉÏµÄĞèÇó
-			 * ÎÒÓ¦¸ÃÑ¡ÔñµÄÊÇset¼¯ºÏ£¨set¼¯ºÏÀïÃæµÄÔªËØÊÇ²»ÔÊĞíÖØ¸´µÄ£©£¬set¼¯ºÏ
-			 * ÓĞÄÄĞ©×Ó½Ó¿Ú£¿treeSet£¨ÓÃÓÚÅÅĞòÓÃµÄ£© & hashSet(²»ÔÊĞíÖØ¸´)
+			 * ç”±äºæ˜¯å¤šä¸ªå®¢æˆ·ç«¯å¯ä»¥ä¸‹è½½ä¸”æ¯ä¸ªå®¢æˆ·ç«¯ç‹¬ç«‹ä¸”å”¯ä¸€ï¼Œå› æ­¤ï¼Œç»Ÿè®¡çš„æ—¶å€™
+			 * ä¸åº”è¯¥æœ‰é‡å¤çš„ipåœ°å€ï¼Œæ‰€ä»¥ï¼Œæˆ‘ä»¬å°†é€‰ç”¨ä¸€ä¸ªé›†åˆæ¥å­˜å‚¨ï¼Œæ ¹æ®ä»¥ä¸Šçš„éœ€æ±‚
+			 * æˆ‘åº”è¯¥é€‰æ‹©çš„æ˜¯seté›†åˆï¼ˆseté›†åˆé‡Œé¢çš„å…ƒç´ æ˜¯ä¸å…è®¸é‡å¤çš„ï¼‰ï¼Œseté›†åˆ
+			 * æœ‰å“ªäº›å­æ¥å£ï¼ŸtreeSetï¼ˆç”¨äºæ’åºç”¨çš„ï¼‰ & hashSet(ä¸å…è®¸é‡å¤)
 			 */
 			if(ips.add(ip))
 			{
-				System.out.println("¹§Ï²£º" + ip + "ÓÃ»§ÏÂÔØ³É¹¦£¡£¡  µ±Ç°ÏÂÔØµÄÈËÊıÊÇ£º" + ips.size());
+				System.out.println("æ­å–œï¼š" + ip + "ç”¨æˆ·ä¸‹è½½æˆåŠŸï¼ï¼  å½“å‰ä¸‹è½½çš„äººæ•°æ˜¯ï¼š" + ips.size());
 			}
 			
-			// 4¡¢ÊÍ·Å×ÊÔ´
+			// 4ã€é‡Šæ”¾èµ„æº
 			bis.close();
 			socket.close();
 	    }
@@ -105,14 +105,14 @@ public class ImageServer extends Thread
 	
 	public static void main(String[] args) throws Exception
     {
-	    // 1¡¢½¨Á¢tcp·ş„Õ¶Ë
+	    // 1ã€å»ºç«‹tcpæœå‹™ç«¯
 		ServerSocket serverSocket = new ServerSocket(9090);
-		// ²»¶Ï½ÓÊÜ¿Í»§¶ËµÄÁ¬½Ó
+		// ä¸æ–­æ¥å—å®¢æˆ·ç«¯çš„è¿æ¥
 		while(true)
 		{
-			// 2¡¢½ÓÊÕ¿Í»§¶ËµÄÇëÇóÁ¬½Ó
+			// 2ã€æ¥æ”¶å®¢æˆ·ç«¯çš„è¯·æ±‚è¿æ¥
 			Socket socket = serverSocket.accept();
-			// ÎªÃ¿¸ö¿Í»§¶Ë¿ªÆôÒ»ÌõÏß³Ì
+			// ä¸ºæ¯ä¸ªå®¢æˆ·ç«¯å¼€å¯ä¸€æ¡çº¿ç¨‹
 			new ImageServer(socket).start();
 		}
 		

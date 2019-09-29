@@ -9,8 +9,8 @@ import java.util.Properties;
 
 /*
  * 
- *ÎÒÓĞÒ»¸ö²ÂÊı×ÖµÄĞ¡ÓÎÏ·µÄ³ÌĞò£¬Çë±àĞ´Ò»¸ö³ÌĞòÊµÏÖÔÚ²âÊÔÀàÖĞÖ»ÄÜÍæ5´Î£¬³¬¹ı5´Î¾ÍÌáÊ¾£º
- *ÓÎÏ·ÊÔÍæÒÑ¾­½áÊø£¬Çë¸¶·Ñ¡£
+ *æˆ‘æœ‰ä¸€ä¸ªçŒœæ•°å­—çš„å°æ¸¸æˆçš„ç¨‹åºï¼Œè¯·ç¼–å†™ä¸€ä¸ªç¨‹åºå®ç°åœ¨æµ‹è¯•ç±»ä¸­åªèƒ½ç©5æ¬¡ï¼Œè¶…è¿‡5æ¬¡å°±æç¤ºï¼š
+ *æ¸¸æˆè¯•ç©å·²ç»ç»“æŸï¼Œè¯·ä»˜è´¹ã€‚
  * 
  */
 public class PropertiesTest2 {
@@ -22,18 +22,18 @@ public class PropertiesTest2 {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		
-		//°ÑÊı¾İ¼ÓÔØµ½¼¯ºÏÖĞ
+		//æŠŠæ•°æ®åŠ è½½åˆ°é›†åˆä¸­
 		Properties prop = new Properties();
 		Reader r = new FileReader("count.txt");
-		prop.load(r);//½«rËùÖ¸ÏòµÄÎÄ¼şÖĞµÄÄÚÈİ¸´ÖÆµ½¼¯ºÏpropÖĞ¡£¼´    ¼ÓÔØ¡£
+		prop.load(r);//å°†ræ‰€æŒ‡å‘çš„æ–‡ä»¶ä¸­çš„å†…å®¹å¤åˆ¶åˆ°é›†åˆpropä¸­ã€‚å³    åŠ è½½ã€‚
 		
-		//ÎÒ×Ô¼ºµÄ³ÌĞò£¬ÎÒµ±È»ÖªµÀÀïÃæµÄ¼üÊÇË­
+		//æˆ‘è‡ªå·±çš„ç¨‹åºï¼Œæˆ‘å½“ç„¶çŸ¥é“é‡Œé¢çš„é”®æ˜¯è°
 		String value = prop.getProperty("count");
 		int number = Integer.parseInt(value);
 		
 		if(number > 5)
 		{
-			System.out.println("ÓÎÏ·ÊÔÍæÒÑ½áÊø£¬Çë¸¶·Ñ¡£");
+			System.out.println("æ¸¸æˆè¯•ç©å·²ç»“æŸï¼Œè¯·ä»˜è´¹ã€‚");
 			System.exit(0);
 		}
 		else
@@ -42,7 +42,7 @@ public class PropertiesTest2 {
 			prop.setProperty("count", String.valueOf(number));
 			Writer w = new FileWriter("count.txt");
 			prop.store(w, null);
-			//ÊÍ·Å×ÊÔ´¡£
+			//é‡Šæ”¾èµ„æºã€‚
 			w.close();
 			
 			GuessNumber.start();

@@ -7,15 +7,15 @@ import java.io.IOException;
 /**
  * @since 2015-4-4
  * 
- * ÄÚ´æ²Ù×÷Á÷£ºÓÃÓÚ´¦ÀíÁÙÊ±´æ´¢ĞÅÏ¢µÄ£¬³ÌĞò½áÊø£¬Êı¾İ¾Í´ÓÄÚ´æÖĞÏûÊ§¡£
+ * å†…å­˜æ“ä½œæµï¼šç”¨äºå¤„ç†ä¸´æ—¶å­˜å‚¨ä¿¡æ¯çš„ï¼Œç¨‹åºç»“æŸï¼Œæ•°æ®å°±ä»å†…å­˜ä¸­æ¶ˆå¤±ã€‚
  * 
- * ×Ö½ÚÊı×é£º
+ * å­—èŠ‚æ•°ç»„ï¼š
  *     ByteArrayInputStream
  *     ByteArrayOutputStream
- * ×Ö·ûÊı×é£º
+ * å­—ç¬¦æ•°ç»„ï¼š
  *     CharArrayReader
  *     CharArrayWriter
- * ×Ö·û´®£º
+ * å­—ç¬¦ä¸²ï¼š
  *     StringReader
  *     StringWriter
  */
@@ -26,24 +26,24 @@ public class ByteArrayStreamDemo {
 	 */
 	public static void main(String[] args) throws IOException{
 		// TODO Auto-generated method stub
-        //Ğ´Êı¾İ
+        //å†™æ•°æ®
 		//ByteArrayOutputStream
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		
-		//Ğ´Êı¾İ
+		//å†™æ•°æ®
 		for(int x = 0; x < 10; x++)
 		{
 			 baos.write(("hello" + x).getBytes());
 		}
 		
-		//ÊÍ·Å×ÊÔ´ 
-		//Í¨¹ı²é¿´Ô´ÂëÎÒÃÇÖªµÀÕâÀïÊ²Ã´¶¼Ã»ÓĞ×ö£¬ËùÒÔ¸ù±¾²»ĞèÒªclose()
+		//é‡Šæ”¾èµ„æº 
+		//é€šè¿‡æŸ¥çœ‹æºç æˆ‘ä»¬çŸ¥é“è¿™é‡Œä»€ä¹ˆéƒ½æ²¡æœ‰åšï¼Œæ‰€ä»¥æ ¹æœ¬ä¸éœ€è¦close()
 		//baos.close();
 		
 		//public byte[] toByteArray()
 		byte[] bys = baos.toByteArray();
 		
-		//¶ÁÊı¾İ
+		//è¯»æ•°æ®
 		//ByteArrayInputStream(byte[] buf)
 		ByteArrayInputStream bais = new ByteArrayInputStream(bys);
 		
@@ -53,7 +53,7 @@ public class ByteArrayStreamDemo {
 			System.out.print((char)by);
 		}
 		
-		//ÊÍ·Å×ÊÔ´
+		//é‡Šæ”¾èµ„æº
 		bais.close();
 	}
 

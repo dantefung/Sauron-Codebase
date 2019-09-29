@@ -19,13 +19,13 @@ public class ClassPathApplicationXmlContext implements BeanFactory {
 	public ClassPathApplicationXmlContext(String fileName) throws Exception
 	{
 		  SAXBuilder sb = new SAXBuilder();
-		  Document doc = sb.build(this.getClass().getClassLoader()//´ÓÎÄ¼ş»òÁ÷ÖĞ½âÎö³ö·ûºÏJDOMÄ£ĞÍµÄXMLÊ÷.
+		  Document doc = sb.build(this.getClass().getClassLoader()//ä»æ–‡ä»¶æˆ–æµä¸­è§£æå‡ºç¬¦åˆJDOMæ¨¡å‹çš„XMLæ ‘.
 				  .getResourceAsStream(fileName));
-		  Element root = doc.getRootElement();//Í¨¹ıDocument¶ÔÏóÈ¡µÃ¸ù½Úµã¡£
-		  List list = XPath.selectNodes(root, "/beans/bean");//¸ù¾İÒ»¸öxpathÓï¾ä·µ»ØÒ»×é½Úµã¡£
+		  Element root = doc.getRootElement();//é€šè¿‡Documentå¯¹è±¡å–å¾—æ ¹èŠ‚ç‚¹ã€‚
+		  List list = XPath.selectNodes(root, "/beans/bean");//æ ¹æ®ä¸€ä¸ªxpathè¯­å¥è¿”å›ä¸€ç»„èŠ‚ç‚¹ã€‚
 		  System.out.println(list.size());
 		  
-		  //±éÀúËùÓĞµÄ½Úµã£¬È¡³ökeyºÍvalue
+		  //éå†æ‰€æœ‰çš„èŠ‚ç‚¹ï¼Œå–å‡ºkeyå’Œvalue
 		  for (int i = 0; i < list.size(); i++) { 
 		   Element bean = (Element) list.get(i);
 		   String id = bean.getAttributeValue("id");

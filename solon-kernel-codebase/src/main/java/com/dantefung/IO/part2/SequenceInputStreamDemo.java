@@ -8,13 +8,13 @@ import java.io.InputStream;
 import java.io.SequenceInputStream;
 
 /*
- * ºÏ²¢Á÷¡£
+ * åˆå¹¶æµã€‚
  * 
- *ÒÔÇ°µÄ²Ù×÷£º
+ *ä»¥å‰çš„æ“ä½œï¼š
  *    a.txt -- b.txt
  *    c.txt -- d.txt 
  * 
- * ÏÖÔÚÏëÒª£º
+ * ç°åœ¨æƒ³è¦ï¼š
  * a.txt + b.txt -- c.txt
  * 
  */
@@ -22,13 +22,13 @@ public class SequenceInputStreamDemo {
 	public static void main(String[] args) throws IOException
 	{
 		//SequenceInputStream(InputStream s1,InputStrem s2)
-		//ĞèÇó£º °ÑByteArrayStreamDemo.java ºÍ DataStreamDemo.javaµÄÄÚÈİ¸´ÖÆµ½Copy.java
+		//éœ€æ±‚ï¼š æŠŠByteArrayStreamDemo.java å’Œ DataStreamDemo.javaçš„å†…å®¹å¤åˆ¶åˆ°Copy.java
 		InputStream s1 = new FileInputStream("ByteArrayStreamDemo.java");
 		InputStream s2 = new FileInputStream("DataStreamDemo.java");
 		SequenceInputStream sis = new SequenceInputStream(s1,s2);
 		BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream("Copy.java"));
 		
-		//ÈçºÎÊµÏÖ¶ÁĞ´ÄØ£¿ÆäÊµºÜ¼òµ¥£¬Äã¾Í°´ÕÕÒÔÇ°ÔõÃ´¶ÁĞ´£¬ÏÖÔÚ»¹ÊÇÔõÃ´¶ÁĞ´
+		//å¦‚ä½•å®ç°è¯»å†™å‘¢ï¼Ÿå…¶å®å¾ˆç®€å•ï¼Œä½ å°±æŒ‰ç…§ä»¥å‰æ€ä¹ˆè¯»å†™ï¼Œç°åœ¨è¿˜æ˜¯æ€ä¹ˆè¯»å†™
 		byte[] bys = new byte[1024];
 		int len = 0;
 		while((len = sis.read(bys)) != -1)
@@ -36,7 +36,7 @@ public class SequenceInputStreamDemo {
 			bos.write(bys, 0, len);
 		}
 		
-		//ÊÍ·Å×ÊÔ´
+		//é‡Šæ”¾èµ„æº
 		bos.close();
 	    sis.close();
 	}

@@ -5,10 +5,10 @@ public class ChatMain
 {
 	public static void main(String[] args) throws Exception
     {
-	    // 创建线程对象
+	    // 鍒涘缓绾跨▼瀵硅薄
 		ChatSender sender = new ChatSender();
 		ChatReceive receive = new ChatReceive();
-		// 启动线程
+		// 鍚姩绾跨▼
 		sender.start();
 		receive.start();
     }

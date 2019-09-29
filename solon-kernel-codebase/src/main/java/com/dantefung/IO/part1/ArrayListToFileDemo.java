@@ -6,21 +6,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /*
- * ĞèÇó£º°Ñ ArrayList¼¯ºÏÖĞµÄ×Ö·û´®´æ´¢µ½ÎÄ±¾ÎÄ¼ş
+ * éœ€æ±‚ï¼šæŠŠ ArrayListé›†åˆä¸­çš„å­—ç¬¦ä¸²å­˜å‚¨åˆ°æ–‡æœ¬æ–‡ä»¶
  * 
- * ·ÖÎö£º
+ * åˆ†æï¼š
  * 
- *    Í¨¹ıÌâÄ¿µÄÒâË¼ÎÒÃÇ¿ÉÒÔÖªµÀÈçÏÂµÄÒ»Ğ©ÄÚÈİ¡£
- *       ArrayList¼¯ºÏÀï´æ´¢µÄÊÇ×Ö·û´®¡£
- *       Í¨¹ı±éÀúArrayList¼¯ºÏ£¬°ÑÊı¾İ»ñÈ¡µ½¡£
- *       È»ºó´æ´¢µ½ÎÄ±¾ÎÄ¼şÖĞ¡£
- *       ÎÄ±¾ÎÄ¼şËµÃ÷Ê¹ÓÃ×Ö·ûÁ÷¡£
+ *    é€šè¿‡é¢˜ç›®çš„æ„æ€æˆ‘ä»¬å¯ä»¥çŸ¥é“å¦‚ä¸‹çš„ä¸€äº›å†…å®¹ã€‚
+ *       ArrayListé›†åˆé‡Œå­˜å‚¨çš„æ˜¯å­—ç¬¦ä¸²ã€‚
+ *       é€šè¿‡éå†ArrayListé›†åˆï¼ŒæŠŠæ•°æ®è·å–åˆ°ã€‚
+ *       ç„¶åå­˜å‚¨åˆ°æ–‡æœ¬æ–‡ä»¶ä¸­ã€‚
+ *       æ–‡æœ¬æ–‡ä»¶è¯´æ˜ä½¿ç”¨å­—ç¬¦æµã€‚
  *       
  *       
- * Êı¾İÔ´£º
- *     ArrayList<String> -- ±éÀúµÃµÈµ½Ã¿Ò»¸ö×Ö·û´®Êı¾İ
+ * æ•°æ®æºï¼š
+ *     ArrayList<String> -- éå†å¾—ç­‰åˆ°æ¯ä¸€ä¸ªå­—ç¬¦ä¸²æ•°æ®
  *     
- * Ä¿µÄµØ:
+ * ç›®çš„åœ°:
  *     a.txt -- FileWriter -- BufferedWriter
  * 
  * 
@@ -34,24 +34,24 @@ public class ArrayListToFileDemo {
 	 */
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		//·â×°Êı¾İ£¨´´½¨Êı¾İ¼¯ºÏ¶ÔÏó¡££©
+		//å°è£…æ•°æ®ï¼ˆåˆ›å»ºæ•°æ®é›†åˆå¯¹è±¡ã€‚ï¼‰
 		ArrayList<String> array = new ArrayList<String>();
 		array.add("hello");
 		array.add("world");
 		array.add("java");
 		
-		//·â×°Ä¿µÄµØ
+		//å°è£…ç›®çš„åœ°
 		BufferedWriter bw = new BufferedWriter(new FileWriter("a.txt"));
 		
 		for(String s : array)
 		{
-			//Ğ´Êı¾İ
+			//å†™æ•°æ®
 			bw.write(s);
 			bw.newLine();
 			bw.flush();
 		}
 		
-		//ÊÍ·Å×ÊÔ´
+		//é‡Šæ”¾èµ„æº
 		bw.close();
 
 	}

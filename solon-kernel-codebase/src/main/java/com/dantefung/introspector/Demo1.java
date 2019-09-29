@@ -8,52 +8,52 @@ import java.lang.reflect.Method;
 import org.junit.Test;
 
 /**
- * ÎªÊ²Ã´ÒªÑ§ÄÚÊ¡£¿
-* ¿ª·¢¿ò¼ÜÊ±£¬¾­³£ÒªÊ¹ÓÃjava¶ÔÏóµÄÊôĞÔÀ´·â×°³ÌĞòµÄÊı¾İ£¬
-*Ã¿´Î¶¼Ê¹ÓÃ·¢Éä¼¼ÊõÍê³É´ËÀà²Ù×÷¹ıÓÚÂé·³£¬
-* ËùÒÔsun¹«Ë¾¿ª·¢ÁËÒ»Ì×API£¬×¨ÃÅÓÃÓÚjava¶ÔÏóµÄÊôĞÔ¡£
+ * ä¸ºä»€ä¹ˆè¦å­¦å†…çœï¼Ÿ
+* å¼€å‘æ¡†æ¶æ—¶ï¼Œç»å¸¸è¦ä½¿ç”¨javaå¯¹è±¡çš„å±æ€§æ¥å°è£…ç¨‹åºçš„æ•°æ®ï¼Œ
+*æ¯æ¬¡éƒ½ä½¿ç”¨å‘å°„æŠ€æœ¯å®Œæˆæ­¤ç±»æ“ä½œè¿‡äºéº»çƒ¦ï¼Œ
+* æ‰€ä»¥sunå…¬å¸å¼€å‘äº†ä¸€å¥—APIï¼Œä¸“é—¨ç”¨äºjavaå¯¹è±¡çš„å±æ€§ã€‚
 *
-*Ê²Ã´ÊÇjava¶ÔÏóµÄÊôĞÔºÍÊôĞÔµÄ¶ÁĞ´·½·¨£¿
+*ä»€ä¹ˆæ˜¯javaå¯¹è±¡çš„å±æ€§å’Œå±æ€§çš„è¯»å†™æ–¹æ³•ï¼Ÿ
 *
-*ÄÚÊ¡·ÃÎÊjavaBeanÊôĞÔµÄÁ½ÖÖ·½Ê½£º
-*Í¨¹ıPropertyDescriptorÀà²Ù×÷BeanµÄÊôĞÔ
-*Í¨¹ıIntrospectorÀàÀ´»ñµÃBean¶ÔÏóµÄBeanInfo£¬
-*È»ºóÍ¨¹ıBeanInfoÀ´»ñÈ¡ÊôĞÔµÄÃèÊöÆ÷£¨PropertyDescriptor£©£¬
-*Í¨¹ıÕâ¸öÊôĞÔÃèÊöÆ÷¾Í¿ÉÒÔ»ñÈ¡Ä³¸öÊôĞÔ¶ÔÓ¦µÄgetter/setter·½·¨£¬
-*È»ºóÍ¨¹ı·´Éä»úÖÆÀ´µ÷ÓÃÕâĞ©·½·¨¡£
+*å†…çœè®¿é—®javaBeanå±æ€§çš„ä¸¤ç§æ–¹å¼ï¼š
+*é€šè¿‡PropertyDescriptorç±»æ“ä½œBeançš„å±æ€§
+*é€šè¿‡Introspectorç±»æ¥è·å¾—Beanå¯¹è±¡çš„BeanInfoï¼Œ
+*ç„¶åé€šè¿‡BeanInfoæ¥è·å–å±æ€§çš„æè¿°å™¨ï¼ˆPropertyDescriptorï¼‰ï¼Œ
+*é€šè¿‡è¿™ä¸ªå±æ€§æè¿°å™¨å°±å¯ä»¥è·å–æŸä¸ªå±æ€§å¯¹åº”çš„getter/setteræ–¹æ³•ï¼Œ
+*ç„¶åé€šè¿‡åå°„æœºåˆ¶æ¥è°ƒç”¨è¿™äº›æ–¹æ³•ã€‚
 * **/
-//Ê¹ÓÃÄÚÊ¡API²Ù×÷beanÊôĞÔ¡£
+//ä½¿ç”¨å†…çœAPIæ“ä½œbeanå±æ€§ã€‚
 public class Demo1 {
 	
-	//µÃµ½beanµÄËùÓĞÊôĞÔ
+	//å¾—åˆ°beançš„æ‰€æœ‰å±æ€§
 	@Test
 	public void test1()throws Exception
 	{
-		System.out.println("-----------»ñÈ¡ËùÓĞµÄÊôĞÔ£¬°üÀ¨´Ó¸¸ÀàÄÇ¼Ì³ĞÀ´µÃÊôĞÔ---------------");
+		System.out.println("-----------è·å–æ‰€æœ‰çš„å±æ€§ï¼ŒåŒ…æ‹¬ä»çˆ¶ç±»é‚£ç»§æ‰¿æ¥å¾—å±æ€§---------------");
 	    BeanInfo info = Introspector.getBeanInfo(Person.class);		
 	    PropertyDescriptor[] pds = info.getPropertyDescriptors();
 	    for(PropertyDescriptor pd :pds)
 	    {
 	    	System.out.println(pd.getName());
-	       /*ÔËĞĞ½á¹û£º
+	       /*è¿è¡Œç»“æœï¼š
 	    	*ab
 	    	*age
 	    	*class
 	    	*name
 	    	*password
 	    	*
-	    	*¿É¼û,BeanÓµÓĞÊ²Ã´ÑùµÄÊôĞÔÊÇÓÉgetterºÍsetter·½·¨À´¾ö¶¨µÄ¡£
+	    	*å¯è§,Beanæ‹¥æœ‰ä»€ä¹ˆæ ·çš„å±æ€§æ˜¯ç”±getterå’Œsetteræ–¹æ³•æ¥å†³å®šçš„ã€‚
 	    	*
 	    	**/
 	    }
-	    //ÄÇÃ´£¬ÎÒ¾ÍÏë»ñÈ¡×Ô¼ºµÄÊôĞÔ£¬²»ÏëÒª´Ó°Ö°ÖÄÇÀï¼Ì³ĞÀ´µÃÊôĞÔ¡£
-	    System.out.println("-----------»ñÈ¡bean×Ô¼ºËù¹ÌÓĞµÄÊôĞÔ---------------");
-	    BeanInfo info2 = Introspector.getBeanInfo(Person.class,Object.class/*Stop,Í£Ö¹¡£Ğ³Òô£¬¶çµô£¨ÀäĞ¦»°£©*/);
+	    //é‚£ä¹ˆï¼Œæˆ‘å°±æƒ³è·å–è‡ªå·±çš„å±æ€§ï¼Œä¸æƒ³è¦ä»çˆ¸çˆ¸é‚£é‡Œç»§æ‰¿æ¥å¾—å±æ€§ã€‚
+	    System.out.println("-----------è·å–beanè‡ªå·±æ‰€å›ºæœ‰çš„å±æ€§---------------");
+	    BeanInfo info2 = Introspector.getBeanInfo(Person.class,Object.class/*Stop,åœæ­¢ã€‚è°éŸ³ï¼Œå‰æ‰ï¼ˆå†·ç¬‘è¯ï¼‰*/);
 	    PropertyDescriptor[] pd2s = info2.getPropertyDescriptors();
 	    for(PropertyDescriptor pd :pd2s)
 	    {
 	    	System.out.println(pd.getName());
-	       /*ÔËĞĞ½á¹û£º
+	       /*è¿è¡Œç»“æœï¼š
 	    	*ab
 	    	*age
 	    	*name
@@ -65,29 +65,29 @@ public class Demo1 {
 	    
 	   
 	  
-	    //²Ù×÷beanµÄÖ¸¶¨ÊôĞÔ£ºage
+	    //æ“ä½œbeançš„æŒ‡å®šå±æ€§ï¼šage
 	    @Test
 		public void test2() throws Exception
 		{
-	    	System.out.println("-------------²Ù×÷beanµÄÖ¸¶¨ÊôĞÔ£ºage-----------");
+	    	System.out.println("-------------æ“ä½œbeançš„æŒ‡å®šå±æ€§ï¼šage-----------");
 	    	
 	    	
 	    	Person p = new Person();
-	    	//p.setAge(45),´«Í³µÄ±à³Ì¡£²»Ğ´¿ò¼Ü£¬ÏÂÃæµÄ¼¼ÊõÊÒËùÓÃµ½µÄAPIÊÇÃ»ÓÃµÄ
+	    	//p.setAge(45),ä¼ ç»Ÿçš„ç¼–ç¨‹ã€‚ä¸å†™æ¡†æ¶ï¼Œä¸‹é¢çš„æŠ€æœ¯å®¤æ‰€ç”¨åˆ°çš„APIæ˜¯æ²¡ç”¨çš„
 	    	
 	        PropertyDescriptor pd = new PropertyDescriptor("age",Person.class);
 	        Method method = pd.getWriteMethod();//public void setAge(int age) 
-	        method.invoke(p, 45/*×Ô¶¯×°Ïä*/);
+	        method.invoke(p, 45/*è‡ªåŠ¨è£…ç®±*/);
 	        
 	        System.out.println(p.getAge());
 	        
-	        //»ñÈ¡ÊôĞÔµÄÖµ
+	        //è·å–å±æ€§çš„å€¼
 	        method = pd.getReadMethod();// public getAge()
 	        System.out.println(method.invoke(p,null));
 
 		}
 	    
-	    //¸ß¼¶µãµÄÄÚÍ¬£¬»ñÈ¡µ±Ç°²Ù×÷µÄÊôĞÔµÄÀàĞÍ¡£
+	    //é«˜çº§ç‚¹çš„å†…åŒï¼Œè·å–å½“å‰æ“ä½œçš„å±æ€§çš„ç±»å‹ã€‚
 	    @Test
 	    public void test3() throws Exception
 	    {

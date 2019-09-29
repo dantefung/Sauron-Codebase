@@ -10,8 +10,8 @@ public class Test2 {
 		    String fileName = "com/dantefung/dp/factory/common/ProductFactory.properties";
 			Properties props = new Properties();
 			props.load(Test2.class.getClassLoader()
-						          .getResourceAsStream(fileName));//½«Â·¾¶ÏÂµÄÅäÖÃÎÄ¼ş×ª»¯ÎªÒ»¸öProperties¶ÔÏó¡£
-			String vehicleFactoryName = props.getProperty("ProductFactory");//Í¨¹ıkey»ñµÃvalue
+						          .getResourceAsStream(fileName));//å°†è·¯å¾„ä¸‹çš„é…ç½®æ–‡ä»¶è½¬åŒ–ä¸ºä¸€ä¸ªPropertieså¯¹è±¡ã€‚
+			String vehicleFactoryName = props.getProperty("ProductFactory");//é€šè¿‡keyè·å¾—value
 			System.out.println(vehicleFactoryName);
 			Object o = Class.forName(vehicleFactoryName).newInstance();
 			System.out.println(o);

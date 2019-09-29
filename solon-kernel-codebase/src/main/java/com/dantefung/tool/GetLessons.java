@@ -21,17 +21,17 @@ import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 
 /**
- * ¸ñÊ½£º
- * 		ÇëÇóĞĞ\r\n
- * 		ÇëÇóÍ·\r\n
+ * æ ¼å¼ï¼š
+ * 		è¯·æ±‚è¡Œ\r\n
+ * 		è¯·æ±‚å¤´\r\n
  * 		\r\n
- * 		ÇëÇóÕıÎÄ
+ * 		è¯·æ±‚æ­£æ–‡
  * 
  * @author Dante Fung
  *
  */
 public class GetLessons{
-	private List<Cookie> cookies;                      //±£´æ»ñÈ¡µÄcookie  
+	private List<Cookie> cookies;                      //ä¿å­˜è·å–çš„cookie  
 	private String result="";
 	private String username = "13124640128";
 	private String password = "199410";
@@ -45,7 +45,7 @@ public class GetLessons{
 		HttpPost httpPost = new HttpPost(uriAPI);  
 		List<NameValuePair> params = new ArrayList<NameValuePair>();
 		
-	params.add(new BasicNameValuePair("Window1$SimpleForm1$rdl_shenFen","Ñ§Éú"));
+	params.add(new BasicNameValuePair("Window1$SimpleForm1$rdl_shenFen","å­¦ç”Ÿ"));
 	params.add(new BasicNameValuePair("Window1$SimpleForm1$tbx_XueHao", username));
 	params.add(new BasicNameValuePair("Window1$SimpleForm1$tbx_pwd", password));
 	params.add(new BasicNameValuePair("Window1_Collapsed", "false"));
@@ -58,13 +58,13 @@ public class GetLessons{
 	params.add(new BasicNameValuePair("__EVENTARGUMENT", ""));
 	params.add(new BasicNameValuePair("__EVENTTARGET", "Window1$Toolbar1$btn_login"));
 	
-	    // ·¢³öHTTP request  
+	    // å‘å‡ºHTTP request  
 	   httpPost.setEntity(new UrlEncodedFormEntity(params,HTTP.UTF_8));  
-	    // È¡µÃHTTP response  
-	    HttpResponse httpResponse = client.execute(httpPost);   //Ö´ĞĞ  
-	    // Èô×´Ì¬ÂëÎª200 ok  
-	    if (httpResponse.getStatusLine().getStatusCode() == 200) {   //·µ»ØÖµÕı³£  
-	        // »ñÈ¡·µ»ØµÄcookie  
+	    // å–å¾—HTTP response  
+	    HttpResponse httpResponse = client.execute(httpPost);   //æ‰§è¡Œ  
+	    // è‹¥çŠ¶æ€ç ä¸º200 ok  
+	    if (httpResponse.getStatusLine().getStatusCode() == 200) {   //è¿”å›å€¼æ­£å¸¸  
+	        // è·å–è¿”å›çš„cookie  
 	        cookies = ((AbstractHttpClient) client).getCookieStore().getCookies();
 //	        System.out.println("cookies="+cookies);
 	        
@@ -83,8 +83,8 @@ public class GetLessons{
 //		String uriAPI = "http://218.15.22.136:3008/ChengJiChaXun.aspx";//http://218.15.22.136:3008/PaiKeXiTong.aspx
 		HttpPost httpRequest = new HttpPost(uriAPI); 
         List<NameValuePair> params = new ArrayList<NameValuePair>();  
-        params.add(new BasicNameValuePair("Grid1$Toolbar1$ddl_XueYuan","12"));//["12  ", "08ÀíÑ§Ôº                 ", 1]
-        params.add(new BasicNameValuePair("Grid1$Toolbar1$ddl_BanJi", "104361"));//5100,104627  ["104361", "ĞÅÏ¢13-2", 1]
+        params.add(new BasicNameValuePair("Grid1$Toolbar1$ddl_XueYuan","12"));//["12  ", "08ç†å­¦é™¢                 ", 1]
+        params.add(new BasicNameValuePair("Grid1$Toolbar1$ddl_BanJi", "104361"));//5100,104627  ["104361", "ä¿¡æ¯13-2", 1]
         params.add(new BasicNameValuePair("Grid1_Collapsed", "false"));
         params.add(new BasicNameValuePair("Grid1_HiddenColumnIndexArray", ""));
         params.add(new BasicNameValuePair("Grid1_SelectedRowIndexArray", ""));
@@ -111,14 +111,14 @@ public class GetLessons{
             HttpEntity entity = httpResponse2.getEntity();  
             InputStream is = entity.getContent();  
             BufferedReader br = new BufferedReader(new InputStreamReader(is,HTTP.UTF_8));  
-            //ÊÇ¶ÁÈ¡Òª¸Ä±àÂëµÄÔ´£¬Ô´µÄ¸ñÊ½ÊÇGB2312µÄ£¬°²Ô´¸ñÊ½¶Á½øÀ´£¬È»ºóÔÙ¶ÔÔ´Âë×ª»»³ÉÏëÒªµÄ±àÂë¾ÍĞĞ  
+            //æ˜¯è¯»å–è¦æ”¹ç¼–ç çš„æºï¼Œæºçš„æ ¼å¼æ˜¯GB2312çš„ï¼Œå®‰æºæ ¼å¼è¯»è¿›æ¥ï¼Œç„¶åå†å¯¹æºç è½¬æ¢æˆæƒ³è¦çš„ç¼–ç å°±è¡Œ  
             String data = "";  
             while ((data = br.readLine()) != null) {  
                 sb.append(data);  
             }
 //            System.out.println(">>>>>>>>>>>:" + sb.toString());
             
-            result = sb.toString();  //´ËÊ±resultÖĞ¾ÍÊÇÎÒÃÇ³É¼¨µÄHTMLµÄÔ´´úÂëÁË  
+            result = sb.toString();  //æ­¤æ—¶resultä¸­å°±æ˜¯æˆ‘ä»¬æˆç»©çš„HTMLçš„æºä»£ç äº†  
             int index=result.indexOf("[[");
             int end=result.indexOf("]]");
             result=result.substring(index, end+2);

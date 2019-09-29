@@ -7,12 +7,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /*
- * ĞèÇó£º DataStreamDemo.java ¸´ÖÆµ½Copy.javaÖĞ
+ * éœ€æ±‚ï¼š DataStreamDemo.java å¤åˆ¶åˆ°Copy.javaä¸­
  *
- * Êı¾İÔ´£º
- *     DataStreamDemo.java -- ¶ÁÈ¡Êı¾İ -- FileReader -- BufferedReader
- * Ä¿µÄµØ£º
- *     Copy.java -- Ğ´Êı¾İ -- FileWriter -- BufferedWriter -- PrintWriter    
+ * æ•°æ®æºï¼š
+ *     DataStreamDemo.java -- è¯»å–æ•°æ® -- FileReader -- BufferedReader
+ * ç›®çš„åœ°ï¼š
+ *     Copy.java -- å†™æ•°æ® -- FileWriter -- BufferedWriter -- PrintWriter    
  * 
  */
 public class CopyFileDemo {
@@ -22,10 +22,10 @@ public class CopyFileDemo {
 	 */
 	public static void main(String[] args) throws IOException{
 		// TODO Auto-generated method stub
-        //ÒÔÇ°µÄ°æ±¾
-		//·â×°Êı¾İÔ´
+        //ä»¥å‰çš„ç‰ˆæœ¬
+		//å°è£…æ•°æ®æº
 		//BufferedReader br = new BufferedReader(new FileReader("DataStreamDemo.java"));
-		//·â×°Ä¿µÄµØ
+		//å°è£…ç›®çš„åœ°
 		//BufferedWriter bw = new BufferedWriter(new FileWriter("Copy.java"));
 		
 		//String line = null;
@@ -36,15 +36,15 @@ public class CopyFileDemo {
 		//  bw.flush();
 		//}
 		
-		//ÊÍ·Å×ÊÔ´
+		//é‡Šæ”¾èµ„æº
 		//bw.close();
 		//br.close();
 		
 		
-		//´òÓ¡Á÷¸Ä½ø°æ
-		//·â×°Êı¾İÔ´
+		//æ‰“å°æµæ”¹è¿›ç‰ˆ
+		//å°è£…æ•°æ®æº
 		BufferedReader pr = new BufferedReader(new FileReader("DataStreamDemo.java"));
-		//·â×°Ä¿µÄµØ
+		//å°è£…ç›®çš„åœ°
 		PrintWriter pw = new PrintWriter(new FileWriter("Copy.java"),true);
 		
 		String line = null;
@@ -53,7 +53,7 @@ public class CopyFileDemo {
 			pw.println(line);
 		}
 		
-		//ÊÍ·Å×ÊÔ´
+		//é‡Šæ”¾èµ„æº
 		pw.close();
 		pr.close();
 	}

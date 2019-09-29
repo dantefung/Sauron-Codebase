@@ -2,7 +2,7 @@
  * Project Name:dantefung
  * File Name:PorkyNoodle.java
  * Package Name:com.dantefung.dp.bridge
- * Date:2016-3-28下午8:57:14
+ * Date:2016-3-28涓嬪崍8:57:14
  * Copyright (c) 2016, fhlin0611@foxmail.com All Rights Reserved.
  *
 */
@@ -12,7 +12,7 @@ package com.dantefung.dp.bridge;
  * ClassName:PorkyNoodle <br/>
  * Function: TODO ADD FUNCTION. <br/>
  * Reason:	 TODO ADD REASON. <br/>
- * Date:     2016-3-28 下午8:57:14 <br/>
+ * Date:     2016-3-28 涓嬪崍8:57:14 <br/>
  * @author   Dante Fung
  * @version  
  * @since    JDK 1.6
@@ -26,11 +26,11 @@ public class PorkyNoodle extends AbstractNoodle
 		super(peppery);
 	}
 
-	// 实现eat()抽象方法
+	// 瀹炵幇eat()鎶借薄鏂规硶
 	@Override
 	public void eat()
 	{
-		System.out.println("这是一碗稍显油腻的猪肉面条," + super.style.style());
+		System.out.println("杩欐槸涓�纰楃◢鏄炬补鑵荤殑鐚倝闈㈡潯," + super.style.style());
 	}
 
 }

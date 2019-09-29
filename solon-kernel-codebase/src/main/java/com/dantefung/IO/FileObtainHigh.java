@@ -3,9 +3,9 @@ package com.dantefung.IO;
 import java.io.File;
 
 /*
- * »ñÈ¡¹¦ÄÜ£¨¸ß¼¶£©£º
- * public String[] list():»ñÈ¡Ö¸¶¨Ä¿Â¼ÏÂµÄËùÓĞÎÄ¼ş»òÕßÎÄ¼ş¼ĞµÄÃû³ÆÊı×é
- * public File[] listFiles():»ñÈ¡Ö¸¶¨Ä¿Â¼ÏÂËùÓĞÎÄ¼ş»òÕßÎÄ¼ş¼ĞµÄFileÊı×é
+ * è·å–åŠŸèƒ½ï¼ˆé«˜çº§ï¼‰ï¼š
+ * public String[] list():è·å–æŒ‡å®šç›®å½•ä¸‹çš„æ‰€æœ‰æ–‡ä»¶æˆ–è€…æ–‡ä»¶å¤¹çš„åç§°æ•°ç»„
+ * public File[] listFiles():è·å–æŒ‡å®šç›®å½•ä¸‹æ‰€æœ‰æ–‡ä»¶æˆ–è€…æ–‡ä»¶å¤¹çš„Fileæ•°ç»„
  * 
  * 
  * */
@@ -16,10 +16,10 @@ public class FileObtainHigh {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-	   //Ö¸¶¨Ò»¸öÄ¿Â¼
+	   //æŒ‡å®šä¸€ä¸ªç›®å½•
 		File file = new File("e:\\");
 		
-		//public String[] list():»ñÈ¡Ö¸¶¨Ä¿Â¼ÏÂµÄËùÓĞÎÄ¼ş»òÕßÎÄ¼ş¼ĞµÄÃû³ÆÊı×é
+		//public String[] list():è·å–æŒ‡å®šç›®å½•ä¸‹çš„æ‰€æœ‰æ–‡ä»¶æˆ–è€…æ–‡ä»¶å¤¹çš„åç§°æ•°ç»„
 		String[] strArray = file.list();
 		for(String s : strArray)
 		{
@@ -28,7 +28,7 @@ public class FileObtainHigh {
 		
 		System.out.println("-------------------");
 		
-		//public File[] listFiles():»ñÈ¡Ö¸¶¨Ä¿Â¼ÏÂµÄËùÓĞÎÄ¼ş»òÕßÎÄ¼ş¼ĞµÄfileÊı×é
+		//public File[] listFiles():è·å–æŒ‡å®šç›®å½•ä¸‹çš„æ‰€æœ‰æ–‡ä»¶æˆ–è€…æ–‡ä»¶å¤¹çš„fileæ•°ç»„
 		File[] fileArray = file.listFiles();
 		for(File f : fileArray)
 		{

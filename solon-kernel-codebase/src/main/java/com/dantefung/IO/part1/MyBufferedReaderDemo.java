@@ -5,7 +5,7 @@ import java.io.IOException;
 
 /*
  * 
- *²âÊÔMyBufferedReaderµÄÊ±ºò£¬Äã¾Í°ÑËüµ±×öBufferedReaderÒ»ÑùµÄÊ¹ÓÃ¡£ 
+ *æµ‹è¯•MyBufferedReaderçš„æ—¶å€™ï¼Œä½ å°±æŠŠå®ƒå½“åšBufferedReaderä¸€æ ·çš„ä½¿ç”¨ã€‚ 
  * 
  * 
  */
@@ -24,10 +24,10 @@ public class MyBufferedReaderDemo {
     	   System.out.println(line);
        }
        
-       //ÊÍ·Å×ÊÔ´
+       //é‡Šæ”¾èµ„æº
        mbr.close();
        
-       //Èç¹ûÒªÖªµÀÈÎÒâÊı×ÖµÄ±àÂë£¬¿É²ÉÈ¡ÈçÏÂµÄ·½Ê½»ñÈ¡¡£
+       //å¦‚æœè¦çŸ¥é“ä»»æ„æ•°å­—çš„ç¼–ç ï¼Œå¯é‡‡å–å¦‚ä¸‹çš„æ–¹å¼è·å–ã€‚
        //System.out.println('\r' + 0);
        //System.out.println('\n' + 0);
 	}

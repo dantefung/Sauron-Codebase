@@ -2,7 +2,7 @@
  * Project Name:dantefung
  * File Name:NameObserver.java
  * Package Name:com.dantefung.dp.observer
- * Date:2016-3-28ÏÂÎç9:57:34
+ * Date:2016-3-28ä¸‹åˆ9:57:34
  * Copyright (c) 2016, fhlin0611@foxmail.com All Rights Reserved.
  *
 */
@@ -13,11 +13,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 /**
- * Ãû³Æ¹Û²ìÕß
+ * åç§°è§‚å¯Ÿè€…
  * ClassName:NameObserver <br/>
  * Function: TODO ADD FUNCTION. <br/>
  * Reason:	 TODO ADD REASON. <br/>
- * Date:     2016-3-28 ÏÂÎç9:57:34 <br/>
+ * Date:     2016-3-28 ä¸‹åˆ9:57:34 <br/>
  * @author   Dante Fung
  * @version  
  * @since    JDK 1.6
@@ -26,21 +26,21 @@ import javax.swing.JLabel;
 public class NameObserver implements Observer
 {
 	
-	// ¹Û²ìÕß±ØĞëÊµÏÖµÄupdate·½·¨
+	// è§‚å¯Ÿè€…å¿…é¡»å®ç°çš„updateæ–¹æ³•
 	@Override
 	public void update(Observerable o, Object arg)
 	{
 		if(arg instanceof String)
 		{
-			// ²úÆ·Ãû³Æ¸Ä±äÖµÔÚnameÖĞ
+			// äº§å“åç§°æ”¹å˜å€¼åœ¨nameä¸­
 			String name = (String)arg;
-			// Æô¶¯Ò»¸öJframe´°¿ÚÀ´ÏÔÊ¾±»¹Û²ì¶ÔÏóµÄ×´Ì¬¸Ä±ä
-		/*	JFrame f = new JFrame("¹Û²ìÕß");
-			JLabel l = new JLabel("Ãû³Æ¸Ä±äÎª£º" + name);
+			// å¯åŠ¨ä¸€ä¸ªJframeçª—å£æ¥æ˜¾ç¤ºè¢«è§‚å¯Ÿå¯¹è±¡çš„çŠ¶æ€æ”¹å˜
+		/*	JFrame f = new JFrame("è§‚å¯Ÿè€…");
+			JLabel l = new JLabel("åç§°æ”¹å˜ä¸ºï¼š" + name);
 			f.add(l);
 			f.pack();
 			f.setVisible(true);*/
-			System.out.println("Ãû³Æ¹Û²ìÕß£º"+ o + "ÎïÆ·Ãû³ÆÒÑ¾­¸Ä±äÎª£º" + name);
+			System.out.println("åç§°è§‚å¯Ÿè€…ï¼š"+ o + "ç‰©å“åç§°å·²ç»æ”¹å˜ä¸ºï¼š" + name);
 		}
 	}
 

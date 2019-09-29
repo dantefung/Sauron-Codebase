@@ -7,9 +7,9 @@ package com.dantefung.reflecttest;
  * take note 
  * */
 public class ReflectPoint {
-//    int x;//´Ë´¦Ä¬ÈÏÎªË½ÓĞµÄ³ÉÔ±±äÁ¿£¨×Ö¶Î£¬ÊôĞÔ£©,´ËÊ±£¬ÓÃgetDclaredField(pt1)¿ÉÒÔ·ÃÎÊ
-    private int x;//´ËÊ±£¬ÒªgetDclaredField(pt1)ºÍfieldX.setAccessible(true);ÉèÖÃÎª¿ÉÒÔ·ÃÎÊ
-	public int y;//´Ë´¦ÏÔÊ¾ÉùÃ÷ÁËÕâ¸ö³ÉÔ±±äÁ¿£¨×Ö¶Î£¬ÊôĞÔ£©ÊÇ¹«ÓĞµÄ£¬Òò´ËgetField£¨pt1£©¿ÉÒÔ»ñÈ¡µ½yµÄÖµ
+//    int x;//æ­¤å¤„é»˜è®¤ä¸ºç§æœ‰çš„æˆå‘˜å˜é‡ï¼ˆå­—æ®µï¼Œå±æ€§ï¼‰,æ­¤æ—¶ï¼Œç”¨getDclaredField(pt1)å¯ä»¥è®¿é—®
+    private int x;//æ­¤æ—¶ï¼Œè¦getDclaredField(pt1)å’ŒfieldX.setAccessible(true);è®¾ç½®ä¸ºå¯ä»¥è®¿é—®
+	public int y;//æ­¤å¤„æ˜¾ç¤ºå£°æ˜äº†è¿™ä¸ªæˆå‘˜å˜é‡ï¼ˆå­—æ®µï¼Œå±æ€§ï¼‰æ˜¯å…¬æœ‰çš„ï¼Œå› æ­¤getFieldï¼ˆpt1ï¼‰å¯ä»¥è·å–åˆ°yçš„å€¼
 	public String str1 = "ball";
 	public String str2 = "basketball";
 	public String str3 = "itcast";
@@ -19,7 +19,7 @@ public class ReflectPoint {
 		this.y = y;
 	}
 	
-	/*ÒÔÏÂÔ´´úÂëÊÇ×Ô¶¯Éú³ÉµÄ*/
+	/*ä»¥ä¸‹æºä»£ç æ˜¯è‡ªåŠ¨ç”Ÿæˆçš„*/
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -29,7 +29,7 @@ public class ReflectPoint {
 		return result;
 	}
 
-	/*ÒÔÏÂÔ´´úÂëÊÇ×Ô¶¯Éú³ÉµÄ*/
+	/*ä»¥ä¸‹æºä»£ç æ˜¯è‡ªåŠ¨ç”Ÿæˆçš„*/
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -46,7 +46,7 @@ public class ReflectPoint {
 		return true;
 	}
 
-	/*ÒÔÏÂÔ´´úÂëÊÇ×Ô¶¯Éú³ÉµÄ*/
+	/*ä»¥ä¸‹æºä»£ç æ˜¯è‡ªåŠ¨ç”Ÿæˆçš„*/
 	@Override
 	public String toString() {
 		return "ReflectPoint [str1=" + str1 + ", str2=" + str2 + ", str3="

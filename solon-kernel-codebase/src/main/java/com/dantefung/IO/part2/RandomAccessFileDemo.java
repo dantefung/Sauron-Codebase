@@ -5,13 +5,13 @@ import java.io.RandomAccessFile;
 
 /*
  * 
- *Ëæ»ú·ÃÎÊÁ÷£º
- *    RandomAccesFileÀà²»ÊôÓÚÁ÷£¬ÊÇObjectÀàµÄ×ÓÀà
- *    µ«ËüÈÚºÏÁËInputStreamºÍOutputStreamµÄ¹¦ÄÜ
- *    Ö§³Ö¶ÔÎÄ¼şµÄËæ»ú·ÃÎÊ¶ÁÈ¡ºÍĞ´Èë¡£
+ *éšæœºè®¿é—®æµï¼š
+ *    RandomAccesFileç±»ä¸å±äºæµï¼Œæ˜¯Objectç±»çš„å­ç±»
+ *    ä½†å®ƒèåˆäº†InputStreamå’ŒOutputStreamçš„åŠŸèƒ½
+ *    æ”¯æŒå¯¹æ–‡ä»¶çš„éšæœºè®¿é—®è¯»å–å’Œå†™å…¥ã€‚
  *    
- *     public RandomAccessFile(String name, String mode):µÚÒ»¸ö²ÎÊıÊÇÎÄ¼şÂ·¾¶£¬µÚ¶ş¸ö²ÎÊıÊÇ²Ù×÷ÎÄ¼şµÄÄ£Ê½¡£
- *     Ä£Ê½ÓĞËÄÖÖ£¬ÎÒÃÇ×î³£ÓÃµÄÒ»ÖÖ½Ğ"rw"£¬ÕâÖÖ·½Ê½±íÊ¾ÎÒ¼È¿ÉÒÔĞ´Êı¾İ£¬Ò²¿ÉÒÔ¶ÁÈ¡Êı¾İ¡£
+ *     public RandomAccessFile(String name, String mode):ç¬¬ä¸€ä¸ªå‚æ•°æ˜¯æ–‡ä»¶è·¯å¾„ï¼Œç¬¬äºŒä¸ªå‚æ•°æ˜¯æ“ä½œæ–‡ä»¶çš„æ¨¡å¼ã€‚
+ *     æ¨¡å¼æœ‰å››ç§ï¼Œæˆ‘ä»¬æœ€å¸¸ç”¨çš„ä¸€ç§å«"rw"ï¼Œè¿™ç§æ–¹å¼è¡¨ç¤ºæˆ‘æ—¢å¯ä»¥å†™æ•°æ®ï¼Œä¹Ÿå¯ä»¥è¯»å–æ•°æ®ã€‚
  * 
  * 
  * 
@@ -29,23 +29,23 @@ public class RandomAccessFileDemo {
 
 	private static void read() throws IOException{
 		// TODO Auto-generated method stub
-		//´´½¨Ëæ»ú·ÃÎÊÁ÷¶ÔÏó
+		//åˆ›å»ºéšæœºè®¿é—®æµå¯¹è±¡
 		RandomAccessFile raf = new RandomAccessFile("raf.txt", "rw");
 		
 		int i = raf.readInt();
 		System.out.println(i);
-		//¸ÃÎÄ¼şÖ¸Õë¿ÉÒÔÍ¨¹ıgetFilePointer·½·¨¶ÁÈ¡£¬²¢Í¨¹ıseek·½·¨ÉèÖÃ
-		System.out.println("µ±Ç°ÎÄ¼şµÄÖ¸ÕëÎ»ÖÃÊÇ£º" + raf.getFilePointer());
+		//è¯¥æ–‡ä»¶æŒ‡é’ˆå¯ä»¥é€šè¿‡getFilePointeræ–¹æ³•è¯»å–ï¼Œå¹¶é€šè¿‡seekæ–¹æ³•è®¾ç½®
+		System.out.println("å½“å‰æ–‡ä»¶çš„æŒ‡é’ˆä½ç½®æ˜¯ï¼š" + raf.getFilePointer());
 		
 		char ch = raf.readChar();
 		System.out.println(ch);
-		System.out.println("µ±Ç°ÎÄ¼şµÄÖ¸ÕëÎ»ÖÃÊÇ£º" + raf.getFilePointer());
+		System.out.println("å½“å‰æ–‡ä»¶çš„æŒ‡é’ˆä½ç½®æ˜¯ï¼š" + raf.getFilePointer());
 		
 		String s = raf.readUTF();
 		System.out.println(s);
-		System.out.println("µ±Ç°ÎÄ¼şµÄÖ¸ÕëÎ»ÖÃÊÇ£º" + raf.getFilePointer());
+		System.out.println("å½“å‰æ–‡ä»¶çš„æŒ‡é’ˆä½ç½®æ˜¯ï¼š" + raf.getFilePointer());
 		
-		//ÎÒ²»ÏëÖØÍ·¿ªÊ¼ÁË£¬ÎÒ¾ÍÒª¶ÁÈ¡a£¬ÔõÃ´°ìÄØ£¿
+		//æˆ‘ä¸æƒ³é‡å¤´å¼€å§‹äº†ï¼Œæˆ‘å°±è¦è¯»å–aï¼Œæ€ä¹ˆåŠå‘¢ï¼Ÿ
 		raf.seek(4);
 		ch = raf.readChar();
 		System.out.println(ch);
@@ -53,13 +53,13 @@ public class RandomAccessFileDemo {
 
 	private static void write() throws IOException{
 		// TODO Auto-generated method stub
-		//´´½¨Ëæ»ú·ÃÎÊÁ÷¶ÔÏó
+		//åˆ›å»ºéšæœºè®¿é—®æµå¯¹è±¡
 		RandomAccessFile raf = new RandomAccessFile("raf.txt", "rw");
 		
-	    //ÔõÃ´Íæ£¿
+	    //æ€ä¹ˆç©ï¼Ÿ
 		raf.writeInt(100);
 		raf.writeChar('a');
-		raf.writeUTF("ÖĞ¹ú");
+		raf.writeUTF("ä¸­å›½");
 		
 		raf.close();
 	}

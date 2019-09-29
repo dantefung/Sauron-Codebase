@@ -2,7 +2,7 @@
  * Project Name:dantefung
  * File Name:WaiterImpl.java
  * Package Name:com.dantefung.dp.facade
- * Date:2016-3-16ÏÂÎç7:16:36
+ * Date:2016-3-16ä¸‹åˆ7:16:36
  * Copyright (c) 2016, fhlin0611@foxmail.com All Rights Reserved.
  *
 */
@@ -12,7 +12,7 @@ package com.dantefung.dp.facade;
  * ClassName:WaiterImpl <br/>
  * Function: TODO ADD FUNCTION. <br/>
  * Reason:	 TODO ADD REASON. <br/>
- * Date:     2016-3-16 ÏÂÎç7:16:36 <br/>
+ * Date:     2016-3-16 ä¸‹åˆ7:16:36 <br/>
  * @author   Dante Fung
  * @version  
  * @since    JDK 1.6
@@ -24,7 +24,7 @@ public class WaiterImpl implements Waiter
 	@Override
 	public void serve(String food)
 	{
-		System.out.println("·şÎñÔ±ÒÑ½«" + food + "¶Ë¹ıÀ´£¬ÇëÂıÓÃ....");
+		System.out.println("æœåŠ¡å‘˜å·²å°†" + food + "ç«¯è¿‡æ¥ï¼Œè¯·æ…¢ç”¨....");
 	}
 
 }

@@ -2,7 +2,7 @@
  * Project Name:dantefung
  * File Name:Payment.java
  * Package Name:com.dantefung.dp.facade
- * Date:2016-3-16ÏÂÎç7:08:39
+ * Date:2016-3-16ä¸‹åˆ7:08:39
  * Copyright (c) 2016, fhlin0611@foxmail.com All Rights Reserved.
  *
 */
@@ -12,7 +12,7 @@ package com.dantefung.dp.facade;
  * ClassName:Payment <br/>
  * Function: TODO ADD FUNCTION. <br/>
  * Reason:	 TODO ADD REASON. <br/>
- * Date:     2016-3-16 ÏÂÎç7:08:39 <br/>
+ * Date:     2016-3-16 ä¸‹åˆ7:08:39 <br/>
  * @author   Dante Fung
  * @version  
  * @since    JDK 1.6

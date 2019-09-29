@@ -5,14 +5,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /*
- * »ñÈ¡¹¦ÄÜ£º
- * public String getAbsolutePath()£º»ñÈ¡¾ø¶ÔÂ·¾¶
- * public String getPath()£º»ñÈ¡Ïà¶ÔÂ·¾¶¡£
- * public String getName()£º»ñÈ¡Ãû³Æ
- * public long length()£º»ñÈ¡³¤¶È¡£×Ö½ÚÊı¡£
- * public long lastModified()£º»ñÈ¡×îºóÒ»´ÎĞŞ¸ÄµÄÊÂ¼ş£¬ºÁÃëÖµ¡£
+ * è·å–åŠŸèƒ½ï¼š
+ * public String getAbsolutePath()ï¼šè·å–ç»å¯¹è·¯å¾„
+ * public String getPath()ï¼šè·å–ç›¸å¯¹è·¯å¾„ã€‚
+ * public String getName()ï¼šè·å–åç§°
+ * public long length()ï¼šè·å–é•¿åº¦ã€‚å­—èŠ‚æ•°ã€‚
+ * public long lastModified()ï¼šè·å–æœ€åä¸€æ¬¡ä¿®æ”¹çš„äº‹ä»¶ï¼Œæ¯«ç§’å€¼ã€‚
  * 
- * ¸ß¼¶¹¦ÄÜ£º
+ * é«˜çº§åŠŸèƒ½ï¼š
  * public String[] list()
  * public File[] listFiles()
  * 
@@ -24,7 +24,7 @@ public class FileObtain {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-	    //´´½¨ÎÄ¼ş¶ÔÏó
+	    //åˆ›å»ºæ–‡ä»¶å¯¹è±¡
 		File file = new File("demo\\test.txt");
 		
 		System.out.println("getAbsolutePath:" + file.getAbsoluteFile());

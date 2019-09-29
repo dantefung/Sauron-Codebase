@@ -2,7 +2,7 @@
  * Project Name:dantefung
  * File Name:Client.java
  * Package Name:com.dantefung.dp.builder
- * Date:2016-3-16ÏÂÎç3:24:42
+ * Date:2016-3-16ä¸‹åˆ3:24:42
  * Copyright (c) 2016, fhlin0611@foxmail.com All Rights Reserved.
  *
 */
@@ -12,7 +12,7 @@ package com.dantefung.dp.builder;
  * ClassName:Client <br/>
  * Function: TODO ADD FUNCTION. <br/>
  * Reason:	 TODO ADD REASON. <br/>
- * Date:     2016-3-16 ÏÂÎç3:24:42 <br/>
+ * Date:     2016-3-16 ä¸‹åˆ3:24:42 <br/>
  * @author   Dante Fung
  * @version  
  * @since    JDK 1.6
@@ -23,12 +23,12 @@ public class Client
 	public static void main(String[] args)
 	{
 		/*
-		 * Á´Ê½µ÷ÓÃ
-		 * 1¡¢ ÏÈ´´½¨Ò»¸ö½¨ÔìÕß£ºnew NutritionFacts.Builder();
-		 * 2¡¢ Ñ¡ÔñĞÔµÄµ÷ÓÃ½¨ÔìÕßÄÚ²¿µÄ·½·¨Îª¿ÉÑ¡¹¹Ôì²ÎÊı¸³Öµ¡£
+		 * é“¾å¼è°ƒç”¨
+		 * 1ã€ å…ˆåˆ›å»ºä¸€ä¸ªå»ºé€ è€…ï¼šnew NutritionFacts.Builder();
+		 * 2ã€ é€‰æ‹©æ€§çš„è°ƒç”¨å»ºé€ è€…å†…éƒ¨çš„æ–¹æ³•ä¸ºå¯é€‰æ„é€ å‚æ•°èµ‹å€¼ã€‚
 		 * 
-		 * ÓÅµã£ºbuilderÄ£Ê½Ä£ÄâÁË¾ßÃûµÄ¿ÉÑ¡²ÎÊı¡£
-		 * ÊÊÓÃĞÔ£ºÈç¹ûÀàµÄ¹¹ÔìÆ÷»òÕß¾²Ì¬¹¤³§ÖĞ¾ßÓĞ¶à¸ö²ÎÊı£¬Éè¼ÆÕâÖÖÀàÊ±£¬BuilderÄ£Ê½¾ÍÊÇÖĞ²»´íµÄÑ¡Ôñ¡£
+		 * ä¼˜ç‚¹ï¼šbuilderæ¨¡å¼æ¨¡æ‹Ÿäº†å…·åçš„å¯é€‰å‚æ•°ã€‚
+		 * é€‚ç”¨æ€§ï¼šå¦‚æœç±»çš„æ„é€ å™¨æˆ–è€…é™æ€å·¥å‚ä¸­å…·æœ‰å¤šä¸ªå‚æ•°ï¼Œè®¾è®¡è¿™ç§ç±»æ—¶ï¼ŒBuilderæ¨¡å¼å°±æ˜¯ä¸­ä¸é”™çš„é€‰æ‹©ã€‚
 		 */
 		NutritionFacts cocaCola = new NutritionFacts.Builder(240, 8).calories(100)
 		.sodium(35).carbohydrate(27).build();

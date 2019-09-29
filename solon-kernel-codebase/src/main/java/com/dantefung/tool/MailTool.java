@@ -18,13 +18,13 @@ public class MailTool {
     public static void main(String[] args) throws MessagingException, GeneralSecurityException {
         Properties props = new Properties();
 
-        // ¿ªÆôdebugµ÷ÊÔ
+        // å¼€å¯debugè°ƒè¯•
         props.setProperty("mail.debug", "true");
-        // ·¢ËÍ·şÎñÆ÷ĞèÒªÉí·İÑéÖ¤
+        // å‘é€æœåŠ¡å™¨éœ€è¦èº«ä»½éªŒè¯
         props.setProperty("mail.smtp.auth", "true");
-        // ÉèÖÃÓÊ¼ş·şÎñÆ÷Ö÷»úÃû
+        // è®¾ç½®é‚®ä»¶æœåŠ¡å™¨ä¸»æœºå
         props.setProperty("mail.host", "smtp.qq.com");
-        // ·¢ËÍÓÊ¼şĞ­ÒéÃû³Æ
+        // å‘é€é‚®ä»¶åè®®åç§°
         props.setProperty("mail.transport.protocol", "smtp");
 
         MailSSLSocketFactory sf = new MailSSLSocketFactory();
@@ -35,11 +35,11 @@ public class MailTool {
         Session session = Session.getInstance(props);
 
         Message msg = new MimeMessage(session);
-        msg.setSubject("ÕâÊÇDanteµÄ²âÊÔÓÊ¼ş");
+        msg.setSubject("è¿™æ˜¯Danteçš„æµ‹è¯•é‚®ä»¶");
         StringBuilder builder = new StringBuilder();
         builder.append("url = " + "http://www.cnblogs.com/dantefung/");
-        builder.append("\nDanteµÄ²©¿Í");
-        builder.append("\nµ±Ç°µÄÊ±¼äÎª£º " + new Date().getTime());
+        builder.append("\nDanteçš„åšå®¢");
+        builder.append("\nå½“å‰çš„æ—¶é—´ä¸ºï¼š " + new Date().getTime());
         msg.setText(builder.toString());
         msg.setFrom(new InternetAddress("476400902@qq.com"));
 

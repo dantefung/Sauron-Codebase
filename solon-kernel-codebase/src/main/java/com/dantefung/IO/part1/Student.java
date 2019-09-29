@@ -1,13 +1,13 @@
 package com.dantefung.IO.part1;
 
 public class Student {
-    //姓名
+    //濮撳悕
 	private String name;
-	//语文成绩
+	//璇枃鎴愮哗
 	private int chinese;
-	//数学成绩
+	//鏁板鎴愮哗
 	private int math;
-	//英语成绩
+	//鑻辫鎴愮哗
 	private int english;
 	
 	public Student()

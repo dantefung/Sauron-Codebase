@@ -14,7 +14,7 @@ import java.util.Vector;
  *@author DanteFung
  *@since 2015-4-5 9:19 
  * 
- * ºÏ²¢Á÷¡£
+ * åˆå¹¶æµã€‚
  * 
  */
 public class SequenceInputStreamDemo2 {
@@ -24,11 +24,11 @@ public class SequenceInputStreamDemo2 {
 	 */
 	public static void main(String[] args) throws IOException{
 		// TODO Auto-generated method stub
-		//ĞèÇó£º °ÑÏÂÃæµÄÈı¸öÎÄ¼şµÄÄÚÈİ¸´ÖÆµ½Copy.javaÖĞ¡£
+		//éœ€æ±‚ï¼š æŠŠä¸‹é¢çš„ä¸‰ä¸ªæ–‡ä»¶çš„å†…å®¹å¤åˆ¶åˆ°Copy.javaä¸­ã€‚
 		//ByteArrayStreamDemo.java,CopyFileDemo.java,DataStreamDemo.java
 		
 		//SequenceInputStream(Enumeration e)
-		//Í¨¹ı¼òµ¥µÄ»Ø¹ËÎÒÃÇÖªµÀÁËEnumerationÊÇVectorÖĞµÄÒ»¸ö·½·¨µÄ·µ»ØÖµÀàĞÍ
+		//é€šè¿‡ç®€å•çš„å›é¡¾æˆ‘ä»¬çŸ¥é“äº†Enumerationæ˜¯Vectorä¸­çš„ä¸€ä¸ªæ–¹æ³•çš„è¿”å›å€¼ç±»å‹
 		//Enumeration<E> elements()
 		
 		Vector<InputStream> v = new Vector<InputStream>();
@@ -44,7 +44,7 @@ public class SequenceInputStreamDemo2 {
 		SequenceInputStream sis = new SequenceInputStream(en);
 		BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream("Copy.java"));
 		
-		//ÈçºÎ¶ÁĞ´ÄØ£¬ÆäÊµºÜ¼òµ¥£¬Äã¾Í°´ÕÕÒÔÇ°ÔõÃ´¶ÁĞ´£¬ÏÖÔÚ»¹ÊÇÔõÃ´¶ÁĞ´
+		//å¦‚ä½•è¯»å†™å‘¢ï¼Œå…¶å®å¾ˆç®€å•ï¼Œä½ å°±æŒ‰ç…§ä»¥å‰æ€ä¹ˆè¯»å†™ï¼Œç°åœ¨è¿˜æ˜¯æ€ä¹ˆè¯»å†™
 		byte[] bys = new byte[1024];
 		int len = 0;
 		while((len = sis.read(bys))!= -1)
@@ -52,7 +52,7 @@ public class SequenceInputStreamDemo2 {
 			bos.write(bys, 0, len);
 		}
 		
-		//ÊÍ·Å×ÊÔ´
+		//é‡Šæ”¾èµ„æº
 		sis.close();
 		bos.close();
 		

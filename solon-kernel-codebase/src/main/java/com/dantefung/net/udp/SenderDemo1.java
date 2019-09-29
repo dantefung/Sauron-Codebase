@@ -8,15 +8,15 @@ public class SenderDemo1
 {
 	public static void main(String[] args) throws Exception
     {
-		System.out.println("·¢ËÍ¶ËÆô¶¯......");
-	    // 1¡¢½¨Á¢UDP·şÎñ£¨ÏÈ½¨Á¢ÂëÍ·£©
+		System.out.println("å‘é€ç«¯å¯åŠ¨......");
+	    // 1ã€å»ºç«‹UDPæœåŠ¡ï¼ˆå…ˆå»ºç«‹ç å¤´ï¼‰
 		DatagramSocket datagramSocket = new DatagramSocket();
-		// 2¡¢×¼±¸Êı¾İ£¬·â×°³ÉÊı¾İ°ü£¨×¼±¸»õÎï£¬×°½ø¼¯×°Ïä£©
+		// 2ã€å‡†å¤‡æ•°æ®ï¼Œå°è£…æˆæ•°æ®åŒ…ï¼ˆå‡†å¤‡è´§ç‰©ï¼Œè£…è¿›é›†è£…ç®±ï¼‰
 		String data = "Hello World!!";
 		DatagramPacket packet = new DatagramPacket(data.getBytes(),data.getBytes().length,InetAddress.getLocalHost(),9090);
-		// 3¡¢·¢ËÍ£¨ÔËËÍ¼¯×°Ïä£©
+		// 3ã€å‘é€ï¼ˆè¿é€é›†è£…ç®±ï¼‰
 		datagramSocket.send(packet);
-		// 4¡¢ÊÍ·Å¶Ë¿Ú
+		// 4ã€é‡Šæ”¾ç«¯å£
 		datagramSocket.close();
     }
 }

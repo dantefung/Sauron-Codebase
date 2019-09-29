@@ -1,9 +1,9 @@
 package com.dantefung.dp.factory.common;
 
 public class CarFactory implements VehicleFactory {
-	private static Car car = new Car();//ÓÉÓÚÊÇ¾²Ì¬µÄ£¬ËùÒÔÔÚÄÚ´æÖĞÊÇºã¶¨²»±äµÄ¡£
+	private static Car car = new Car();//ç”±äºæ˜¯é™æ€çš„ï¼Œæ‰€ä»¥åœ¨å†…å­˜ä¸­æ˜¯æ’å®šä¸å˜çš„ã€‚
 	
-	private static Car getInstance()//µ¥ÀıÄ£Ê½,ÓÉÓÚÊÇË½ÓĞµÄ½öÏŞ±¾ÀàÖĞÊ¹ÓÃ¡£
+	private static Car getInstance()//å•ä¾‹æ¨¡å¼,ç”±äºæ˜¯ç§æœ‰çš„ä»…é™æœ¬ç±»ä¸­ä½¿ç”¨ã€‚
 	{
 		return car;
 	}

@@ -10,61 +10,61 @@ public class EnumDemo {
 	}
 
 
-	//´ø³éÏó·½·¨µÄÃ¶¾Ù
-	//ÈçºÎ¶¨ÒåÃ¶¾ÙµÄ¹¹Ôì·½·¨¡¢º¯ÊýºÍ×Ö¶Î£¬È¥·â×°¸ü¶àµÄÐÅÏ¢
-	public enum WeekDay {//class   SUN ÐÇÆÚÌì   ÌìÆø£ºÇç £»   MON ÐÇÆÚÒ»  ÌìÆø£ºÒõÌì  £» TUE ÏëÆð¶þ  ÌìÆø£º¶àÔÆ    £» THI ÐÇÆÚÈý  ÌìÆø£ºÐ¡Óê £» FRI ÐÇÆÚÎå  ÌìÆø£ºÇç×ªÒõ    £» SAT  ÐÇÆÚÁù  ÌìÆø£º´óÓê
-		SUN("ÐÇÆÚÌì")
-		{//ÄäÃûÄÚ²¿Àà£¬ÎªWeekDayµÄ×ÓÀà
+	//å¸¦æŠ½è±¡æ–¹æ³•çš„æžšä¸¾
+	//å¦‚ä½•å®šä¹‰æžšä¸¾çš„æž„é€ æ–¹æ³•ã€å‡½æ•°å’Œå­—æ®µï¼ŒåŽ»å°è£…æ›´å¤šçš„ä¿¡æ¯
+	public enum WeekDay {//class   SUN æ˜ŸæœŸå¤©   å¤©æ°”ï¼šæ™´ ï¼›   MON æ˜ŸæœŸä¸€  å¤©æ°”ï¼šé˜´å¤©  ï¼› TUE æƒ³èµ·äºŒ  å¤©æ°”ï¼šå¤šäº‘    ï¼› THI æ˜ŸæœŸä¸‰  å¤©æ°”ï¼šå°é›¨ ï¼› FRI æ˜ŸæœŸäº”  å¤©æ°”ï¼šæ™´è½¬é˜´    ï¼› SAT  æ˜ŸæœŸå…­  å¤©æ°”ï¼šå¤§é›¨
+		SUN("æ˜ŸæœŸå¤©")
+		{//åŒ¿åå†…éƒ¨ç±»ï¼Œä¸ºWeekDayçš„å­ç±»
 			   public String localValue()
 			   {
-				    return "ÌìÆø£ºÇç";
+				    return "å¤©æ°”ï¼šæ™´";
 			   }
 		}
-		, MON("ÐÇÆÚÒ»")
+		, MON("æ˜ŸæœŸä¸€")
 		{
 			public String localValue()
 			{
-				return "ÌìÆø£ºÒõÌì";
+				return "å¤©æ°”ï¼šé˜´å¤©";
 			}
 		}
 
-		, TUE("ÐÇÆÚ¶þ")
+		, TUE("æ˜ŸæœŸäºŒ")
 		{
 			public String localValue()
 			{
-				return "ÌìÆø£º¶àÔÆ";
+				return "å¤©æ°”ï¼šå¤šäº‘";
 			}
 		}
-		, THI("ÐÇÆÚÈý")
+		, THI("æ˜ŸæœŸä¸‰")
 		{
 			public String localValue()
 			{
-				return "ÌìÆø£ºÐ¡Óê";
+				return "å¤©æ°”ï¼šå°é›¨";
 			}
 		}
-		, FRI("ÐÇÆÚÎå")
+		, FRI("æ˜ŸæœŸäº”")
 		{
 			public String localValue()
 			{
-				return "ÌìÆø£ºÇç×ªÒõ";
+				return "å¤©æ°”ï¼šæ™´è½¬é˜´";
 			}
 		}
-		, SAT("ÐÇÆÚÁù")//object Í¨¹ý¹¹Ôì·½·¨ÊµÀý»¯¶ÔÏó
+		, SAT("æ˜ŸæœŸå…­")//object é€šè¿‡æž„é€ æ–¹æ³•å®žä¾‹åŒ–å¯¹è±¡
 		{
 			public String localValue()
 			{
-				return "ÌìÆø£º´óÓê";
+				return "å¤©æ°”ï¼šå¤§é›¨";
 			}
 		};
 		
-		private String value;//·â×°Ã¿¸ö¶ÔÏó¶ÔÓ¦µÄÖÐÎÄÈÕÆÚ
-		//ÉùÃ÷WeekDayµÄ¹¹Ôì·½·¨
-		private WeekDay(String value)  //Ä¬ÈÏµÄÎÞ²Î¹¹Ôìº¯Êý±ä³ÉÓÐ²Î¹¹Ôìº¯Êý
+		private String value;//å°è£…æ¯ä¸ªå¯¹è±¡å¯¹åº”çš„ä¸­æ–‡æ—¥æœŸ
+		//å£°æ˜ŽWeekDayçš„æž„é€ æ–¹æ³•
+		private WeekDay(String value)  //é»˜è®¤çš„æ— å‚æž„é€ å‡½æ•°å˜æˆæœ‰å‚æž„é€ å‡½æ•°
 		{
 			this.value = value;
 		}
 		
-		//³éÏó·½·¨½«if{...}else{...}×°·¨ÎªÒ»¸ö¶ÀÁ¢µÄÀà
+		//æŠ½è±¡æ–¹æ³•å°†if{...}else{...}è£…æ³•ä¸ºä¸€ä¸ªç‹¬ç«‹çš„ç±»
 		public abstract String localValue();
 	}
 	

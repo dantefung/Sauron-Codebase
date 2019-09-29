@@ -9,7 +9,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- * TcpĞ­Òé£¬ÎÄ±¾ÎÄ¼şÉÏ´«·şÎñ¶Ë
+ * Tcpåè®®ï¼Œæ–‡æœ¬æ–‡ä»¶ä¸Šä¼ æœåŠ¡ç«¯
  * @author Dante Fung
  *
  */
@@ -17,16 +17,16 @@ public class UploadServer
 {
 	public static void main(String[] args) throws Exception
     {
-	    // 1¡¢½¨Á¢tcp·şÎñ¡£
+	    // 1ã€å»ºç«‹tcpæœåŠ¡ã€‚
 		ServerSocket serverSocket = new ServerSocket(10005);
-		// 2¡¢½ÓÊÕ¿Í»§¶ËÇëÇó¡£
+		// 2ã€æ¥æ”¶å®¢æˆ·ç«¯è¯·æ±‚ã€‚
 		Socket socket = serverSocket.accept();
 		System.out.println(socket.getInetAddress().getHostAddress() + "......connected");
-		// 3¡¢»ñÈ¡socketµÄ×Ö½ÚÊäÈëÁ÷¶ÔÏó£¬×ª»»²¢×°ÊÎ¡£
+		// 3ã€è·å–socketçš„å­—èŠ‚è¾“å…¥æµå¯¹è±¡ï¼Œè½¬æ¢å¹¶è£…é¥°ã€‚
 		BufferedReader bufIn = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-		// 4¡¢´´½¨×Ö·ûÊäÈëÁ÷¡£
+		// 4ã€åˆ›å»ºå­—ç¬¦è¾“å…¥æµã€‚
 		BufferedWriter bw = new BufferedWriter(new FileWriter("src\\com\\dantefung\\net\\tcp\\server.txt"));
-		// ²»¶Ï¶ÁÈ¡¿Í»§¶Ë·¢ËÍ¹ıÀ´µÄÊı¾İ¡£
+		// ä¸æ–­è¯»å–å®¢æˆ·ç«¯å‘é€è¿‡æ¥çš„æ•°æ®ã€‚
 		String line = null;
 		while((line=bufIn.readLine()) != null)
 		{
@@ -34,15 +34,15 @@ public class UploadServer
 			
 			bw.write(line);
 			bw.newLine();
-			// »º³åÇøÄ¬ÈÏÊÇ8kb£¬Ò»µ©×°Âú»á×Ô¶¯Ë¢³ö£¬µ«Ò»°ãÇé¿öÏÂ£¬»º³åÇø¶¼Î´±»×°Âú
-			// Òò´Ë£¬ĞèÒª×Ô¼ºÊÖ¶¯Ë¢ĞÂÒ»ÏÂÊı¾İ£¬½«»º³åÇøµÄÊı¾İÊä³öÈ¥¡£
+			// ç¼“å†²åŒºé»˜è®¤æ˜¯8kbï¼Œä¸€æ—¦è£…æ»¡ä¼šè‡ªåŠ¨åˆ·å‡ºï¼Œä½†ä¸€èˆ¬æƒ…å†µä¸‹ï¼Œç¼“å†²åŒºéƒ½æœªè¢«è£…æ»¡
+			// å› æ­¤ï¼Œéœ€è¦è‡ªå·±æ‰‹åŠ¨åˆ·æ–°ä¸€ä¸‹æ•°æ®ï¼Œå°†ç¼“å†²åŒºçš„æ•°æ®è¾“å‡ºå»ã€‚
 			bw.flush();
 		}
-		// 5¡¢¸ø¿Í»§¶Ë»ØĞ´ÏûÏ¢
+		// 5ã€ç»™å®¢æˆ·ç«¯å›å†™æ¶ˆæ¯
 		PrintWriter out = new PrintWriter(socket.getOutputStream(),true);
-		out.println("ÉÏ´«³É¹¦£¡£¡£¡");
+		out.println("ä¸Šä¼ æˆåŠŸï¼ï¼ï¼");
 		
-		// 6¡¢ÊÍ·Å×ÊÔ´.
+		// 6ã€é‡Šæ”¾èµ„æº.
 		bw.close();
 		socket.close();
 		serverSocket.close();

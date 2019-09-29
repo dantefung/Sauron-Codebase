@@ -9,17 +9,17 @@ import java.io.Writer;
 import java.util.Properties;
 
 /*
- *ÕâÀïµÄ¼¯ºÏ±ØĞëÊÇProperties¼¯ºÏ£º
- *public void load(Reader r):°ÑÎÄ¼şÖĞµÄÊı¾İ¶ÁÈ¡µ½¼¯ºÏÖĞ 
- *public void store(Writer writer, String comments):°Ñ¼¯ºÏÖĞµÄÊı¾İ´æ´¢µ½ÎÄ¼şÖĞ¡£
+ *è¿™é‡Œçš„é›†åˆå¿…é¡»æ˜¯Propertiesé›†åˆï¼š
+ *public void load(Reader r):æŠŠæ–‡ä»¶ä¸­çš„æ•°æ®è¯»å–åˆ°é›†åˆä¸­ 
+ *public void store(Writer writer, String comments):æŠŠé›†åˆä¸­çš„æ•°æ®å­˜å‚¨åˆ°æ–‡ä»¶ä¸­ã€‚
  *
  *
- *µ¥»ú°æÓÎÏ·£º
- *   ½ø¶È±£´æºÍ¼ÓÔØ
- *   Èı¹úÈºÓ¢´«£¬Èı¹úÖ¾£¬ÏÉ½£ÆæÏÀ´«¡£¡£¡£
+ *å•æœºç‰ˆæ¸¸æˆï¼š
+ *   è¿›åº¦ä¿å­˜å’ŒåŠ è½½
+ *   ä¸‰å›½ç¾¤è‹±ä¼ ï¼Œä¸‰å›½å¿—ï¼Œä»™å‰‘å¥‡ä¾ ä¼ ã€‚ã€‚ã€‚
  *   
- *   ÂÀ²¼=1
- *   ·½Ìì»­êª=1
+ *   å•å¸ƒ=1
+ *   æ–¹å¤©ç”»æˆŸ=1
  * 
  */
 public class PropertiesDemo3 {
@@ -35,28 +35,28 @@ public class PropertiesDemo3 {
 
 	private static void myStore() throws IOException {
 		// TODO Auto-generated method stub
-		//´´½¨¼¯ºÏ¶ÔÏó
+		//åˆ›å»ºé›†åˆå¯¹è±¡
 		Properties prop = new Properties();
 		
-		prop.setProperty("ÕÅÈı", "27");
-		prop.setProperty("Áõ±¸", "25");
-		prop.setProperty("¹ØÓğ", "30");
+		prop.setProperty("å¼ ä¸‰", "27");
+		prop.setProperty("åˆ˜å¤‡", "25");
+		prop.setProperty("å…³ç¾½", "30");
 		
-		//public void store(Writer writer, String comments):°Ñ¼¯ºÏÖĞµÄÊı¾İ´æ´¢µ½ÎÄ¼şÖĞ¡£
+		//public void store(Writer writer, String comments):æŠŠé›†åˆä¸­çš„æ•°æ®å­˜å‚¨åˆ°æ–‡ä»¶ä¸­ã€‚
 		Writer w = new FileWriter("name.txt");
-		prop.store(w, "2015-4-5 14:55");//µÚ¶ş¸ö²ÎÊıÊÇÌí¼Ó±¸×¢ĞÅÏ¢¡£
+		prop.store(w, "2015-4-5 14:55");//ç¬¬äºŒä¸ªå‚æ•°æ˜¯æ·»åŠ å¤‡æ³¨ä¿¡æ¯ã€‚
 		w.close();
 	}
 
 	private static void myLoad() throws IOException {
 		// TODO Auto-generated method stub
-		//public void load(Reader reader):°ÑÎÄ¼şÖĞµÄÊı¾İ¶ÁÈ¡µ½¼¯ºÏÖĞ
-		//×¢Òâ£ºÕâ¸öÎÄ¼şµÄÊı¾İ±ØĞëÊÇ¼üÖµ¶ÔĞÎÊ½
+		//public void load(Reader reader):æŠŠæ–‡ä»¶ä¸­çš„æ•°æ®è¯»å–åˆ°é›†åˆä¸­
+		//æ³¨æ„ï¼šè¿™ä¸ªæ–‡ä»¶çš„æ•°æ®å¿…é¡»æ˜¯é”®å€¼å¯¹å½¢å¼
 		Reader r = new FileReader("name.txt");
-		//´´½¨¼¯ºÏ¶ÔÏó
+		//åˆ›å»ºé›†åˆå¯¹è±¡
 		Properties prop = new Properties();
 		prop.load(r);
-		//ÊÍ·Å×ÊÔ´
+		//é‡Šæ”¾èµ„æº
 		r.close();
 		
 		System.out.println("prop:" + prop);

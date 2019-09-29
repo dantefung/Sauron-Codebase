@@ -1,5 +1,5 @@
 package com.dantefung.dp.factory.productseries;
-//具体的产品mushroom
+//鍏蜂綋鐨勪骇鍝乵ushroom
 public class MushRoom extends Food {
 
 	@Override

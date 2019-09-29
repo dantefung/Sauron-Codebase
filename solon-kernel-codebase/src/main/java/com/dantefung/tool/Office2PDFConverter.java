@@ -13,7 +13,7 @@ import com.artofsolving.jodconverter.openoffice.connection.SocketOpenOfficeConne
 import com.artofsolving.jodconverter.openoffice.converter.OpenOfficeDocumentConverter;
 
 /**
- * ½«OfficeÎÄµµ×ª»»ÎªPDFÎÄµµ
+ * å°†Officeæ–‡æ¡£è½¬æ¢ä¸ºPDFæ–‡æ¡£
  * 
  * @author Dante Fung
  * @date 2015-7-22
@@ -25,7 +25,7 @@ public class Office2PDFConverter {
 	}
 
 	/**
-	 * »·¾³±äÁ¿ÏÂÃæµÄurl.propertiesµÄ¾ø¶ÔÂ·¾¶
+	 * ç¯å¢ƒå˜é‡ä¸‹é¢çš„url.propertiesçš„ç»å¯¹è·¯å¾„
 	 */
 	private static final String RUL_PATH = Thread.currentThread()
 			.getContextClassLoader().getResource("").getPath()
@@ -33,10 +33,10 @@ public class Office2PDFConverter {
 			+ "url.properties";
 
 	/**
-	 * ½«OfficeÎÄµµ×ª»»ÎªPDF. ÔËĞĞ¸Ãº¯ÊıĞèÒªÓÃµ½OpenOffice, OpenOffice°æ±¾3.x
+	 * å°†Officeæ–‡æ¡£è½¬æ¢ä¸ºPDF. è¿è¡Œè¯¥å‡½æ•°éœ€è¦ç”¨åˆ°OpenOffice, OpenOfficeç‰ˆæœ¬3.x
 	 * 
 	 * <pre>
-	 * ·½·¨Ê¾Àı:
+	 * æ–¹æ³•ç¤ºä¾‹:
 	 * String sourcePath = "F:\\office\\source.doc";
 	 * String destFile = "F:\\pdf\\dest.pdf";
 	 * Office2PDFConverter.office2PDF(sourcePath, destFile);
@@ -45,17 +45,17 @@ public class Office2PDFConverter {
 	 * @author Dante Fung
 	 * @date 2015-7-22
 	 * @param sourceFile
-	 * 			Ô´ÎÄ¼ş, ¾ø¶ÔÂ·¾¶. ¿ÉÒÔÊÇOffice2003-2007È«²¿¸ñÊ½µÄÎÄµµ, Office2010µÄÃ»²âÊÔ. °üÀ¨.doc,
-	 *            .docx, .xls, .xlsx, .ppt, .pptxµÈ. Ê¾Àı: F:\\office\\source.doc
+	 * 			æºæ–‡ä»¶, ç»å¯¹è·¯å¾„. å¯ä»¥æ˜¯Office2003-2007å…¨éƒ¨æ ¼å¼çš„æ–‡æ¡£, Office2010çš„æ²¡æµ‹è¯•. åŒ…æ‹¬.doc,
+	 *            .docx, .xls, .xlsx, .ppt, .pptxç­‰. ç¤ºä¾‹: F:\\office\\source.doc
 	 * @param destFile
-	 * 			 Ä¿±êÎÄ¼ş. ¾ø¶ÔÂ·¾¶. Ê¾Àı: F:\\pdf\\dest.pdf
+	 * 			 ç›®æ ‡æ–‡ä»¶. ç»å¯¹è·¯å¾„. ç¤ºä¾‹: F:\\pdf\\dest.pdf
 	 * @return
 	 */
 	public static boolean office2PDF(String sourceFile, String destFile) {
 		
 		try {
 			
-			// 1  ÕÒ²»µ½Ô´ÎÄ¼ş, Ôò·µ»Øfalse
+			// 1  æ‰¾ä¸åˆ°æºæ–‡ä»¶, åˆ™è¿”å›false
 			File inputFile = new File(sourceFile);
 			if (!inputFile.exists()) {
 				return false;
@@ -63,52 +63,52 @@ public class Office2PDFConverter {
 
 			File outputFile = new File(destFile);
 			
-			// 2 ÒÑ¾­´æÔÚpdfÎÄ¼ş£¬·µ»Ø³É¹¦
+			// 2 å·²ç»å­˜åœ¨pdfæ–‡ä»¶ï¼Œè¿”å›æˆåŠŸ
 			if (outputFile.exists())
 				return true;
 
-			// 3  Èç¹ûÄ¿±êÂ·¾¶²»´æÔÚ, ÔòĞÂ½¨¸ÃÂ·¾¶
+			// 3  å¦‚æœç›®æ ‡è·¯å¾„ä¸å­˜åœ¨, åˆ™æ–°å»ºè¯¥è·¯å¾„
 			if (!outputFile.getParentFile().exists()) {
 				outputFile.getParentFile().mkdirs();
 			}
 			
-			// 4 ´Óurl.propertiesÎÄ¼şÖĞ¶ÁÈ¡OpenOfficeµÄ°²×°¸ùÄ¿Â¼, OpenOffice_HOME¶ÔÓ¦µÄ¼üÖµ.
+			// 4 ä»url.propertiesæ–‡ä»¶ä¸­è¯»å–OpenOfficeçš„å®‰è£…æ ¹ç›®å½•, OpenOffice_HOMEå¯¹åº”çš„é”®å€¼.
 			Properties prop = new Properties();
 			FileInputStream fis = null;
-			fis = new FileInputStream(RUL_PATH);	// ÊôĞÔÎÄ¼şÊäÈëÁ÷
-			prop.load(fis);		// ½«ÊôĞÔÎÄ¼şÁ÷×°ÔØµ½Properties¶ÔÏóÖĞ
-			fis.close();		// ¹Ø±ÕÁ÷
+			fis = new FileInputStream(RUL_PATH);	// å±æ€§æ–‡ä»¶è¾“å…¥æµ
+			prop.load(fis);		// å°†å±æ€§æ–‡ä»¶æµè£…è½½åˆ°Propertieså¯¹è±¡ä¸­
+			fis.close();		// å…³é—­æµ
 
 			String OpenOffice_HOME = prop.getProperty("OpenOffice_HOME");
 			
-			// 5 Èç¹ûÃ»ÓĞÅäÖÃopenoffice Home  £¬·µ»Ø´íÎó
+			// 5 å¦‚æœæ²¡æœ‰é…ç½®openoffice Home  ï¼Œè¿”å›é”™è¯¯
 			if (OpenOffice_HOME == null)
 				return false;
 			
-			// 6 Èç¹û´ÓÎÄ¼şÖĞ¶ÁÈ¡µÄURLµØÖ·×îºóÒ»¸ö×Ö·û²»ÊÇ '\'£¬ÔòÌí¼Ó'\'
+			// 6 å¦‚æœä»æ–‡ä»¶ä¸­è¯»å–çš„URLåœ°å€æœ€åä¸€ä¸ªå­—ç¬¦ä¸æ˜¯ '\'ï¼Œåˆ™æ·»åŠ '\'
 			if (OpenOffice_HOME.charAt(OpenOffice_HOME.length() - 1) != '\\') {
 				OpenOffice_HOME += "\\";
 			}
 			
-			// 7 Æô¶¯OpenOfficeµÄ·şÎñ , ×¢Òâ¶Ë¿Ú²»Òª³åÍ»
+			// 7 å¯åŠ¨OpenOfficeçš„æœåŠ¡ , æ³¨æ„ç«¯å£ä¸è¦å†²çª
 			String command = OpenOffice_HOME
 					+ "program\\soffice.exe -headless -accept=\"socket,host=127.0.0.1,port=8300;urp;\" -nofirststartwizard";
 			Process pro = Runtime.getRuntime().exec(command);
 			
-			// 8 Á¬½Óµ½OpenOffice £¬×¢Òâ¶Ë¿ÚÒªÓëÉÏÃæÒ»ÖÂ
+			// 8 è¿æ¥åˆ°OpenOffice ï¼Œæ³¨æ„ç«¯å£è¦ä¸ä¸Šé¢ä¸€è‡´
 			OpenOfficeConnection connection = new SocketOpenOfficeConnection(
 					"127.0.0.1", 8300);
 			connection.connect();
 
-			// 8 ×ª»»pdf
+			// 8 è½¬æ¢pdf
 			DocumentConverter converter = new OpenOfficeDocumentConverter(
 					connection);
 			converter.convert(inputFile, outputFile);
 
-			// 9 ¹Ø±ÕÁ¬½Ó
+			// 9 å…³é—­è¿æ¥
 			connection.disconnect();
 			
-			// 10  ¹Ø±ÕOpenOffice·şÎñµÄ½ø³Ì £¬ ±ÜÃâÕ¼ÓÃCPU
+			// 10  å…³é—­OpenOfficeæœåŠ¡çš„è¿›ç¨‹ ï¼Œ é¿å…å ç”¨CPU
 			pro.destroy();
 
 			return true;

@@ -16,17 +16,17 @@ public class Proxy {
 	public static Object newProxyInstance(Class infce,InvocationHandler h) throws Exception
 	{
 		String methodStr = "";
-		String rt = "\r\n";//ÔÚwindowsÏµÍ³ÏÂ£¬»Ø³µ»»ĞĞ·ûºÅ¡£\n newline \r return
+		String rt = "\r\n";//åœ¨windowsç³»ç»Ÿä¸‹ï¼Œå›è½¦æ¢è¡Œç¬¦å·ã€‚\n newline \r return
 		
-		/* \" ×ªÒÆ×Ö·û ÓÃÀ´±íÊ¾ Ë«ÒıºÅ " ±ÜÃâ»úÆ÷ÎóÈÏÎªÊÇ×Ö·û´®*/
+		/* \" è½¬ç§»å­—ç¬¦ ç”¨æ¥è¡¨ç¤º åŒå¼•å· " é¿å…æœºå™¨è¯¯è®¤ä¸ºæ˜¯å­—ç¬¦ä¸²*/
 		Method[] methods = infce.getMethods();
 		for(Method m : methods)
 		{
 			methodStr += "@Override" + rt +
-						 "public void " + m.getName()/*ÓÃ»§×Ô¶¨Òå½Ó¿ÚÖĞµÄ·½·¨µÄÃû³Æ*/ + "(){" + rt +
+						 "public void " + m.getName()/*ç”¨æˆ·è‡ªå®šä¹‰æ¥å£ä¸­çš„æ–¹æ³•çš„åç§°*/ + "(){" + rt +
 						 "	  try {" + rt +
 						 "    Method md = " + infce.getName() + ".class.getMethod(\"" + m.getName() +"\");" + rt +
-						 "    h.invoke(this, md);" + rt + //h.invoke(this,md)µÄ¾ßÌåÊµÏÖÊÇÓÃ»§×Ô¼º±àĞ´µÄInvocationHadnlerÖĞµÄinvoke()·½·¨¡£
+						 "    h.invoke(this, md);" + rt + //h.invoke(this,md)çš„å…·ä½“å®ç°æ˜¯ç”¨æˆ·è‡ªå·±ç¼–å†™çš„InvocationHadnlerä¸­çš„invoke()æ–¹æ³•ã€‚
 						 "    }catch(Exception e) {e.printStackTrace();}" + rt +
 						 "}";
 		}
@@ -45,14 +45,14 @@ public class Proxy {
 				methodStr + rt +
 				"}";
 		
-		/**Step1:½«ÎÄ¼şĞ´ÈëÖ¸¶¨µÄÂ·¾¶**/
-		String fileName = //ÎÄ¼şÉú³ÉµÄÂ·¾¶¡£
-				"f:/src/com/dantefung/dp/proxy/$Proxy1.java";//´Ë´¦Ôø±ÊÎó£º$Proxy1.java Ğ´³É $Procy.java  µ¼ÖÂºóĞøµÄÔØÈë  $Proxy1.java Óë $Procy1.javaÃû×Ö¶Ô²»ÉÏ£¬ÔØÈë²»ÁË¡£Òò´Ë£¬Ğè×¢Òâ×Ô¼ºµ¥´ÊµÄÆ´Ğ´¡£
-		File f = new File(fileName);//Í¨¹ı½«¸ø¶¨Â·¾¶Ãû×Ö·û´®×ª»»Îª³éÏóÂ·¾¶ÃûÀ´´´½¨Ò»¸öĞÂ File ÊµÀı¡£
-		FileWriter fw = new FileWriter(f);//FileWriter ÓÃÓÚĞ´Èë×Ö·ûÁ÷¡£
-		fw.write(src);//Ğ´Èë×Ö·û´®¡£ 
-		fw.flush();//Ë¢ĞÂ¸ÃÁ÷µÄ»º³å¡£ 
-		fw.close();//¹Ø±Õ´ËÁ÷£¬µ«ÒªÏÈË¢ĞÂËü¡£ÔÚ¹Ø±Õ¸ÃÁ÷Ö®ºó£¬ÔÙµ÷ÓÃ write() »ò flush() ½«µ¼ÖÂÅ×³ö IOException¡£¹Ø±ÕÒÔÇ°¹Ø±ÕµÄÁ÷ÎŞĞ§¡£ 
+		/**Step1:å°†æ–‡ä»¶å†™å…¥æŒ‡å®šçš„è·¯å¾„**/
+		String fileName = //æ–‡ä»¶ç”Ÿæˆçš„è·¯å¾„ã€‚
+				"f:/src/com/dantefung/dp/proxy/$Proxy1.java";//æ­¤å¤„æ›¾ç¬”è¯¯ï¼š$Proxy1.java å†™æˆ $Procy.java  å¯¼è‡´åç»­çš„è½½å…¥  $Proxy1.java ä¸ $Procy1.javaåå­—å¯¹ä¸ä¸Šï¼Œè½½å…¥ä¸äº†ã€‚å› æ­¤ï¼Œéœ€æ³¨æ„è‡ªå·±å•è¯çš„æ‹¼å†™ã€‚
+		File f = new File(fileName);//é€šè¿‡å°†ç»™å®šè·¯å¾„åå­—ç¬¦ä¸²è½¬æ¢ä¸ºæŠ½è±¡è·¯å¾„åæ¥åˆ›å»ºä¸€ä¸ªæ–° File å®ä¾‹ã€‚
+		FileWriter fw = new FileWriter(f);//FileWriter ç”¨äºå†™å…¥å­—ç¬¦æµã€‚
+		fw.write(src);//å†™å…¥å­—ç¬¦ä¸²ã€‚ 
+		fw.flush();//åˆ·æ–°è¯¥æµçš„ç¼“å†²ã€‚ 
+		fw.close();//å…³é—­æ­¤æµï¼Œä½†è¦å…ˆåˆ·æ–°å®ƒã€‚åœ¨å…³é—­è¯¥æµä¹‹åï¼Œå†è°ƒç”¨ write() æˆ– flush() å°†å¯¼è‡´æŠ›å‡º IOExceptionã€‚å…³é—­ä»¥å‰å…³é—­çš„æµæ— æ•ˆã€‚ 
 		
 		/**Step2:compile**/
 		JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
@@ -62,14 +62,14 @@ public class Proxy {
 		t.call();
 		fileMgr.close();
 		
-		/**Step3:½«ÎÄ¼şÖĞµÄÔ´ÂëÔØÈëÄÚ´æ²¢ÇÒ¸ù¾İÄÚ´æÖĞµÄ×Ö½ÚÂë´´½¨ÀàµÄ¶ÔÏó**/
-		URL[] urls = new URL[] {new URL("file:/"/*Õâ¸ö±ØĞëĞ´ÉÏ*/ + "f:/src/")};
+		/**Step3:å°†æ–‡ä»¶ä¸­çš„æºç è½½å…¥å†…å­˜å¹¶ä¸”æ ¹æ®å†…å­˜ä¸­çš„å­—èŠ‚ç åˆ›å»ºç±»çš„å¯¹è±¡**/
+		URL[] urls = new URL[] {new URL("file:/"/*è¿™ä¸ªå¿…é¡»å†™ä¸Š*/ + "f:/src/")};
 		URLClassLoader ul = new URLClassLoader(urls);
 		Class c = ul.loadClass("com.dantefung.dp.proxy.$Proxy1");
 		System.out.println(c);
 		
-		Constructor ctr = c.getConstructor(InvocationHandler.class);//Ö¸¶¨¹¹Ôìº¯Êı²ÎÊıµÄÀàĞÍ¡£
-		Object m = ctr.newInstance(h);//Í¨¹ı¹¹Ôì·½·¨ÊµÀı»¯Ò»Ğ©±ØÒªµÄ²ÎÊı¡£
+		Constructor ctr = c.getConstructor(InvocationHandler.class);//æŒ‡å®šæ„é€ å‡½æ•°å‚æ•°çš„ç±»å‹ã€‚
+		Object m = ctr.newInstance(h);//é€šè¿‡æ„é€ æ–¹æ³•å®ä¾‹åŒ–ä¸€äº›å¿…è¦çš„å‚æ•°ã€‚
 		
 		return m;
 	}

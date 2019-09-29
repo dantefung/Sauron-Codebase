@@ -20,8 +20,8 @@ import org.apache.commons.io.IOUtils;
 public class ImagePreProcess {  
 	
 	/**
-	 *  ��ɫ��ͼ���RGBֵ > ��ֵ������ͼƬ�����趨��100
-     * ��ɫ��ͼ���RGBֵ < ��ֵ100
+	 *  白色：图像的RGB值 > 阈值（根据图片亮度设定）100
+     * 黑色：图像的RGB值 < 阈值100
 	 * @param colorInt
 	 * @return
 	 */
@@ -34,8 +34,8 @@ public class ImagePreProcess {
     }  
     
     /**
-	 *  ��ɫ��ͼ���RGBֵ > ��ֵ������ͼƬ�����趨��100
-     * ��ɫ��ͼ���RGBֵ < ��ֵ100
+	 *  白色：图像的RGB值 > 阈值（根据图片亮度设定）100
+     * 黑色：图像的RGB值 < 阈值100
 	 * @param colorInt
 	 * @return
 	 */
@@ -47,7 +47,7 @@ public class ImagePreProcess {
         return 0;  
     }  
     /**
-     * ��ȥͼƬ�ı���:ͼ��ָ��Ŀ���뱳�����룩
+     * 出去图片的背景:图像分割（将目标与背景分离）
      * @param picFile
      * @return
      * @throws Exception
@@ -70,7 +70,7 @@ public class ImagePreProcess {
     }  
   
     /**
-     * �ָ�ͼƬ
+     * 分割图片
      * @param img
      * @return
      * @throws Exception
@@ -86,7 +86,7 @@ public class ImagePreProcess {
     }  
   
     /**
-     * ����ѵ������
+     * 载入训练数据
      * @return
      * @throws Exception
      */
@@ -101,7 +101,7 @@ public class ImagePreProcess {
     }  
   
     /**
-     * �����ַ�ʶ��
+     * 单个字符识别
      * @param img
      * @param map
      * @return
@@ -149,13 +149,13 @@ public class ImagePreProcess {
                 "http://www.puke888.com/authimg.php");  
         for (int i = 0; i < 30; i++) {  
             try {  
-                // ִ��getMethod  
+                // 执行getMethod  
                 int statusCode = httpClient.executeMethod(getMethod);  
                 if (statusCode != HttpStatus.SC_OK) {  
                     System.err.println("Method failed: "  
                             + getMethod.getStatusLine());  
                 }  
-                // ��ȡ����  
+                // 读取内容  
                 String picName = "img//" + i + ".jpg";  
                 InputStream inputStream = getMethod.getResponseBodyAsStream();  
                 OutputStream outStream = new FileOutputStream(picName);  
@@ -165,7 +165,7 @@ public class ImagePreProcess {
             } catch (Exception e) {  
                 e.printStackTrace();  
             } finally {  
-                // �ͷ�����  
+                // 释放连接  
                 getMethod.releaseConnection();  
             }  
         }  
@@ -177,10 +177,10 @@ public class ImagePreProcess {
      */  
     public static void main(String[] args) throws Exception { 
 //    	BufferedImage removeBackgroud = removeBackgroud("D:\\A\\55c9d201N7d9cc61a.jpg");
-//    	ImageIO.write(removeBackgroud, "JPEG",new File("D:\\images\\55c9d201N7d9cc61a��ȥͼ�񱳾�.jpg"));
+//    	ImageIO.write(removeBackgroud, "JPEG",new File("D:\\images\\55c9d201N7d9cc61a出去图像背景.jpg"));
     	BufferedImage read = ImageIO.read(new File("D:\\A\\55c9d201N7d9cc61a.jpg"));
     	BufferedImage subimage = read.getSubimage((750*2)/3, 100, 100, 100);
-    	ImageIO.write(subimage, "JPEG",new File("D:\\images\\55c9d201N7d9cc61a��ͼ��.jpg"));
+    	ImageIO.write(subimage, "JPEG",new File("D:\\images\\55c9d201N7d9cc61a子图像.jpg"));
     	// downloadImage();
      /*   for (int i = 0; i < 30; ++i) {  
             String text = getAllOcr("img//" + i + ".jpg");  

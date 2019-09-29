@@ -8,16 +8,16 @@ import java.io.PrintWriter;
  * 
  * @since 2015-4-5 
  * 
- * 1.¿ÉÒÔ²Ù×÷ÈÎÒâÀàĞÍµÄÊı¾İ¡£
+ * 1.å¯ä»¥æ“ä½œä»»æ„ç±»å‹çš„æ•°æ®ã€‚
  *     print()
  *     println()
- * 2.Æô¶¯×Ô¶¯Ë¢ĞÂ
+ * 2.å¯åŠ¨è‡ªåŠ¨åˆ·æ–°
  *     PintWriter pw = new PrintWriter(new FileWriter("pw2.txt"),);
- *     »¹ÊÇÓ¦¸Ãµ÷ÓÃprintln()µÄ·½·¨²Å¿ÉÒÔ
- *     Õâ¸öÊ±ºò²»½ö½ö×Ô¶¯Ë¢ĞÂÁË£¬»¹ÊµÏÖÁËÊı¾İµÄ»»ĞĞ¡£
+ *     è¿˜æ˜¯åº”è¯¥è°ƒç”¨println()çš„æ–¹æ³•æ‰å¯ä»¥
+ *     è¿™ä¸ªæ—¶å€™ä¸ä»…ä»…è‡ªåŠ¨åˆ·æ–°äº†ï¼Œè¿˜å®ç°äº†æ•°æ®çš„æ¢è¡Œã€‚
  *     
  *     println()
- *     ÆäÊµµÈ¼ÛÓÚ
+ *     å…¶å®ç­‰ä»·äº
  *     bw.write();
  *     bw.newline();
  *     bw.flush();
@@ -25,11 +25,11 @@ import java.io.PrintWriter;
 public class PrintWriterDemo2 {
     public static void main(String[] args) throws IOException
     {
-    	//´´½¨´òÓ¡Á÷¶ÔÏó
+    	//åˆ›å»ºæ‰“å°æµå¯¹è±¡
     	//PrintWriter pw = new PrintWriter("pw2.txt");
     	PrintWriter pw = new PrintWriter(new FileWriter("pw2.txt"),true);
-    	//write()ÊÇ¸ã²»¶¨µÄ£¬ÔõÃ´°ìÄØ£¿
-    	//ÎÒÃÇ¾ÍÓ¦¸Ã¿´¿´ËüµÄĞÂ·½·¨
+    	//write()æ˜¯æä¸å®šçš„ï¼Œæ€ä¹ˆåŠå‘¢ï¼Ÿ
+    	//æˆ‘ä»¬å°±åº”è¯¥çœ‹çœ‹å®ƒçš„æ–°æ–¹æ³•
     	//pw.print(true);
     	//pw.print(100);
     	//pw.print("hello");

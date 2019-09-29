@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /*
- * ĞèÇó£º ÎÒÓĞÒ»¸öÎÄ±¾ÎÄ¼şÖĞ´æ´¢ÁË¼¸¸öÃû³Æ£¬Çë´ó¼ÒĞ­Òé³ÌĞòÊµÏÖËæ»ú»ñÈ¡Ò»¸öÈËµÄÃû×Ö¡£
+ * éœ€æ±‚ï¼š æˆ‘æœ‰ä¸€ä¸ªæ–‡æœ¬æ–‡ä»¶ä¸­å­˜å‚¨äº†å‡ ä¸ªåç§°ï¼Œè¯·å¤§å®¶åè®®ç¨‹åºå®ç°éšæœºè·å–ä¸€ä¸ªäººçš„åå­—ã€‚
  * 
  * 
- * ·ÖÎö£º
- *    A£º°ÑÎÄ±¾ÎÄ¼şÖĞµÄÊı¾İ´æ´¢µ½¼¯ºÏÖĞ
- *    B£ºËæ»ú²úÉúÒ»¸öË÷Òı
- *    C£º¸ù¾İ¸ÃË÷Òı»ñÈ¡Ò»¸öÖµ¡£
+ * åˆ†æï¼š
+ *    Aï¼šæŠŠæ–‡æœ¬æ–‡ä»¶ä¸­çš„æ•°æ®å­˜å‚¨åˆ°é›†åˆä¸­
+ *    Bï¼šéšæœºäº§ç”Ÿä¸€ä¸ªç´¢å¼•
+ *    Cï¼šæ ¹æ®è¯¥ç´¢å¼•è·å–ä¸€ä¸ªå€¼ã€‚
  * 
  * 
  * 
@@ -27,7 +27,7 @@ public class GetName {
 	 */
 	public static void main(String[] args) throws IOException{
 		// TODO Auto-generated method stub
-		//°ÑÎÄ±¾ÎÄ¼şµÄÊı¾İ´æ´¢µ½¼¯ºÏÖĞ
+		//æŠŠæ–‡æœ¬æ–‡ä»¶çš„æ•°æ®å­˜å‚¨åˆ°é›†åˆä¸­
 		BufferedReader br = new BufferedReader(new FileReader("c.txt"));
 	    ArrayList<String> array = new ArrayList<String>();
 	    
@@ -37,13 +37,13 @@ public class GetName {
 	    	array.add(line);
 	    }
 	    
-	    //Ëæ»ú²úÉúÒ»¸öË÷Òı
+	    //éšæœºäº§ç”Ÿä¸€ä¸ªç´¢å¼•
 	    Random rd = new Random();
 	    int index = rd.nextInt(array.size());
 	    
-	    //¸ù¾İ¸ÃË÷Òı»ñÈ¡Ò»¸öÖµ¡¢
+	    //æ ¹æ®è¯¥ç´¢å¼•è·å–ä¸€ä¸ªå€¼ã€
 	    String name = array.get(index);
-	    System.out.println( "¸ÃĞÒÔËÕßÊÇ£º"+ name);
+	    System.out.println( "è¯¥å¹¸è¿è€…æ˜¯ï¼š"+ name);
 	    
 	}
 

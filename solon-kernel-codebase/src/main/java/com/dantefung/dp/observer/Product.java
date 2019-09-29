@@ -2,18 +2,18 @@
  * Project Name:dantefung
  * File Name:Product.java
  * Package Name:com.dantefung.dp.observer
- * Date:2016-3-28ÏÂÎç9:51:37
+ * Date:2016-3-28ä¸‹åˆ9:51:37
  * Copyright (c) 2016, fhlin0611@foxmail.com All Rights Reserved.
  *
 */
 
 package com.dantefung.dp.observer;
 /**
- * ±»¹Û²ìÕß
+ * è¢«è§‚å¯Ÿè€…
  * ClassName:Product <br/>
  * Function: TODO ADD FUNCTION. <br/>
  * Reason:	 TODO ADD REASON. <br/>
- * Date:     2016-3-28 ÏÂÎç9:51:37 <br/>
+ * Date:     2016-3-28 ä¸‹åˆ9:51:37 <br/>
  * @author   Dante Fung
  * @version  
  * @since    JDK 1.6
@@ -21,11 +21,11 @@ package com.dantefung.dp.observer;
  */
 public class Product extends Observerable
 {
-	// ¶¨ÒåÁ½¸öÊôĞÔ
+	// å®šä¹‰ä¸¤ä¸ªå±æ€§
 	private String name;
 	private double price;
 	
-	// ÎŞ²ÎµÄ¹¹ÔìÆ÷
+	// æ— å‚çš„æ„é€ å™¨
 	public Product()
 	{
 
@@ -42,8 +42,8 @@ public class Product extends Observerable
 		return name;
 	}
 	
-	// µ±³ÌĞòµ÷ÓÃnameµÄsetter·½·¨À´ĞŞ¸ÄProductµÄnameÊôĞÔÊ±
-	// ³ÌĞò×ÔÈ»´¥·¢¸Ã¶ÔÏóÉÏ×¢²áµÄËùÓĞ¹Û²ìÕß
+	// å½“ç¨‹åºè°ƒç”¨nameçš„setteræ–¹æ³•æ¥ä¿®æ”¹Productçš„nameå±æ€§æ—¶
+	// ç¨‹åºè‡ªç„¶è§¦å‘è¯¥å¯¹è±¡ä¸Šæ³¨å†Œçš„æ‰€æœ‰è§‚å¯Ÿè€…
 	public void setName(String name)
 	{
 		this.name = name;
@@ -55,8 +55,8 @@ public class Product extends Observerable
 		return price;
 	}
 	
-	// µ±³ÌĞòµ÷ÓÃpriceµÄsetter·½·¨À´ĞŞ¸ÄProductµÄpriceÊôĞÔÊ±
-	// ³ÌĞò×ÔÈ»´¥·¢¸Ã¶ÔÏóÉÏ×¢²áµÄËùÓĞ¹Û²ìÕß
+	// å½“ç¨‹åºè°ƒç”¨priceçš„setteræ–¹æ³•æ¥ä¿®æ”¹Productçš„priceå±æ€§æ—¶
+	// ç¨‹åºè‡ªç„¶è§¦å‘è¯¥å¯¹è±¡ä¸Šæ³¨å†Œçš„æ‰€æœ‰è§‚å¯Ÿè€…
 	public void setPrice(double price)
 	{
 		this.price = price;

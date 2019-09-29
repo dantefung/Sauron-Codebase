@@ -7,8 +7,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 /*
- * ĞòÁĞ»¯Á÷£º °Ñ¶ÔÏó°´ÕÕÁ÷Ò»ÑùµÄ·½Ê½´æÈëÎÄ±¾ÎÄ¼ş»òÕßÔÚÍøÂçÖĞ´«Êä¡£¶ÔÏó --Á÷Êı¾İ£¨ObjectOutputStream£© 
- * ·´ĞòÁĞ»¯Á÷£º °ÑÎÄ±¾ÎÄ¼şÖĞµÄÁ÷¶ÔÏóÊı¾İ»òÕßÍøÂçÖĞµÄÁ÷¶ÔÏóÊı¾İ»¹Ô­³É¶ÔÏó¡£Á÷Êı¾İ--¶ÔÏó£¨ObjectInputStream£©
+ * åºåˆ—åŒ–æµï¼š æŠŠå¯¹è±¡æŒ‰ç…§æµä¸€æ ·çš„æ–¹å¼å­˜å…¥æ–‡æœ¬æ–‡ä»¶æˆ–è€…åœ¨ç½‘ç»œä¸­ä¼ è¾“ã€‚å¯¹è±¡ --æµæ•°æ®ï¼ˆObjectOutputStreamï¼‰ 
+ * ååºåˆ—åŒ–æµï¼š æŠŠæ–‡æœ¬æ–‡ä»¶ä¸­çš„æµå¯¹è±¡æ•°æ®æˆ–è€…ç½‘ç»œä¸­çš„æµå¯¹è±¡æ•°æ®è¿˜åŸæˆå¯¹è±¡ã€‚æµæ•°æ®--å¯¹è±¡ï¼ˆObjectInputStreamï¼‰
  * 
  */
 public class ObjectStreamDemo {
@@ -19,8 +19,8 @@ public class ObjectStreamDemo {
 	 */
 	public static void main(String[] args) throws IOException, ClassNotFoundException{
 		// TODO Auto-generated method stub
-		//ÓÉÓÚÎÒÃÇÒª¶Ô¶ÔÏó½øĞĞÊÇßÖ»°£¬ËùÒÔÎÒÃÇÏÈ×Ô¶¨ÒåÒ»¸öÀà
-		//ĞòÁĞ»¯Êı¾İÆäÊµ¾ÍÊÇ°Ñ¶ÔÏóĞ´µ½ÎÄ±¾ÎÄ¼ş
+		//ç”±äºæˆ‘ä»¬è¦å¯¹å¯¹è±¡è¿›è¡Œæ˜¯å’§è¯ï¼Œæ‰€ä»¥æˆ‘ä»¬å…ˆè‡ªå®šä¹‰ä¸€ä¸ªç±»
+		//åºåˆ—åŒ–æ•°æ®å…¶å®å°±æ˜¯æŠŠå¯¹è±¡å†™åˆ°æ–‡æœ¬æ–‡ä»¶
 		
 		write();
 		
@@ -29,13 +29,13 @@ public class ObjectStreamDemo {
 
 	private static void read() throws IOException, ClassNotFoundException{
 		// TODO Auto-generated method stub
-		//´´½¨·´ĞòÁĞ»¯¶ÔÏó
+		//åˆ›å»ºååºåˆ—åŒ–å¯¹è±¡
 		ObjectInputStream ois = new ObjectInputStream(new FileInputStream("oos.txt"));
 		
-		//»¹Ô­¶ÔÏó
+		//è¿˜åŸå¯¹è±¡
 		Object obj = ois.readObject();
 		
-		//ÊÍ·Å×ÊÔ´
+		//é‡Šæ”¾èµ„æº
 		ois.close();
 		
 		System.out.println(obj);
@@ -43,16 +43,16 @@ public class ObjectStreamDemo {
 
 	private static void write() throws IOException{
 		// TODO Auto-generated method stub
-		//´´½¨ĞòÁĞ»¯¶ÔÏó
+		//åˆ›å»ºåºåˆ—åŒ–å¯¹è±¡
 		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("oos.txt"));
 		
-		//´´½¨¶ÔÏó
+		//åˆ›å»ºå¯¹è±¡
 		Person p = new Person();
 		
 		//public final void writeObject(Object obj)
 		oos.writeObject(p);
 		
-		//ÊÍ·Å×ÊÔ´
+		//é‡Šæ”¾èµ„æº
 		oos.close();
 	}
 

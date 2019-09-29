@@ -13,17 +13,17 @@ public class DirList2 {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		File path = new File("E:\\");//Æ¥Åä³ı»»ĞĞ·ûÖ®ÍâµÄÈÎÒâ×Ö·û¡£
+		File path = new File("E:\\");//åŒ¹é…é™¤æ¢è¡Œç¬¦ä¹‹å¤–çš„ä»»æ„å­—ç¬¦ã€‚
 		String[] list;
 		if(args.length == 0)
 		{
-			list = path.list();// ·µ»ØÒ»¸ö×Ö·û´®Êı×é£¬ÕâĞ©×Ö·û´®Ö¸¶¨´Ë³éÏóÂ·¾¶Ãû±íÊ¾µÄÄ¿Â¼ÖĞµÄÎÄ¼şºÍÄ¿Â¼¡£
+			list = path.list();// è¿”å›ä¸€ä¸ªå­—ç¬¦ä¸²æ•°ç»„ï¼Œè¿™äº›å­—ç¬¦ä¸²æŒ‡å®šæ­¤æŠ½è±¡è·¯å¾„åè¡¨ç¤ºçš„ç›®å½•ä¸­çš„æ–‡ä»¶å’Œç›®å½•ã€‚
 		}
 		else
 		{
-			list = path.list(filter(args[0]));//²ßÂÔÄ£Ê½¡£»Øµ÷º¯Êı¡£·µ»ØÒ»¸ö×Ö·û´®Êı×é£¬ÕâĞ©×Ö·û´®Ö¸¶¨´Ë³éÏóÂ·¾¶Ãû±íÊ¾µÄÄ¿Â¼ÖĞÂú×ãÖ¸¶¨¹ıÂËÆ÷µÄÎÄ¼şºÍÄ¿Â¼¡£
+			list = path.list(filter(args[0]));//ç­–ç•¥æ¨¡å¼ã€‚å›è°ƒå‡½æ•°ã€‚è¿”å›ä¸€ä¸ªå­—ç¬¦ä¸²æ•°ç»„ï¼Œè¿™äº›å­—ç¬¦ä¸²æŒ‡å®šæ­¤æŠ½è±¡è·¯å¾„åè¡¨ç¤ºçš„ç›®å½•ä¸­æ»¡è¶³æŒ‡å®šè¿‡æ»¤å™¨çš„æ–‡ä»¶å’Œç›®å½•ã€‚
 		}
-		Arrays.sort(list, String.CASE_INSENSITIVE_ORDER);//°´×ÖÄ¸Ë³ĞòÅÅĞò¡£
+		Arrays.sort(list, String.CASE_INSENSITIVE_ORDER);//æŒ‰å­—æ¯é¡ºåºæ’åºã€‚
 		for(String dirItem : list)
 		{
 			System.out.println(dirItem);

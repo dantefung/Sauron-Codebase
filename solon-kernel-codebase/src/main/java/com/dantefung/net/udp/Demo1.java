@@ -9,7 +9,7 @@ public class Demo1
     {
 	    // InetAddress ip = InetAddress.getLocalHost();
 		InetAddress ip = InetAddress.getByName("www.baidu.com");
-	    System.out.println("Ö÷»úÃû£º " + ip.getHostName());
-	    System.out.println("ipºÅ£º " + ip.getHostAddress());
+	    System.out.println("ä¸»æœºåï¼š " + ip.getHostName());
+	    System.out.println("ipå·ï¼š " + ip.getHostAddress());
     }
 }

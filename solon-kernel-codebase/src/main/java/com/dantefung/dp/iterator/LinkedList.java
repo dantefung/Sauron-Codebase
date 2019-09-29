@@ -1,22 +1,22 @@
 package com.dantefung.dp.iterator;
-//ÓÃLinkedListÀ´Ğ´Ò»¸öÈİÆ÷¡£
+//ç”¨LinkedListæ¥å†™ä¸€ä¸ªå®¹å™¨ã€‚
 public class LinkedList implements Collection {
 	Node head = null;
 	Node tail = null;
-	int size = 0;//ÈßÓàÊı¾İ¡£
+	int size = 0;//å†—ä½™æ•°æ®ã€‚
 	public void add(Object o)
 	{
 		Node n = new Node(o,null);
-		if(head == null) //Ìí¼Ó½øÀ´µÄÕâ¸ö½ÚµãÊÇµÚÒ»¸ö½Úµã¡£
+		if(head == null) //æ·»åŠ è¿›æ¥çš„è¿™ä¸ªèŠ‚ç‚¹æ˜¯ç¬¬ä¸€ä¸ªèŠ‚ç‚¹ã€‚
 		{
-			head = n;//¼ÈÊÇî^
-			tail = n;//Ò²ÊÇÎ²
+			head = n;//æ—¢æ˜¯é ­
+			tail = n;//ä¹Ÿæ˜¯å°¾
 			tail.setNext(null);
 		}
 		else
 		{
-			tail.setNext(n);//tail¼ÇÂ¼ÁËÏÂÒ»¸ö½ÚµãµÄÒıÓÃ¡£
-			tail = n;//tail±¾ÉíÒªµÈÓÚĞÂ¼Ó½øÀ´µÄ½Úµã¡£tailµÄÒıÓÃÖ¸ÏòÏÂÒ»¸ö½Úµã¡£
+			tail.setNext(n);//tailè®°å½•äº†ä¸‹ä¸€ä¸ªèŠ‚ç‚¹çš„å¼•ç”¨ã€‚
+			tail = n;//tailæœ¬èº«è¦ç­‰äºæ–°åŠ è¿›æ¥çš„èŠ‚ç‚¹ã€‚tailçš„å¼•ç”¨æŒ‡å‘ä¸‹ä¸€ä¸ªèŠ‚ç‚¹ã€‚
 			size ++;
 		}
 	}

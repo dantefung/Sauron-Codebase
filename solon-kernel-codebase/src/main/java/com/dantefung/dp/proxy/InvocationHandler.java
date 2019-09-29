@@ -1,7 +1,7 @@
 package com.dantefung.dp.proxy;
 
 import java.lang.reflect.Method;
-//·½·¨´¦ÀíÆ÷¡£¾ßÌåµÄÊµÏÖÁô¸øÓÃ»§¡£²»Ğ´ËÀÔÚ´úÂëÀïÃæ¡£
+//æ–¹æ³•å¤„ç†å™¨ã€‚å…·ä½“çš„å®ç°ç•™ç»™ç”¨æˆ·ã€‚ä¸å†™æ­»åœ¨ä»£ç é‡Œé¢ã€‚
 public interface InvocationHandler {
 	public void invoke(Object o, Method m);
 }

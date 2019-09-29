@@ -9,9 +9,9 @@ public class SafeReceive {
 	
 	public static void main(String[] args) {
 		try {
-			//µÚÒ»²½£º ½¨Á¢udpµÄ·şÎñ£¬²¢ÇÒÒª¼àÌıÒ»¸ö¶Ë¿Ú
+			//ç¬¬ä¸€æ­¥ï¼š å»ºç«‹udpçš„æœåŠ¡ï¼Œå¹¶ä¸”è¦ç›‘å¬ä¸€ä¸ªç«¯å£
 			DatagramSocket socket = new DatagramSocket(9090);
-			//µÚ¶ş²½£º ×¼±¸¿ÕµÄÊı¾İ°ü£¬×¼±¸½ÓÊÕÊı¾İ
+			//ç¬¬äºŒæ­¥ï¼š å‡†å¤‡ç©ºçš„æ•°æ®åŒ…ï¼Œå‡†å¤‡æ¥æ”¶æ•°æ®
 			byte[] buf = new byte[1024];
 			DatagramPacket packet = new DatagramPacket(buf, buf.length);
 			boolean flag = true;
@@ -20,7 +20,7 @@ public class SafeReceive {
 				System.out.println(new String(buf,0,packet.getLength()));
 				Thread.sleep(100);
 			}
-			//¹Ø±Õ×ÊÔ´
+			//å…³é—­èµ„æº
 			socket.close();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

@@ -28,7 +28,7 @@ public class Ping {
 			
 			process.getOutputStream().close();
 			
-			//¼ì²éÃüÁîÊÇ·ñÊ§°Ü¡£
+			//æ£€æŸ¥å‘½ä»¤æ˜¯å¦å¤±è´¥ã€‚
 			try
 			{
 				if(process.waitFor() !=0)
@@ -37,7 +37,7 @@ public class Ping {
 				}
 				else
 				{
-					System.out.println("ÁªÍø³É¹¦£¡£¡");
+					System.out.println("è”ç½‘æˆåŠŸï¼ï¼");
 				}
 			}
 			catch(InterruptedException e)

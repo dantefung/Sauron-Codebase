@@ -13,7 +13,7 @@ import org.dom4j.io.XMLWriter;
 public class Dom4jUtil {
 
 	/**
-	 * Dom4j:读取xml文件
+	 * Dom4j:璇诲彇xml鏂囦欢
 	 * @param url
 	 * @param bean
 	 * @return
@@ -34,19 +34,19 @@ public class Dom4jUtil {
 	}
 	
 	 /** 
-     * Dom4j:把document对象写入新的文件 
+     * Dom4j:鎶奷ocument瀵硅薄鍐欏叆鏂扮殑鏂囦欢 
      *  
      * @param document 
      * @throws Exception 
      */  
     public static void writer(Document document, String fileName){  
-        // 紧凑的格�? 
+        // 绱у噾鐨勬牸寮? 
         // OutputFormat format = OutputFormat.createCompactFormat();  
-        // 排版缩进的格�? 
+        // 鎺掔増缂╄繘鐨勬牸寮? 
         OutputFormat format = OutputFormat.createPrettyPrint();  
-        // 设置编码  
+        // 璁剧疆缂栫爜  
         format.setEncoding("UTF-8");  
-        // 创建XMLWriter对象,指定了写出文件及编码格式  
+        // 鍒涘缓XMLWriter瀵硅薄,鎸囧畾浜嗗啓鍑烘枃浠跺強缂栫爜鏍煎紡  
         // XMLWriter writer = new XMLWriter(new FileWriter(new  
         // File("src//a.xml")),format);  
         XMLWriter writer;
@@ -54,11 +54,11 @@ public class Dom4jUtil {
 		{
 			writer = new XMLWriter(new OutputStreamWriter(  
 			        new FileOutputStream(new File(fileName)), "UTF-8"), format);
-	        // 写入  
+	        // 鍐欏叆  
 	        writer.write(document);  
-	        // 立即写入  
+	        // 绔嬪嵆鍐欏叆  
 	        writer.flush();  
-	        // 关闭操作  
+	        // 鍏抽棴鎿嶄綔  
 	        writer.close();  
 		} 
 		catch (Exception e)

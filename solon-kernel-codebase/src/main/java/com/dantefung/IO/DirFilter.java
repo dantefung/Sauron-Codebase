@@ -9,12 +9,12 @@ public class DirFilter implements FilenameFilter {
 	private Pattern pattern;
 
 	public DirFilter(String regex) {
-		pattern = Pattern.compile(regex);//Ö¸¶¨Îª×Ö·û´®µÄÕıÔò±í´ïÊ½±ØĞëÊ×ÏÈ±»±àÒëÎª´ËÀàµÄÊµÀı.
+		pattern = Pattern.compile(regex);//æŒ‡å®šä¸ºå­—ç¬¦ä¸²çš„æ­£åˆ™è¡¨è¾¾å¼å¿…é¡»é¦–å…ˆè¢«ç¼–è¯‘ä¸ºæ­¤ç±»çš„å®ä¾‹.
 	}
 
 	@Override
 	public boolean accept(File dir, String name) {
-		return pattern.matcher(name).matches();//Ö´ĞĞÑéÖ¤¡£
+		return pattern.matcher(name).matches();//æ‰§è¡ŒéªŒè¯ã€‚
 	}
 
 }

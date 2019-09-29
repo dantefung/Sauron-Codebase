@@ -4,7 +4,7 @@ public class Plane implements Moveable {
 
 	@Override
 	public void run() {
-		System.out.println("ºôÀ²ºôÀ²Plane¡£¡£¡£");
+		System.out.println("å‘¼å•¦å‘¼å•¦Planeã€‚ã€‚ã€‚");
 	}
 
 }

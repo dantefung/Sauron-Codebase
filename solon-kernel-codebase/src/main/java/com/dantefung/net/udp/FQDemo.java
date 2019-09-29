@@ -4,20 +4,20 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 /**
- * ĞèÇó£º¸øFeiQ·¢ËÍÏûÏ¢
+ * éœ€æ±‚ï¼šç»™FeiQå‘é€æ¶ˆæ¯
  * 
- * ·²ÊÇÍøÂç±à³ÌÈí¼ş¶¼Òª¶ÔÊı¾İ½øĞĞ¼ÓÃÜ£¬ÕâÑù×Ó×öµÄÄ¿µÄÊÇ¿¼ÂÇµ½ÁË°²È«ĞÔÎÊÌâ¡£
- * ¶ø¼ÓÃÜµÄ·½Ê½ÊÇ×î¼òµ¥µÄ¾ÍÊÇ½ÓÊÕÖ¸¶¨¸ñÊ½µÄ×Ö·û´®¡£Èç¹û½ÓÊÕµ½µÄÊı¾İ²»·ûºÏËùÒª
- * ÇóµÄ¸ñÊ½£¬ÄÇÃ´¸ÃÊı¾İ¾Í»áÖ±½Ó¶ªÆú£¬²»´¦Àí¡£
+ * å‡¡æ˜¯ç½‘ç»œç¼–ç¨‹è½¯ä»¶éƒ½è¦å¯¹æ•°æ®è¿›è¡ŒåŠ å¯†ï¼Œè¿™æ ·å­åšçš„ç›®çš„æ˜¯è€ƒè™‘åˆ°äº†å®‰å…¨æ€§é—®é¢˜ã€‚
+ * è€ŒåŠ å¯†çš„æ–¹å¼æ˜¯æœ€ç®€å•çš„å°±æ˜¯æ¥æ”¶æŒ‡å®šæ ¼å¼çš„å­—ç¬¦ä¸²ã€‚å¦‚æœæ¥æ”¶åˆ°çš„æ•°æ®ä¸ç¬¦åˆæ‰€è¦
+ * æ±‚çš„æ ¼å¼ï¼Œé‚£ä¹ˆè¯¥æ•°æ®å°±ä¼šç›´æ¥ä¸¢å¼ƒï¼Œä¸å¤„ç†ã€‚
  * 
- * ·ÉQÒªÇó½ÓÊÕµÄÊı¾İ¸ñÊ½£º
- *     version:time:sender:ip£ºflag:content
- *     version:°æ±¾¡£1.0
- *     time:Ê±¼ä¡£
- *     sender:·¢ËÍÕß¡£
- *     ip:·¢ËÍÕßµÄIPµØÖ·¡£
- *     flag:·¢ËÍµÄ±êÊ¶£¬32£¨±êÊ¶ÄãÒªÁÄÌì£©
- *     content:²ÅÊÇÄãÕæÕıÏ£ÍûÒª·¢ËÍµÄÄÚÈİ¡£
+ * é£Qè¦æ±‚æ¥æ”¶çš„æ•°æ®æ ¼å¼ï¼š
+ *     version:time:sender:ipï¼šflag:content
+ *     version:ç‰ˆæœ¬ã€‚1.0
+ *     time:æ—¶é—´ã€‚
+ *     sender:å‘é€è€…ã€‚
+ *     ip:å‘é€è€…çš„IPåœ°å€ã€‚
+ *     flag:å‘é€çš„æ ‡è¯†ï¼Œ32ï¼ˆæ ‡è¯†ä½ è¦èŠå¤©ï¼‰
+ *     content:æ‰æ˜¯ä½ çœŸæ­£å¸Œæœ›è¦å‘é€çš„å†…å®¹ã€‚
  *     
  * @author Dante Fung
  *
@@ -26,15 +26,15 @@ public class FQDemo
 {
 	public static void main(String[] args) throws Exception
     {
-	    // 1¡¢½¨Á¢UDP·şÎñ
+	    // 1ã€å»ºç«‹UDPæœåŠ¡
 		DatagramSocket datagramSocket = new DatagramSocket();
-		// 2¡¢×¼±¸Òª·¢ËÍµÄÊı¾İ£¬·â×°³ÉÊı¾İ°ü
+		// 2ã€å‡†å¤‡è¦å‘é€çš„æ•°æ®ï¼Œå°è£…æˆæ•°æ®åŒ…
 		String data = getData("Hello FQ!");
 		byte[] buf = data.getBytes();
 		DatagramPacket packet = new DatagramPacket(buf, buf.length, InetAddress.getByName("169.254.147.26"), 2425);
-		// 3¡¢·¢ËÍÊı¾İ
+		// 3ã€å‘é€æ•°æ®
 		datagramSocket.send(packet);
-		// 4¡¢ÊÍ·Å×ÊÔ´£¨ÊÍ·Å¶Ë¿Ú£©
+		// 4ã€é‡Šæ”¾èµ„æºï¼ˆé‡Šæ”¾ç«¯å£ï¼‰
 		datagramSocket.close();
     }
 	

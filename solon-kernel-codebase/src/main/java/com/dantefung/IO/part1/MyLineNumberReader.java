@@ -4,12 +4,12 @@ import java.io.IOException;
 import java.io.Reader;
 
 public class MyLineNumberReader {
-    private Reader r;//¾ÛºÏ¶ÔÏó¡£
+    private Reader r;//èšåˆå¯¹è±¡ã€‚
     private int lineNumber =0;
     
     public MyLineNumberReader(Reader r)
     {
-    	this.r = r;//´Ë´¦²ÉÈ¡   ÒÀÀµ×¢Èë  »á¸üºÃ¡£IOC(¿ØÖÆ·´×ª)
+    	this.r = r;//æ­¤å¤„é‡‡å–   ä¾èµ–æ³¨å…¥  ä¼šæ›´å¥½ã€‚IOC(æ§åˆ¶åè½¬)
     }
     
     public int getLineNumber()
@@ -53,7 +53,7 @@ public class MyLineNumberReader {
     	return null;
     }
     
-    //ÊÍ·Å×ÊÔ´
+    //é‡Šæ”¾èµ„æº
     public void close() throws IOException
     {
     	this.r.close();

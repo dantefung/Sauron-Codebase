@@ -2,7 +2,7 @@
  * Project Name:dantefung
  * File Name:DiscountContext.java
  * Package Name:com.dantefung.dp.strategy
- * Date:2016-3-16ÏÂÎç5:07:34
+ * Date:2016-3-16ä¸‹åˆ5:07:34
  * Copyright (c) 2016, fhlin0611@foxmail.com All Rights Reserved.
  *
 */
@@ -12,7 +12,7 @@ package com.dantefung.dp.strategy;
  * ClassName:DiscountContext <br/>
  * Function: TODO ADD FUNCTION. <br/>
  * Reason:	 TODO ADD REASON. <br/>
- * Date:     2016-3-16 ÏÂÎç5:07:34 <br/>
+ * Date:     2016-3-16 ä¸‹åˆ5:07:34 <br/>
  * @author   Dante Fung
  * @version  
  * @since    JDK 1.6
@@ -20,18 +20,18 @@ package com.dantefung.dp.strategy;
  */
 public class DiscountContext
 {
-	// ×éºÏÒ»¸öDisocuntStrategy¶ÔÏó¡£ºÏ³É¸´ÓÃÔ­Ôò¡£¶àÌ¬¡£
+	// ç»„åˆä¸€ä¸ªDisocuntStrategyå¯¹è±¡ã€‚åˆæˆå¤ç”¨åŸåˆ™ã€‚å¤šæ€ã€‚
 	private DiscountStrategy strategy;
-	// ¹¹ÔìÆ÷£¬´«ÈëÒ»¸öDiscountStrategy¶ÔÏó
+	// æ„é€ å™¨ï¼Œä¼ å…¥ä¸€ä¸ªDiscountStrategyå¯¹è±¡
 	public DiscountContext(DiscountStrategy strategy)
 	{
 		this.strategy = strategy;
 	}
 	
-	// ¸ù¾İÊµ¼ÊËùÊ¹ÓÃµÄDiscountStrategy¶ÔÏóµÃµ½ÕÛ¿Û¼Û
+	// æ ¹æ®å®é™…æ‰€ä½¿ç”¨çš„DiscountStrategyå¯¹è±¡å¾—åˆ°æŠ˜æ‰£ä»·
 	public double getDiscountPrice(double price)
 	{
-		// Èç¹ûstrategyÎªnull£¬ÏµÍ³×Ô¶¯Ñ¡ÔñoldDiscountÀà
+		// å¦‚æœstrategyä¸ºnullï¼Œç³»ç»Ÿè‡ªåŠ¨é€‰æ‹©oldDiscountç±»
 		if(strategy == null)
 		{
 			strategy = new OldDiscount();
@@ -40,7 +40,7 @@ public class DiscountContext
 		return this.strategy.getDiscount(price);
 	}
 	
-	// Ìá¹©ÇĞ»»Ëã·¨µÄ·½·¨
+	// æä¾›åˆ‡æ¢ç®—æ³•çš„æ–¹æ³•
 	public void changeDiscount(DiscountStrategy strategy)
 	{
 		this.strategy = strategy;

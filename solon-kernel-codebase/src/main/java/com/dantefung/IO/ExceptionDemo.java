@@ -1,20 +1,20 @@
 package com.dantefung.IO;
 /*
- * Òì³££º³ÌÐò³öÏÖÁË²»Õý³£µÄÇé¿ö¡£
+ * å¼‚å¸¸ï¼šç¨‹åºå‡ºçŽ°äº†ä¸æ­£å¸¸çš„æƒ…å†µã€‚
  * 
  * 
- * ³ÌÐòµÄÒì³££º 
- *     ÑÏÖØÎÊÌâ£ºError  ÎÒÃÇ²»´¦Àí¡£ÕâÖÖÎÊÌâÒ»°ã¶¼ÊÇºÜÑÏÖØµÄ£¬²¦ÈëËµÄÚ´æÒç³ö¡£
- *     ÎÊÌâ£ºException
- *         ±àÒëÊ±ÎÊÌâ:²»ÊÇRuntimeExceptionÒì³£¡£Òª´¦Àí¡£
- *         ÔËÐÐÊ±ÎÊÌâ:RuntimeException  ÕâÖÖÎÊÌâÎÒÃÇÒ²²»´¦Àí£¬ÒòÎªÊÇÄãµÄÎÊÌâ£¬¶øÇÒÕâ¸öÎÊÌâ³öÏÖ¿Ï¶¨¾ÍÊÇÎÒÃÇµÄ´úÂë²»ÑÏ½÷¡£
+ * ç¨‹åºçš„å¼‚å¸¸ï¼š 
+ *     ä¸¥é‡é—®é¢˜ï¼šError  æˆ‘ä»¬ä¸å¤„ç†ã€‚è¿™ç§é—®é¢˜ä¸€èˆ¬éƒ½æ˜¯å¾ˆä¸¥é‡çš„ï¼Œæ‹¨å…¥è¯´å†…å­˜æº¢å‡ºã€‚
+ *     é—®é¢˜ï¼šException
+ *         ç¼–è¯‘æ—¶é—®é¢˜:ä¸æ˜¯RuntimeExceptionå¼‚å¸¸ã€‚è¦å¤„ç†ã€‚
+ *         è¿è¡Œæ—¶é—®é¢˜:RuntimeException  è¿™ç§é—®é¢˜æˆ‘ä»¬ä¹Ÿä¸å¤„ç†ï¼Œå› ä¸ºæ˜¯ä½ çš„é—®é¢˜ï¼Œè€Œä¸”è¿™ä¸ªé—®é¢˜å‡ºçŽ°è‚¯å®šå°±æ˜¯æˆ‘ä»¬çš„ä»£ç ä¸ä¸¥è°¨ã€‚
  * 
- * Èç¹û³ÌÐò³öÏÖÁËÎÊÌâ£¬ÎÒÃÇÃ»ÓÐ×ö³ö´¦Àí£¬ÄÇÃ´jvm»á×ö³öÄ¬ÈÏµÄ´¦Àí¡£
+ * å¦‚æžœç¨‹åºå‡ºçŽ°äº†é—®é¢˜ï¼Œæˆ‘ä»¬æ²¡æœ‰åšå‡ºå¤„ç†ï¼Œé‚£ä¹ˆjvmä¼šåšå‡ºé»˜è®¤çš„å¤„ç†ã€‚
  * 
- * °ÑÒì³£µÄÃû³Æ£¬Ô­Òò¼°³öÏÖµÄÎÊÌâµÈÐÅÏ¢Êä³öÔÚ¿ØÖÆÌ¨¡£
+ * æŠŠå¼‚å¸¸çš„åç§°ï¼ŒåŽŸå› åŠå‡ºçŽ°çš„é—®é¢˜ç­‰ä¿¡æ¯è¾“å‡ºåœ¨æŽ§åˆ¶å°ã€‚
  * 
- * Í¬Ê±»á½áÊø³ÌÐò¡£
- * ÎÒÃÇµÄ³ÌÐò²»ÄÜ¼ÌÐøÖ´ÐÐ¡£
+ * åŒæ—¶ä¼šç»“æŸç¨‹åºã€‚
+ * æˆ‘ä»¬çš„ç¨‹åºä¸èƒ½ç»§ç»­æ‰§è¡Œã€‚
  * **/
 public class ExceptionDemo {
     public static void main(String[] args)

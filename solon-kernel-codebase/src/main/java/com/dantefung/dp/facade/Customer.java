@@ -2,18 +2,18 @@
  * Project Name:dantefung
  * File Name:Customer.java
  * Package Name:com.dantefung.dp.facade
- * Date:2016-3-17ÏÂÎç12:51:47
+ * Date:2016-3-17ä¸‹åˆ12:51:47
  * Copyright (c) 2016, fhlin0611@foxmail.com All Rights Reserved.
  *
 */
 
 package com.dantefung.dp.facade;
 /**
- * µ±³ÌĞòÊ¹ÓÃÁËÃÅÃæÄ£Ê½ºó£¬¿Í»§¶Ë´úÂëÖ»ĞèÒªºÍÃÅÃæÀà½øĞĞ½»»¥£¬¿Í»§¶Ë´úÂë±äµÃ¼«Îª¼òµ¥¡£
+ * å½“ç¨‹åºä½¿ç”¨äº†é—¨é¢æ¨¡å¼åï¼Œå®¢æˆ·ç«¯ä»£ç åªéœ€è¦å’Œé—¨é¢ç±»è¿›è¡Œäº¤äº’ï¼Œå®¢æˆ·ç«¯ä»£ç å˜å¾—æä¸ºç®€å•ã€‚
  * 
- * ÔÄ¶Áµ½´Ë´¦ÏàĞÅ¶ÁÕß¶ÔSpringµÄHibernateTemplateÀàÓĞµã¸Ğ¾õÁË£¬µ±ÎÒÃÇ
- * µÄ³ÌĞòÊ¹ÓÃHibernateTemplateµÄfind()·½·¨Ê±£¬³ÌĞòÖ»Òª´ËÒ»ĞĞ´úÂë¼´¿ÉµÃµ½
- * ²éÑ¯·µ»ØµÄList¡£µ«Êµ¼ÊÉÏ¸Ãfind()·½·¨ºóÒş²ØÁËÈçÏÂµÄ´úÂë£º
+ * é˜…è¯»åˆ°æ­¤å¤„ç›¸ä¿¡è¯»è€…å¯¹Springçš„HibernateTemplateç±»æœ‰ç‚¹æ„Ÿè§‰äº†ï¼Œå½“æˆ‘ä»¬
+ * çš„ç¨‹åºä½¿ç”¨HibernateTemplateçš„find()æ–¹æ³•æ—¶ï¼Œç¨‹åºåªè¦æ­¤ä¸€è¡Œä»£ç å³å¯å¾—åˆ°
+ * æŸ¥è¯¢è¿”å›çš„Listã€‚ä½†å®é™…ä¸Šè¯¥find()æ–¹æ³•åéšè—äº†å¦‚ä¸‹çš„ä»£ç ï¼š
  * 
  * Session session = sf.openSession();
  * Query query = session.createQuery(hql);
@@ -23,17 +23,17 @@ package com.dantefung.dp.facade;
  * }
  * query.list();
  * 
- * Òò´Ë£¬ÎÒÃÇ¿ÉÒÔÈÏÎªHibernateTemplateÊÇSessionFactory¡¢Session¡¢QueryµÈÀàµÄÃÅÃæ£¬
- * µ±¿Í»§¶Ë³ÌĞòĞèÒª½øĞĞ³Ö¾Ã»¯²éÑ¯Ê±£¬³ÌĞòÎŞĞèµ÷ÓÃÕâĞ©Àà£¬¶øÊÇÖ±½Óµ÷ÓÃHibernateTemplateÃÅÃæÀàµÄ·½·¨¼´¿É¡£
+ * å› æ­¤ï¼Œæˆ‘ä»¬å¯ä»¥è®¤ä¸ºHibernateTemplateæ˜¯SessionFactoryã€Sessionã€Queryç­‰ç±»çš„é—¨é¢ï¼Œ
+ * å½“å®¢æˆ·ç«¯ç¨‹åºéœ€è¦è¿›è¡ŒæŒä¹…åŒ–æŸ¥è¯¢æ—¶ï¼Œç¨‹åºæ— éœ€è°ƒç”¨è¿™äº›ç±»ï¼Œè€Œæ˜¯ç›´æ¥è°ƒç”¨HibernateTemplateé—¨é¢ç±»çš„æ–¹æ³•å³å¯ã€‚
  * 
- *  ³ı´ËÖ®Íâ£¬JavaEEÓ¦ÓÃÀïÊ¹ÓÃÒµÎñÂß¼­×é¼şÀ´·â×°DAO×é¼şÒ²ÊÇµäĞÍµÄÃÅÃæÄ£Ê½----Ã¿¸öÒµÎñÂß¼­×é¼ş¶¼ÊÇÖÚ¶à
- *  DAO×é¼şµÄÃÅÃæ£¬ÏµÍ³µÄ¿ØÖÆÆ÷ÀàÎŞĞèÖ±½Ó·ÃÎÊDAO×é¼ş£¬¶øÊÇÓÉÒµÎñÂß¼­·½·¨À´×éºÏ¶à¸öDAO·½·¨ÒÔÍê³ÉËùĞè¹¦ÄÜ£¬
- *  ¶øActionÖ»ĞèÓëÒµÎñÂß¼­×é¼ş½»»¥¼´¿É¡£
+ *  é™¤æ­¤ä¹‹å¤–ï¼ŒJavaEEåº”ç”¨é‡Œä½¿ç”¨ä¸šåŠ¡é€»è¾‘ç»„ä»¶æ¥å°è£…DAOç»„ä»¶ä¹Ÿæ˜¯å…¸å‹çš„é—¨é¢æ¨¡å¼----æ¯ä¸ªä¸šåŠ¡é€»è¾‘ç»„ä»¶éƒ½æ˜¯ä¼—å¤š
+ *  DAOç»„ä»¶çš„é—¨é¢ï¼Œç³»ç»Ÿçš„æ§åˆ¶å™¨ç±»æ— éœ€ç›´æ¥è®¿é—®DAOç»„ä»¶ï¼Œè€Œæ˜¯ç”±ä¸šåŠ¡é€»è¾‘æ–¹æ³•æ¥ç»„åˆå¤šä¸ªDAOæ–¹æ³•ä»¥å®Œæˆæ‰€éœ€åŠŸèƒ½ï¼Œ
+ *  è€ŒActionåªéœ€ä¸ä¸šåŠ¡é€»è¾‘ç»„ä»¶äº¤äº’å³å¯ã€‚
  * 
  * ClassName:Customer <br/>
  * Function: TODO ADD FUNCTION. <br/>
  * Reason:	 TODO ADD REASON. <br/>
- * Date:     2016-3-17 ÏÂÎç12:51:47 <br/>
+ * Date:     2016-3-17 ä¸‹åˆ12:51:47 <br/>
  * @author   Dante Fung
  * @version  
  * @since    JDK 1.6
@@ -43,16 +43,16 @@ public class Customer
 {
 	public void haveDinner()
 	{
-		/*// ÒÀ´Î´´½¨Èı¸ö²¿ÃÅÊµÀı
+		/*// ä¾æ¬¡åˆ›å»ºä¸‰ä¸ªéƒ¨é—¨å®ä¾‹
 		Payment pay = new PaymentImpl();
 		Cook cook = new CookImpl();
 		Waiter waiter = new WaiterImpl();
-		// ÒÀ´Îµ÷ÓÃÈı¸ö²¿ÃÅÊµÀıµÄ·½·¨À´ÊµÏÖÓÃ²Í¹¦ÄÜ
+		// ä¾æ¬¡è°ƒç”¨ä¸‰ä¸ªéƒ¨é—¨å®ä¾‹çš„æ–¹æ³•æ¥å®ç°ç”¨é¤åŠŸèƒ½
 		String food = pay.pay();
 		food = cook.cook(food);
 		waiter.serve(food);*/
 		
-		// Ö±½ÓÒ»ÀàÓÚFacadeÀàÀ´ÊµÏÖÓÃ²ÍµÄ·½·¨
+		// ç›´æ¥ä¸€ç±»äºFacadeç±»æ¥å®ç°ç”¨é¤çš„æ–¹æ³•
 		Facade f = new Facade();
 		f.serveFood();
 	}

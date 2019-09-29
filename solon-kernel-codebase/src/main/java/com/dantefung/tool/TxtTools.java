@@ -2,7 +2,7 @@
  * Project Name:Select2Demo
  * File Name:TxtTools.java
  * Package Name:com.dantefung.test
- * Date:2016Äê11ÔÂ3ÈÕÉÏÎç10:56:04
+ * Date:2016å¹´11æœˆ3æ—¥ä¸Šåˆ10:56:04
  * Copyright (c) 2016, fhlin0611@foxmail.com All Rights Reserved.
  *
 */
@@ -23,7 +23,7 @@ import java.util.regex.Pattern;
  * ClassName:TxtTools <br/>
  * Function: TODO ADD FUNCTION. <br/>
  * Reason:	 TODO ADD REASON. <br/>
- * Date:     2016Äê11ÔÂ3ÈÕ ÉÏÎç10:56:04 <br/>
+ * Date:     2016å¹´11æœˆ3æ—¥ ä¸Šåˆ10:56:04 <br/>
  * @author   Dante Fung
  * @version  1.0.1
  * @since    JDK 1.7
@@ -42,21 +42,21 @@ public class TxtTools {
 //		System.out.println(Pattern.matches("^[[A-Za-z0-9]{1,}\\.{0,}]$","aaaa."));
 		while(null != (line = br.readLine())){
 //			System.out.println(line.replace(" ", "")  + " ==== " + pattern.matcher(line.replace(" ", "")).lookingAt());
-			// System.out.println(line.replace(" ", "")  + " ==== " + line.indexOf("¡¯"));
-			// 1¡¢ĞòºÅ   eg.184
+			// System.out.println(line.replace(" ", "")  + " ==== " + line.indexOf("â€™"));
+			// 1ã€åºå·   eg.184
 			if(Pattern.matches("^[0-9]+$", line.replace(" ", ""))){
 				System.out.println(line);
 				write(en, line);
 				write(zh, line);
 				
 			}
-			// 2¡¢Ê±¼äÖá  eg.00:05:00,970-->00:05:02,370
+			// 2ã€æ—¶é—´è½´  eg.00:05:00,970-->00:05:02,370
 			if(Pattern.matches("^([0-9]+):([0-9]+):([0-9]+),([0-9]+)-->([0-9]+):([0-9]+):([0-9]+),([0-9]+)$",line.replace(" ", ""))){
 				write(en, line);
 				write(zh, line);
 			}
-			// 3¡¢ ×ÖÄ»   eg.ÄÇÒ»ÌìÖ®ºó¾ÍÖªµÀÊÇÎÒÃÇÏëÒªÊ²Ã´  || eg.it¡¯s what we want
-			// Æ¥Åä´øÊı×ÖµÄÓ¢ÎÄ»ò´¿Ó¢ÎÄµÄ×Ö·û´®
+			// 3ã€ å­—å¹•   eg.é‚£ä¸€å¤©ä¹‹åå°±çŸ¥é“æ˜¯æˆ‘ä»¬æƒ³è¦ä»€ä¹ˆ  || eg.itâ€™s what we want
+			// åŒ¹é…å¸¦æ•°å­—çš„è‹±æ–‡æˆ–çº¯è‹±æ–‡çš„å­—ç¬¦ä¸²
 			if(pattern.matcher(line.replace(" ", "")).lookingAt()){
 				if(!Pattern.matches("^[0-9]+$", line.replace(" ", ""))
 						&& !Pattern.matches("^([0-9]+):([0-9]+):([0-9]+),([0-9]+)-->([0-9]+):([0-9]+):([0-9]+),([0-9]+)$",line.replace(" ", ""))
@@ -65,7 +65,7 @@ public class TxtTools {
 					write(en, line);
 				}
 			}
-			// Æ¥Åä´øÊı×ÖµÄÖĞÎÄ»ò´¿ÖĞÎÄ×Ö·û´®
+			// åŒ¹é…å¸¦æ•°å­—çš„ä¸­æ–‡æˆ–çº¯ä¸­æ–‡å­—ç¬¦ä¸²
 			if(Pattern.matches("^[0-9\u4e00-\u9fa5]+$",line.replace(" ", ""))){
 				if(!Pattern.matches("^[0-9]+$", line.replace(" ", ""))){
 					//System.out.println("ZH:" + line);
@@ -73,7 +73,7 @@ public class TxtTools {
 				}
 			}
 			
-			// 4¡¢¿ÕĞĞ
+			// 4ã€ç©ºè¡Œ
 			if("".equals(line) || Pattern.matches("^[\\s]*$",line)){
 				zh.newLine();
 				en.newLine();
@@ -84,11 +84,11 @@ public class TxtTools {
 
 	/**
 	 * 
-	 * close:¹Ø±ÕÁ÷£¬ÊÍ·Å×ÊÔ´. <br/>
-	 * TODO(ÕâÀïÃèÊöÕâ¸ö·½·¨ÊÊÓÃÌõ¼ş ¨C ¿ÉÑ¡).<br/>
-	 * TODO(ÕâÀïÃèÊöÕâ¸ö·½·¨µÄÖ´ĞĞÁ÷³Ì ¨C ¿ÉÑ¡).<br/>
-	 * TODO(ÕâÀïÃèÊöÕâ¸ö·½·¨µÄÊ¹ÓÃ·½·¨ ¨C ¿ÉÑ¡).<br/>
-	 * TODO(ÕâÀïÃèÊöÕâ¸ö·½·¨µÄ×¢ÒâÊÂÏî ¨C ¿ÉÑ¡).<br/>
+	 * close:å…³é—­æµï¼Œé‡Šæ”¾èµ„æº. <br/>
+	 * TODO(è¿™é‡Œæè¿°è¿™ä¸ªæ–¹æ³•é€‚ç”¨æ¡ä»¶ â€“ å¯é€‰).<br/>
+	 * TODO(è¿™é‡Œæè¿°è¿™ä¸ªæ–¹æ³•çš„æ‰§è¡Œæµç¨‹ â€“ å¯é€‰).<br/>
+	 * TODO(è¿™é‡Œæè¿°è¿™ä¸ªæ–¹æ³•çš„ä½¿ç”¨æ–¹æ³• â€“ å¯é€‰).<br/>
+	 * TODO(è¿™é‡Œæè¿°è¿™ä¸ªæ–¹æ³•çš„æ³¨æ„äº‹é¡¹ â€“ å¯é€‰).<br/>
 	 *
 	 * @author Dante Fung
 	 * @param args
@@ -109,11 +109,11 @@ public class TxtTools {
 
 	/**
 	 * 
-	 * write:Ğ´Êı¾İµ½ÎÄ¼ş. <br/>
-	 * TODO(ÕâÀïÃèÊöÕâ¸ö·½·¨ÊÊÓÃÌõ¼ş ¨C ¿ÉÑ¡).<br/>
-	 * TODO(ÕâÀïÃèÊöÕâ¸ö·½·¨µÄÖ´ĞĞÁ÷³Ì ¨C ¿ÉÑ¡).<br/>
-	 * TODO(ÕâÀïÃèÊöÕâ¸ö·½·¨µÄÊ¹ÓÃ·½·¨ ¨C ¿ÉÑ¡).<br/>
-	 * TODO(ÕâÀïÃèÊöÕâ¸ö·½·¨µÄ×¢ÒâÊÂÏî ¨C ¿ÉÑ¡).<br/>
+	 * write:å†™æ•°æ®åˆ°æ–‡ä»¶. <br/>
+	 * TODO(è¿™é‡Œæè¿°è¿™ä¸ªæ–¹æ³•é€‚ç”¨æ¡ä»¶ â€“ å¯é€‰).<br/>
+	 * TODO(è¿™é‡Œæè¿°è¿™ä¸ªæ–¹æ³•çš„æ‰§è¡Œæµç¨‹ â€“ å¯é€‰).<br/>
+	 * TODO(è¿™é‡Œæè¿°è¿™ä¸ªæ–¹æ³•çš„ä½¿ç”¨æ–¹æ³• â€“ å¯é€‰).<br/>
+	 * TODO(è¿™é‡Œæè¿°è¿™ä¸ªæ–¹æ³•çš„æ³¨æ„äº‹é¡¹ â€“ å¯é€‰).<br/>
 	 *
 	 * @author Dante Fung
 	 * @param bw

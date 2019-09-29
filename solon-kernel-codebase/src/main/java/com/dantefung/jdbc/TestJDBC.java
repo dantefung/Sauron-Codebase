@@ -11,15 +11,15 @@ public class TestJDBC {
 	
 	public static void main(String[] args) throws Exception {
 		 	
-		// ×¢²áÊı¾İ¿â
+		// æ³¨å†Œæ•°æ®åº“
 		Class.forName("com.mysql.jdbc.Driver");
 		
-		// »ñÈ¡Êı¾İ¿âÁ¬½Ó
+		// è·å–æ•°æ®åº“è¿æ¥
 		Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
 		
 		Statement stmt = conn.createStatement();
 		
-		// ´´½¨hero±í
+		// åˆ›å»ºheroè¡¨
 		int count = stmt.executeUpdate("create table hero(" +
 							"hero_id int primary key auto_increment, " +
 							"hero name vachar(10), " +
@@ -32,7 +32,7 @@ public class TestJDBC {
 		
 		System.out.println(count);
 		
-		//²åÈëÊı¾İ.
+		//æ’å…¥æ•°æ®.
 		stmt.executeUpdate("insert into hero(hero_weapon) values('')");
 		
 		

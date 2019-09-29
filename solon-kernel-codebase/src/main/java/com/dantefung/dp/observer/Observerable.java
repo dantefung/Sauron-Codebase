@@ -2,7 +2,7 @@
  * Project Name:dantefung
  * File Name:Observerable.java
  * Package Name:com.dantefung.dp.observer
- * Date:2016-3-28ÏÂÎç9:43:12
+ * Date:2016-3-28ä¸‹åˆ9:43:12
  * Copyright (c) 2016, fhlin0611@foxmail.com All Rights Reserved.
  *
 */
@@ -17,7 +17,7 @@ import java.util.List;
  * ClassName:Observerable <br/>
  * Function: TODO ADD FUNCTION. <br/>
  * Reason:	 TODO ADD REASON. <br/>
- * Date:     2016-3-28 ÏÂÎç9:43:12 <br/>
+ * Date:     2016-3-28 ä¸‹åˆ9:43:12 <br/>
  * @author   Dante Fung
  * @version  
  * @since    JDK 1.6
@@ -25,28 +25,28 @@ import java.util.List;
  */
 public abstract class Observerable
 {
-	// ÓÃÒ»¸öListÀ´±£´æ¸Ã¶ÔÏóÉÏËùÓĞ°ó¶¨µÄÊÂ¼ş¼àÌıÆ÷
+	// ç”¨ä¸€ä¸ªListæ¥ä¿å­˜è¯¥å¯¹è±¡ä¸Šæ‰€æœ‰ç»‘å®šçš„äº‹ä»¶ç›‘å¬å™¨
 	List<Observer> observers = new ArrayList<Observer>();
-	// ¶¨ÒåÒ»¸ö·½·¨£¬ÓÃÓÚ´Ó¸ÃÖ÷ÌâÉÏ×¢²á¹Û²ìÕß
+	// å®šä¹‰ä¸€ä¸ªæ–¹æ³•ï¼Œç”¨äºä»è¯¥ä¸»é¢˜ä¸Šæ³¨å†Œè§‚å¯Ÿè€…
 	public void registerObserver(Observer o)
 	{
 		observers.add(o);
 	}
 	
-	// ¶¨ÒåÒ»¸ö·½·¨£¬ÓÃÓÚ´Ó¸ÃÖ÷ÌâÖĞÉ¾³ı¹Û²ìÕß
+	// å®šä¹‰ä¸€ä¸ªæ–¹æ³•ï¼Œç”¨äºä»è¯¥ä¸»é¢˜ä¸­åˆ é™¤è§‚å¯Ÿè€…
 	public void removeObserver(Observer o)
 	{
 		observers.remove(o);
 	}
 	
-	// Í¨Öª¸ÃÖ÷ÌâÉÏ×¢²áµÄËùÓĞ¹Û²ìÕß
+	// é€šçŸ¥è¯¥ä¸»é¢˜ä¸Šæ³¨å†Œçš„æ‰€æœ‰è§‚å¯Ÿè€…
 	public void notifyObservers(Object value)
 	{
-		// ±éÀú×¢²áµ½¸Ã±»¹Û²ìÕßÉÏµÄËùÓĞ¹Û²ìÕß
+		// éå†æ³¨å†Œåˆ°è¯¥è¢«è§‚å¯Ÿè€…ä¸Šçš„æ‰€æœ‰è§‚å¯Ÿè€…
 		for(Iterator it = observers.iterator();it.hasNext();)
 		{
 			Observer o = (Observer)it.next();
-			// ÏÔÊ¾Ã¿¸ö¹Û²ìÕßµÄupdate()·½·¨
+			// æ˜¾ç¤ºæ¯ä¸ªè§‚å¯Ÿè€…çš„update()æ–¹æ³•
 			o.update(this, value);
 		}
 	}

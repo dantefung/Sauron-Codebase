@@ -1,5 +1,5 @@
 package com.dantefung.dp.iterator;
-//¿¼ÂÇµ½ÈİÆ÷µÄ¿ÉÌæ»»ĞÔ£¬Òò´ËÒªÓĞÕâÑùµÄÒ»¸öÀàÀ´Í³Ò»¡£
+//è€ƒè™‘åˆ°å®¹å™¨çš„å¯æ›¿æ¢æ€§ï¼Œå› æ­¤è¦æœ‰è¿™æ ·çš„ä¸€ä¸ªç±»æ¥ç»Ÿä¸€ã€‚
 public interface Collection {
 	void add(Object o);
 	int size();

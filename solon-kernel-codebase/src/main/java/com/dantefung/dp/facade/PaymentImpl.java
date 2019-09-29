@@ -2,7 +2,7 @@
  * Project Name:dantefung
  * File Name:PaymentImpl.java
  * Package Name:com.dantefung.dp.facade
- * Date:2016-3-16ÏÂÎç7:08:29
+ * Date:2016-3-16ä¸‹åˆ7:08:29
  * Copyright (c) 2016, fhlin0611@foxmail.com All Rights Reserved.
  *
 */
@@ -12,7 +12,7 @@ package com.dantefung.dp.facade;
  * ClassName:PaymentImpl <br/>
  * Function: TODO ADD FUNCTION. <br/>
  * Reason:	 TODO ADD REASON. <br/>
- * Date:     2016-3-16 ÏÂÎç7:08:29 <br/>
+ * Date:     2016-3-16 ä¸‹åˆ7:08:29 <br/>
  * @author   Dante Fung
  * @version  
  * @since    JDK 1.6
@@ -24,8 +24,8 @@ public class PaymentImpl implements Payment
 	@Override
 	public String pay()
 	{
-		String food = "¿ì²Í";
-		System.out.println("ÄãÒÑ¾­ÏòÊÕÒøÔ±Ö§¸¶ÁË·ÑÓÃ£¬Äú¹ºÂòµÄÊ³ÎïÊÇ£º" + food);
+		String food = "å¿«é¤";
+		System.out.println("ä½ å·²ç»å‘æ”¶é“¶å‘˜æ”¯ä»˜äº†è´¹ç”¨ï¼Œæ‚¨è´­ä¹°çš„é£Ÿç‰©æ˜¯ï¼š" + food);
 		return food;
 	}
 

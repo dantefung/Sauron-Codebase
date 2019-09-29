@@ -5,10 +5,10 @@ import java.util.Set;
 
 /*
  * 
- *ÌØÊâ¹¦ÄÜ£º
- *public Object setProperty(String key,String vaule):Ìí¼ÓÔªËØ
- *public String getProperty(String key):»ñÈ¡ÔªËØ
- *public Set<String> stringPropertyName():»ñÈ¡ËùÓĞ¼üµÄ¼¯ºÏ¡£ 
+ *ç‰¹æ®ŠåŠŸèƒ½ï¼š
+ *public Object setProperty(String key,String vaule):æ·»åŠ å…ƒç´ 
+ *public String getProperty(String key):è·å–å…ƒç´ 
+ *public Set<String> stringPropertyName():è·å–æ‰€æœ‰é”®çš„é›†åˆã€‚ 
  * 
  * 
  */
@@ -19,15 +19,15 @@ public class PropertiesDemo {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//´´½¨¼¯ºÏ¶ÔÏó
+		//åˆ›å»ºé›†åˆå¯¹è±¡
 		Properties prop = new Properties();
 		
-		//Ìí¼ÓÔªËØ	
-		prop.setProperty("ÕÅÈı","30");
-		prop.setProperty("ÀîËÄ","40");
-		prop.setProperty("ÍõÎå","50");
+		//æ·»åŠ å…ƒç´ 	
+		prop.setProperty("å¼ ä¸‰","30");
+		prop.setProperty("æå››","40");
+		prop.setProperty("ç‹äº”","50");
 	
-		//public Set<String> stringPropertyName():»ñÈ¡ËùÓĞ¼üµÄ¼¯ºÏ
+		//public Set<String> stringPropertyName():è·å–æ‰€æœ‰é”®çš„é›†åˆ
 		Set<String> set = prop.stringPropertyNames();
 		for(String key : set)
 		{

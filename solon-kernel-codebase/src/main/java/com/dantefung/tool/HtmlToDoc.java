@@ -10,14 +10,14 @@ import org.apache.poi.poifs.filesystem.DirectoryEntry;
 import org.apache.poi.poifs.filesystem.DocumentEntry;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 /**
- * ½«htmlÎÄµµ×ªÎªdoc
+ * å°†htmlæ–‡æ¡£è½¬ä¸ºdoc
  * @author soildwang
  *
  */
 public class HtmlToDoc {
        /**
-        * ¶ÁÈ¡htmlÎÄ¼şµ½word
-        * @param filepath htmlÎÄ¼şµÄÂ·¾¶
+        * è¯»å–htmlæ–‡ä»¶åˆ°word
+        * @param filepath htmlæ–‡ä»¶çš„è·¯å¾„
         * @return
         * @throws Exception
         */
@@ -25,7 +25,7 @@ public class HtmlToDoc {
               boolean flag = false;
               ByteArrayInputStream bais = null;
               FileOutputStream fos = null;
-              String path = "D:/";  //¸ù¾İÊµ¼ÊÇé¿öĞ´Â·¾¶
+              String path = "D:/";  //æ ¹æ®å®é™…æƒ…å†µå†™è·¯å¾„
               try {
                      if (!"".equals(path)) {
                             File fileDir = new File(path);
@@ -53,7 +53,7 @@ public class HtmlToDoc {
        }
  
        /**
-        * ¶ÁÈ¡htmlÎÄ¼şµ½×Ö·û´®
+        * è¯»å–htmlæ–‡ä»¶åˆ°å­—ç¬¦ä¸²
         * @param filename
         * @return
         * @throws Exception

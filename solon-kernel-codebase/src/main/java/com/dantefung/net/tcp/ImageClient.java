@@ -7,7 +7,7 @@ import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
 /**
- * Tcp¿Í»§¶Ë
+ * Tcpå®¢æˆ·ç«¯
  * @author Dante Fung
  *
  */
@@ -15,14 +15,14 @@ public class ImageClient
 {
 	public static void main(String[] args) throws Exception
     {
-	    // 1¡¢½¨Á¢TCP·şÎñ,TCPµÄ¿Í»§¶ËÒ»µ©Æô¶¯£¬ÂíÉÏ¾ÍÒª½¨Á¢Á¬½Ó¡£
+	    // 1ã€å»ºç«‹TCPæœåŠ¡,TCPçš„å®¢æˆ·ç«¯ä¸€æ—¦å¯åŠ¨ï¼Œé©¬ä¸Šå°±è¦å»ºç«‹è¿æ¥ã€‚
 		Socket socket = new Socket(InetAddress.getLocalHost(),9090);
-		// 2¡¢»ñÈ¡¶ÔÓ¦µÄÁ÷¶ÔÏó£¬ÒòÎªTCPÊÇ»ùÓÚIOÁ÷½øĞĞÊı¾İ´«ÊäµÄ¡£
-		String data = "ÕâÊÇÎÒµÄµÚÒ»¸öTCPÀı×Ó£¡£¡";
+		// 2ã€è·å–å¯¹åº”çš„æµå¯¹è±¡ï¼Œå› ä¸ºTCPæ˜¯åŸºäºIOæµè¿›è¡Œæ•°æ®ä¼ è¾“çš„ã€‚
+		String data = "è¿™æ˜¯æˆ‘çš„ç¬¬ä¸€ä¸ªTCPä¾‹å­ï¼ï¼";
 		OutputStream outputStream = socket.getOutputStream();
-		// 3¡¢°ÑÊı¾İĞ´³ö
+		// 3ã€æŠŠæ•°æ®å†™å‡º
 		outputStream.write(data.getBytes());
-		// ¶ÁÈ¡·şÎñ¶Ë·´À¡µÄÊı¾İ
+		// è¯»å–æœåŠ¡ç«¯åé¦ˆçš„æ•°æ®
 		InputStream inputStream = socket.getInputStream();
 		BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream("D:/c.jpg"));
 		byte[] buf = new byte[1024];
@@ -31,7 +31,7 @@ public class ImageClient
 		{
 			bos.write(buf, 0, len);
 		}
-		// 4¡¢¹Ø±Õ×ÊÔ´
+		// 4ã€å…³é—­èµ„æº
 		socket.close();
     }
 }

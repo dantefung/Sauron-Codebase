@@ -2,7 +2,7 @@
  * Project Name:dantefung
  * File Name:CommandTest.java
  * Package Name:com.dantefung.dp.command
- * Date:2016-3-16ÏÂÎç4:24:38
+ * Date:2016-3-16ä¸‹åˆ4:24:38
  * Copyright (c) 2016, fhlin0611@foxmail.com All Rights Reserved.
  *
 */
@@ -14,7 +14,7 @@ package com.dantefung.dp.command;
  * ClassName:CommandTest <br/>
  * Function: TODO ADD FUNCTION. <br/>
  * Reason:	 TODO ADD REASON. <br/>
- * Date:     2016-3-16 ÏÂÎç4:24:38 <br/>
+ * Date:     2016-3-16 ä¸‹åˆ4:24:38 <br/>
  * @author   Dante Fung
  * @version  
  * @since    JDK 1.6
@@ -25,40 +25,40 @@ public class CommandTest
 
 	/**
 	 * main:
-	 * µ±Ö÷³ÌĞòµ÷ÓÃProcessArray¶ÔÏóµÄeach()·½·¨À´´¦ÀíÊı×éÊ±£¬Ã¿´Î´¦Àí
-	 * Êı×éĞèÒª´«Èë²»Í¬µÄ¡°´¦ÀíĞĞÎª¡±----Ò²¾ÍÊÇÒªÎªeach()·½·¨´«Èë²»Í¬µÄCommand¶ÔÏó£¬
-	 * ²»Í¬µÄCommand¶ÔÏó·â×°ÁË²»Í¬µÄ¡°´¦ÀíĞĞÎª¡±¡£
+	 * å½“ä¸»ç¨‹åºè°ƒç”¨ProcessArrayå¯¹è±¡çš„each()æ–¹æ³•æ¥å¤„ç†æ•°ç»„æ—¶ï¼Œæ¯æ¬¡å¤„ç†
+	 * æ•°ç»„éœ€è¦ä¼ å…¥ä¸åŒçš„â€œå¤„ç†è¡Œä¸ºâ€----ä¹Ÿå°±æ˜¯è¦ä¸ºeach()æ–¹æ³•ä¼ å…¥ä¸åŒçš„Commandå¯¹è±¡ï¼Œ
+	 * ä¸åŒçš„Commandå¯¹è±¡å°è£…äº†ä¸åŒçš„â€œå¤„ç†è¡Œä¸ºâ€ã€‚
 	 * 
-	 * ÊµÏÖÁËprocess·½·¨ºÍ¡°´¦ÀíĞĞÎª¡±µÄ·ÖÀë£¬Á½´Î²»Í¬µÄ´¦ÀíĞĞÎª·Ö±ğÓÉ
-	 * Á½¸ö²»Í¬µÄCommand¶ÔÏóÀ´Ìá¹©¡£
+	 * å®ç°äº†processæ–¹æ³•å’Œâ€œå¤„ç†è¡Œä¸ºâ€çš„åˆ†ç¦»ï¼Œä¸¤æ¬¡ä¸åŒçš„å¤„ç†è¡Œä¸ºåˆ†åˆ«ç”±
+	 * ä¸¤ä¸ªä¸åŒçš„Commandå¯¹è±¡æ¥æä¾›ã€‚
 	 * 
-	 * Àí½âÁËÕâ¸öÃüÁîÄ£Ê½ºó£¬ÏàĞÅ¶Ôspring¿ò¼ÜÖĞHibernateTemplateµÄexecuteXxx()·½·¨
-	 * ÕÒµ½ÁËÒ»µã¸Ğ¾õ£¬HibernateTemplateÊ¹ÓÃÁËexecuteXxx()·½·¨ÃÖ²¹ÁËHibernateTemplateµÄ
-	 * ²»×ã£¬¸Ã·½·¨ĞèÒª½ÓÊÜÒ»¸öHibernateCallback()½Ó¿Ú£¬¸Ã½Ó¿ÚµÄ´úÂëÈçÏÂ£º
+	 * ç†è§£äº†è¿™ä¸ªå‘½ä»¤æ¨¡å¼åï¼Œç›¸ä¿¡å¯¹springæ¡†æ¶ä¸­HibernateTemplateçš„executeXxx()æ–¹æ³•
+	 * æ‰¾åˆ°äº†ä¸€ç‚¹æ„Ÿè§‰ï¼ŒHibernateTemplateä½¿ç”¨äº†executeXxx()æ–¹æ³•å¼¥è¡¥äº†HibernateTemplateçš„
+	 * ä¸è¶³ï¼Œè¯¥æ–¹æ³•éœ€è¦æ¥å—ä¸€ä¸ªHibernateCallback()æ¥å£ï¼Œè¯¥æ¥å£çš„ä»£ç å¦‚ä¸‹ï¼š
 	 * 
-	 * //¶¨ÒåÒ»¸öHibernateCallback½Ó¿Ú£¬¸Ã½Ó¿Ú·â×°³Ö¾Ã»¯µÄ´¦ÀíĞĞÎª
+	 * //å®šä¹‰ä¸€ä¸ªHibernateCallbackæ¥å£ï¼Œè¯¥æ¥å£å°è£…æŒä¹…åŒ–çš„å¤„ç†è¡Œä¸º
 	 * public interface HibernateCallback()
 	 * {
 	 * 		Object doInHibernate(Session session);
 	 * } 
 	 * 
-	 * ÉÏÃæµÄHibernateCallback½Ó¿Ú¾ÍÊÇÒ»¸öµäĞÍµÄCommand½Ó¿Ú£¬Ò»¸öHibernateCallback¶ÔÏó·â×°
-	 * ×Ô¶¨ÒåµÄ³Ö¾Ã»¯´¦Àí¡£
+	 * ä¸Šé¢çš„HibernateCallbackæ¥å£å°±æ˜¯ä¸€ä¸ªå…¸å‹çš„Commandæ¥å£ï¼Œä¸€ä¸ªHibernateCallbackå¯¹è±¡å°è£…
+	 * è‡ªå®šä¹‰çš„æŒä¹…åŒ–å¤„ç†ã€‚
 	 * 
-	 *   ¶ÔHibernateTemplate¶øÑÔ£¬´ó²¿·Ö³Ö¾Ã»¯²Ù×÷¶¼¿ÉÒÔÍ¨¹ıÒ»¸ö·½·¨À´ÊµÏÖ£¬HibernateTemplate¶ÔÏó¼ò»¯ÁËHibernateµÄ³Ö¾Ã»¯
-	 *   ²Ù×÷£¬µ«¶ªÊ§ÁËÊ¹ÓÃHibernate³Ö¾Ã»¯²Ù×÷µÄÁé»îĞÔ¡£
+	 *   å¯¹HibernateTemplateè€Œè¨€ï¼Œå¤§éƒ¨åˆ†æŒä¹…åŒ–æ“ä½œéƒ½å¯ä»¥é€šè¿‡ä¸€ä¸ªæ–¹æ³•æ¥å®ç°ï¼ŒHibernateTemplateå¯¹è±¡ç®€åŒ–äº†Hibernateçš„æŒä¹…åŒ–
+	 *   æ“ä½œï¼Œä½†ä¸¢å¤±äº†ä½¿ç”¨HibernateæŒä¹…åŒ–æ“ä½œçš„çµæ´»æ€§ã€‚
 	 *   
-	 *   Í¨¹ıHibernateCallback¾Í¿ÉÒÔÃÖ²¹HibernateTemplateÁé»îĞÔµÄ²»×ãµÄÈ±µã£¬µ±µ÷ÓÃHibernateTemplateµÄexecuteXxx()·½·¨Ê±£¬
-	 *   ´«ÈëHibernateCallback¶ÔÏóµÄdoInHibernate()·½·¨¾ÍÊÇ×Ô¶¨ÒåµÄ³Ö¾Ã»¯´¦Àí----¼´½«×Ô¶¨ÒåµÄ³Ö¾Ã»¯´¦Àí´«ÈëÁË
-	 *   executeXxx()·½·¨¡£ÈçÏÂÃæµÄ´úÂëÆ¬¶ÎËùÊ¾£º
+	 *   é€šè¿‡HibernateCallbackå°±å¯ä»¥å¼¥è¡¥HibernateTemplateçµæ´»æ€§çš„ä¸è¶³çš„ç¼ºç‚¹ï¼Œå½“è°ƒç”¨HibernateTemplateçš„executeXxx()æ–¹æ³•æ—¶ï¼Œ
+	 *   ä¼ å…¥HibernateCallbackå¯¹è±¡çš„doInHibernate()æ–¹æ³•å°±æ˜¯è‡ªå®šä¹‰çš„æŒä¹…åŒ–å¤„ç†----å³å°†è‡ªå®šä¹‰çš„æŒä¹…åŒ–å¤„ç†ä¼ å…¥äº†
+	 *   executeXxx()æ–¹æ³•ã€‚å¦‚ä¸‹é¢çš„ä»£ç ç‰‡æ®µæ‰€ç¤ºï¼š
 	 *   
 	 *   List list = getHibernateTemplate()
 	 *         .executeFind(new HibernateCallback()
 	 *        {
-	 *   		  // ÊµÏÖHibernateCallback½Ó¿Ú±ØĞëÊµÏÖµÄ·½·¨
+	 *   		  // å®ç°HibernateCallbackæ¥å£å¿…é¡»å®ç°çš„æ–¹æ³•
 	 *            public Object doInHibernate(Session session)
 	 *            {
-	 *            	 // Ö´ĞĞHibernate·ÖÒ³²éÑ¯
+	 *            	 // æ‰§è¡ŒHibernateåˆ†é¡µæŸ¥è¯¢
 	 *               List result = session.createQuery(hql)
 	 *                           .setFirstResult(offset)
 	 *                           .setMaxResults(pageSize)
@@ -68,10 +68,10 @@ public class CommandTest
 	 *        });
 	 * 
 	 *  <br/>
-	 * TODO(ÕâÀïÃèÊöÕâ¸ö·½·¨ÊÊÓÃÌõ¼ş ¨C ¿ÉÑ¡).<br/>
-	 * TODO(ÕâÀïÃèÊöÕâ¸ö·½·¨µÄÖ´ĞĞÁ÷³Ì ¨C ¿ÉÑ¡).<br/>
-	 * TODO(ÕâÀïÃèÊöÕâ¸ö·½·¨µÄÊ¹ÓÃ·½·¨ ¨C ¿ÉÑ¡).<br/>
-	 * TODO(ÕâÀïÃèÊöÕâ¸ö·½·¨µÄ×¢ÒâÊÂÏî ¨C ¿ÉÑ¡).<br/>
+	 * TODO(è¿™é‡Œæè¿°è¿™ä¸ªæ–¹æ³•é€‚ç”¨æ¡ä»¶ â€“ å¯é€‰).<br/>
+	 * TODO(è¿™é‡Œæè¿°è¿™ä¸ªæ–¹æ³•çš„æ‰§è¡Œæµç¨‹ â€“ å¯é€‰).<br/>
+	 * TODO(è¿™é‡Œæè¿°è¿™ä¸ªæ–¹æ³•çš„ä½¿ç”¨æ–¹æ³• â€“ å¯é€‰).<br/>
+	 * TODO(è¿™é‡Œæè¿°è¿™ä¸ªæ–¹æ³•çš„æ³¨æ„äº‹é¡¹ â€“ å¯é€‰).<br/>
 	 *
 	 * @author Dante Fung
 	 * @param args
@@ -82,7 +82,7 @@ public class CommandTest
 		ProcessArray pa = new ProcessArray();
 		int[] target = {3, -4, 6, 4};
 		
-		//µÚÒ»´Î´¦ÀíÊı×é£¬¾ßÌå´¦ÀíĞĞÎªÈ¡¾öÓÚCommand¶ÔÏó¡£ »Øµ÷¡£
+		//ç¬¬ä¸€æ¬¡å¤„ç†æ•°ç»„ï¼Œå…·ä½“å¤„ç†è¡Œä¸ºå–å†³äºCommandå¯¹è±¡ã€‚ å›è°ƒã€‚
 		pa.each(target, new Command()
 		{
 
@@ -91,7 +91,7 @@ public class CommandTest
 			{
 				for(int tem : target)
 				{
-					System.out.println("µü´úÊäÈëµÄÄ¿±êÊı×éµÄÔªËØ£º" + tem);
+					System.out.println("è¿­ä»£è¾“å…¥çš„ç›®æ ‡æ•°ç»„çš„å…ƒç´ ï¼š" + tem);
 				}
 			}
 			
@@ -99,7 +99,7 @@ public class CommandTest
 		
 		System.out.println("--------------------");
 		
-		// µÚ¶ş´Î´¦ÀíÊı×é£¬¾ßÌå´¦ÀíĞĞÎªÈ¡¾öÓÚCommand¶ÔÏó
+		// ç¬¬äºŒæ¬¡å¤„ç†æ•°ç»„ï¼Œå…·ä½“å¤„ç†è¡Œä¸ºå–å†³äºCommandå¯¹è±¡
 		pa.each(target, new Command()
 		{
 			@Override
@@ -110,7 +110,7 @@ public class CommandTest
 				{
 					sum += tem;
 				}
-				System.out.println("Êı×éÔªËØµÄ×ÜºÍÊÇ£º" + sum);
+				System.out.println("æ•°ç»„å…ƒç´ çš„æ€»å’Œæ˜¯ï¼š" + sum);
 			}
 		});
 		

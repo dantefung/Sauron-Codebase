@@ -2,20 +2,20 @@
  * Project Name:dantefung
  * File Name:AbstractNoodle.java
  * Package Name:com.dantefung.dp.bridge
- * Date:2016-3-28ÏÂÎç8:49:14
+ * Date:2016-3-28ä¸‹åˆ8:49:14
  * Copyright (c) 2016, fhlin0611@foxmail.com All Rights Reserved.
  *
 */
 
 package com.dantefung.dp.bridge;
 /**
- * ½Ó×Å³ÌĞòÌá¹©ÁËÒ»¸öAbstractNoodle³éÏóÀà£¬¸Ã³éÏóÀà½«»á³ÖÓĞÒ»¸öPepperyÊôĞÔ£¬
- * ¸ÃÊôĞÔ´ú±íÁË¸ÃÃæÌõµÄÀ±Î¶·ç¸ñ¡£³ÌĞòÍ¨¹ıAbstractNoodle×éºÏÒ»¸öPeppery¶ÔÏó£¬´Ó¶øÔËĞĞÁËÃæÌõÔÚÀ±Î¶·ç¸ñ
- * Õâ¸öÎ¬¶ÈÉÏµÄ±ä»¯£»¶øAbstractNoodle±¾ÉíÒ²¿ÉÒÔ°üº¬ºÜ¶àÊµÏÖÀà£¬²»Í¬ÊµÏÖÀàÔò´ú±íÁËÃæÌõÔÚ²ÄÁÏ·ç¸ñÕâ¸öÎ¬¶ÈÉÏµÄ±ä»¯¡£
+ * æ¥ç€ç¨‹åºæä¾›äº†ä¸€ä¸ªAbstractNoodleæŠ½è±¡ç±»ï¼Œè¯¥æŠ½è±¡ç±»å°†ä¼šæŒæœ‰ä¸€ä¸ªPepperyå±æ€§ï¼Œ
+ * è¯¥å±æ€§ä»£è¡¨äº†è¯¥é¢æ¡çš„è¾£å‘³é£æ ¼ã€‚ç¨‹åºé€šè¿‡AbstractNoodleç»„åˆä¸€ä¸ªPepperyå¯¹è±¡ï¼Œä»è€Œè¿è¡Œäº†é¢æ¡åœ¨è¾£å‘³é£æ ¼
+ * è¿™ä¸ªç»´åº¦ä¸Šçš„å˜åŒ–ï¼›è€ŒAbstractNoodleæœ¬èº«ä¹Ÿå¯ä»¥åŒ…å«å¾ˆå¤šå®ç°ç±»ï¼Œä¸åŒå®ç°ç±»åˆ™ä»£è¡¨äº†é¢æ¡åœ¨ææ–™é£æ ¼è¿™ä¸ªç»´åº¦ä¸Šçš„å˜åŒ–ã€‚
  * ClassName:AbstractNoodle <br/>
  * Function: TODO ADD FUNCTION. <br/>
  * Reason:	 TODO ADD REASON. <br/>
- * Date:     2016-3-28 ÏÂÎç8:49:14 <br/>
+ * Date:     2016-3-28 ä¸‹åˆ8:49:14 <br/>
  * @author   Dante Fung
  * @version  
  * @since    JDK 1.6
@@ -23,19 +23,19 @@ package com.dantefung.dp.bridge;
  */
 public abstract class AbstractNoodle
 {
-	// ×éºÏÒ»¸öPeppery±äÁ¿£¬ÓÃÓÚ½«¸ÃÎ¬¶ÈµÄ±ä»¯¶ÀÁ¢³öÀ´
+	// ç»„åˆä¸€ä¸ªPepperyå˜é‡ï¼Œç”¨äºå°†è¯¥ç»´åº¦çš„å˜åŒ–ç‹¬ç«‹å‡ºæ¥
 	protected Peppery style;
-	// Ã¿·İNoodle±ØĞë×éºÏÒ»¸öPeppery¶ÔÏó
+	// æ¯ä»½Noodleå¿…é¡»ç»„åˆä¸€ä¸ªPepperyå¯¹è±¡
 	public AbstractNoodle(Peppery style)
 	{
 		this.style = style;
 	}
 	/*
-	 * ÕıÈçÉÏÃæµÄ³ÌĞòËùÊ¾£¬ÉÏÃæµÄAbstractNoodleÊµÀı½«»áÓëÒ»¸öPepperyÊµÀı×éºÏ£¬
-	 * ²»Í¬µÄAbstractNoodleÊµÀıÓë²»Í¬µÄPepperyÊµÀı×éºÏ£¬¾Í¿ÉÍê³ÉÀ±Î¶·ç¸ñ¡¢²ÄÁÏ·ç¸ñÁ½¸öÎ¬¶ÈÉÏ±ä»¯µÄ×éºÏÁË¡£
+	 * æ­£å¦‚ä¸Šé¢çš„ç¨‹åºæ‰€ç¤ºï¼Œä¸Šé¢çš„AbstractNoodleå®ä¾‹å°†ä¼šä¸ä¸€ä¸ªPepperyå®ä¾‹ç»„åˆï¼Œ
+	 * ä¸åŒçš„AbstractNoodleå®ä¾‹ä¸ä¸åŒçš„Pepperyå®ä¾‹ç»„åˆï¼Œå°±å¯å®Œæˆè¾£å‘³é£æ ¼ã€ææ–™é£æ ¼ä¸¤ä¸ªç»´åº¦ä¸Šå˜åŒ–çš„ç»„åˆäº†ã€‚
 	 * 
-	 * ÓÉ´Ë¿É¼û£¬AbstractNoodle³éÏóÀà¿ÉÒÔ¿´×öÊÇÒ»¸öÇÅÁº£¬ËüÓÃÀ´¡°ÇÅ½Ó¡±ÃæÌõµÄ²ÄÁÏ·ç¸ñµÄ¸Ä±äºÍÀ±Î¶·ç¸ñµÄ±ä»¯£¬
-	 * Ê¹ÃæÌõµÄÌØÊâÊôĞÔµÃµ½ÎŞ°ó¶¨µÄÀ©³ä¡£
+	 * ç”±æ­¤å¯è§ï¼ŒAbstractNoodleæŠ½è±¡ç±»å¯ä»¥çœ‹åšæ˜¯ä¸€ä¸ªæ¡¥æ¢ï¼Œå®ƒç”¨æ¥â€œæ¡¥æ¥â€é¢æ¡çš„ææ–™é£æ ¼çš„æ”¹å˜å’Œè¾£å‘³é£æ ¼çš„å˜åŒ–ï¼Œ
+	 * ä½¿é¢æ¡çš„ç‰¹æ®Šå±æ€§å¾—åˆ°æ— ç»‘å®šçš„æ‰©å……ã€‚
 	 */
 	
 	public abstract void eat();

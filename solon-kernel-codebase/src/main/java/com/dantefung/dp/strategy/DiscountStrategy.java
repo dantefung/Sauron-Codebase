@@ -2,7 +2,7 @@
  * Project Name:dantefung
  * File Name:DiscountStrategy.java
  * Package Name:com.dantefung.dp.strategy
- * Date:2016-3-16ÏÂÎç5:02:18
+ * Date:2016-3-16ä¸‹åˆ5:02:18
  * Copyright (c) 2016, fhlin0611@foxmail.com All Rights Reserved.
  *
 */
@@ -12,7 +12,7 @@ package com.dantefung.dp.strategy;
  * ClassName:DiscountStrategy <br/>
  * Function: TODO ADD FUNCTION. <br/>
  * Reason:	 TODO ADD REASON. <br/>
- * Date:     2016-3-16 ÏÂÎç5:02:18 <br/>
+ * Date:     2016-3-16 ä¸‹åˆ5:02:18 <br/>
  * @author   Dante Fung
  * @version  
  * @since    JDK 1.6
@@ -21,7 +21,7 @@ package com.dantefung.dp.strategy;
 public interface DiscountStrategy
 {
 	
-	// ¶¨ÒåÒ»¸öÓÃÓÚ¼ÆËã´òÕÛ¼ÛµÄ·½·¨
+	// å®šä¹‰ä¸€ä¸ªç”¨äºè®¡ç®—æ‰“æŠ˜ä»·çš„æ–¹æ³•
 	double getDiscount(double originPrice);
 }
 

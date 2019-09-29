@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 //Thinking in java
-//»º³åÊäÈëÎÄ¼ş¡£
+//ç¼“å†²è¾“å…¥æ–‡ä»¶ã€‚
 public class BufferedInputFile {
 
 	/**

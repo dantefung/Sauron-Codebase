@@ -1,15 +1,15 @@
 package com.dantefung.introspector;
 
-public class Person {//javabean   ÃæÏò¶ÔÏó±à³Ì£¬ÓÃ»§Ò»½«Êı¾İÌá½»¹ıÀ´£¬ÎÒÃÇ¾ÍÒªÓÃ¶ÔÏó½øĞĞ·â×°¡£
+public class Person {//javabean   é¢å‘å¯¹è±¡ç¼–ç¨‹ï¼Œç”¨æˆ·ä¸€å°†æ•°æ®æäº¤è¿‡æ¥ï¼Œæˆ‘ä»¬å°±è¦ç”¨å¯¹è±¡è¿›è¡Œå°è£…ã€‚
 
 	/**
-	 * ×Ö¶ÎÊ²Ã´Ê±ºò²ÅÄÜ³ÆÎªÊôĞÔÄØ£¿
-	 * Ö»ÓĞÕâ¸ö×Ö¶Î¶ÔÍâÌá¹©ÁËgetterºÍsetterµÄ·½·¨£¬
-	 * ÎÒÃÇ²ÅÄÜ³ÆÖ®ÎªÊôĞÔ¡£Ò»¸öBeanµÄÊôĞÔÊÇÓÉËüµÄgetterºÍsetter·½·¨¾ö¶¨
+	 * å­—æ®µä»€ä¹ˆæ—¶å€™æ‰èƒ½ç§°ä¸ºå±æ€§å‘¢ï¼Ÿ
+	 * åªæœ‰è¿™ä¸ªå­—æ®µå¯¹å¤–æä¾›äº†getterå’Œsetterçš„æ–¹æ³•ï¼Œ
+	 * æˆ‘ä»¬æ‰èƒ½ç§°ä¹‹ä¸ºå±æ€§ã€‚ä¸€ä¸ªBeançš„å±æ€§æ˜¯ç”±å®ƒçš„getterå’Œsetteræ–¹æ³•å†³å®š
 	 * */
-	private String name;  //×Ö¶Î£¨³ÉÔ±±äÁ¿£©
-	private String password;//×Ö¶Î£¨³ÉÔ±±äÁ¿£©
-	private int age;//×Ö¶Î£¨³ÉÔ±±äÁ¿£©
+	private String name;  //å­—æ®µï¼ˆæˆå‘˜å˜é‡ï¼‰
+	private String password;//å­—æ®µï¼ˆæˆå‘˜å˜é‡ï¼‰
+	private int age;//å­—æ®µï¼ˆæˆå‘˜å˜é‡ï¼‰
 	
 	
 	
@@ -32,16 +32,16 @@ public class Person {//javabean   ÃæÏò¶ÔÏó±à³Ì£¬ÓÃ»§Ò»½«Êı¾İÌá½»¹ıÀ´£¬ÎÒÃÇ¾ÍÒªÓÃ
 		this.age = age;
 	}
 	
-	/**ÎÊ£ºÕâ¸öBeanÓĞÃ»ÓĞAbÊôĞÔ£¿
-	 * ÓĞ¡£
-	 *ÒòÎªBeanÓµÓĞÊ²Ã´ÑùµÄÊôĞÔÊÇÓÉgetterºÍsetter·½·¨À´¾ö¶¨µÄ¡£
-	 *¶ø²»ÊÇÓÉ×Ö¶Î¾ö¶¨µÄ¡£
+	/**é—®ï¼šè¿™ä¸ªBeanæœ‰æ²¡æœ‰Abå±æ€§ï¼Ÿ
+	 * æœ‰ã€‚
+	 *å› ä¸ºBeanæ‹¥æœ‰ä»€ä¹ˆæ ·çš„å±æ€§æ˜¯ç”±getterå’Œsetteræ–¹æ³•æ¥å†³å®šçš„ã€‚
+	 *è€Œä¸æ˜¯ç”±å­—æ®µå†³å®šçš„ã€‚
 	 *
-	 * ÎÊ£ºÕâ¸öBeanÓĞ¶àÉÙ¸öÊôĞÔ£¿
-	 * ´ğ£º5¸ö¡£
-	 * ÓÉÓÚÃ¿¸öÀà¶¼ÊÇObjectÀàµÄ×ÓÀà£¬Òò´Ë¼Ì³ĞÁËgetClass()·½·¨
-	 * getClass£¨£©¡¢getPassword()/setPassword()¡¢getName()/setName()¡¢getAge()/setAge()¡¢getAb()¡¢
-	 * ´ÓÕâĞ©·½·¨Ãû¿ÉÒÔ¿´³öÓĞ5¸öÊôĞÔ£ºClass¡¢Password¡¢Name¡¢Age¡¢Ab
+	 * é—®ï¼šè¿™ä¸ªBeanæœ‰å¤šå°‘ä¸ªå±æ€§ï¼Ÿ
+	 * ç­”ï¼š5ä¸ªã€‚
+	 * ç”±äºæ¯ä¸ªç±»éƒ½æ˜¯Objectç±»çš„å­ç±»ï¼Œå› æ­¤ç»§æ‰¿äº†getClass()æ–¹æ³•
+	 * getClassï¼ˆï¼‰ã€getPassword()/setPassword()ã€getName()/setName()ã€getAge()/setAge()ã€getAb()ã€
+	 * ä»è¿™äº›æ–¹æ³•åå¯ä»¥çœ‹å‡ºæœ‰5ä¸ªå±æ€§ï¼šClassã€Passwordã€Nameã€Ageã€Ab
 	 * **/
 	public String getAb(){
 		return null;

@@ -2,7 +2,7 @@
  * Project Name:dantefung
  * File Name:Test.java
  * Package Name:com.dantefung.dp.observer
- * Date:2016-3-28ÏÂÎç10:04:14
+ * Date:2016-3-28ä¸‹åˆ10:04:14
  * Copyright (c) 2016, fhlin0611@foxmail.com All Rights Reserved.
  *
 */
@@ -12,7 +12,7 @@ package com.dantefung.dp.observer;
  * ClassName:Test <br/>
  * Function: TODO ADD FUNCTION. <br/>
  * Reason:	 TODO ADD REASON. <br/>
- * Date:     2016-3-28 ÏÂÎç10:04:14 <br/>
+ * Date:     2016-3-28 ä¸‹åˆ10:04:14 <br/>
  * @author   Dante Fung
  * @version  
  * @since    JDK 1.6
@@ -22,16 +22,16 @@ public class Test
 {
 	public static void main(String[] args)
 	{
-		// ´´½¨Ò»¸ö±»¹Û²ì¶ÔÏó
-		Product p = new Product("µçÊÓ»ú",176);
-		// ´´½¨Á½¸ö¹Û²ìÕß¶ÔÏó
+		// åˆ›å»ºä¸€ä¸ªè¢«è§‚å¯Ÿå¯¹è±¡
+		Product p = new Product("ç”µè§†æœº",176);
+		// åˆ›å»ºä¸¤ä¸ªè§‚å¯Ÿè€…å¯¹è±¡
 		NameObserver no = new NameObserver();
 		PriceObserver po = new PriceObserver();
-		// Ïò±»¹Û²ìÕß¶ÔÏóÉÏ×¢²áÁ½¸ö¹Û²ìÕß¶ÔÏó
+		// å‘è¢«è§‚å¯Ÿè€…å¯¹è±¡ä¸Šæ³¨å†Œä¸¤ä¸ªè§‚å¯Ÿè€…å¯¹è±¡
 		p.registerObserver(no);
 		p.registerObserver(po);
-		// ³ÌĞòµ÷ÓÃsetter·½·¨À´¸Ä±äProductµÄnameºÍpriceÊôĞÔ
-		p.setName("Êé×À");
+		// ç¨‹åºè°ƒç”¨setteræ–¹æ³•æ¥æ”¹å˜Productçš„nameå’Œpriceå±æ€§
+		p.setName("ä¹¦æ¡Œ");
 		p.setPrice(345f);
 	}
 }

@@ -13,13 +13,13 @@ public class Test {
 //		ArrayList al = new ArrayList();
 //		LinkedList al = new LinkedList();
 		
-		/* �ɸ��������ָ�����ࡣ
-		 * ����ӿڱ�̡�
+		/* 由父类的引用指向子类。
+		 * 面向接口编程。
 		 * 
-		 * ֻ��Խӿڱ��,�Ͳ���Ҫ�����ҵľ���ʵ������ʲô��
-		 * �ŵ㣺
-		 * �����ĳ���������滻����ʵ��ֻ���һ�����뼴�ɡ�
-		 * ��������ļ��������붼���øġ�
+		 * 只针对接口编程,就不需要考虑我的具体实现类是什么。
+		 * 优点：
+		 * 这样的程序更灵活。想替换其他实现只需改一处代码即可。
+		 * 或改配置文件，即代码都不用改。
 		 * */
 //		Collection c = new ArrayList();
 		Collection c = new LinkedList();
@@ -30,11 +30,11 @@ public class Test {
 		System.out.println(c.size());
 		
 		/*
-		 * ����������˵����õľ��Ǳ�������Ҫͳһһ��ʵ�ַ�ʽ��
+		 * 对于容器来说，最常用的就是遍历，需要统一一种实现方式。
 		 * 
-		 * ÿһ�����������Լ��ı�����ʽ��������Ҫ�뷽�跨����Щ�����ı�����ʽͳһ������
+		 * 每一种容器都有自己的遍历方式，但我们要想方设法将这些容器的遍历方式统一起来。
 		 * 
-		 * ֻ����һ�ֹ�ͬ�ķ�ʽ���ӿڻ�����ࡣ
+		 * 只能用一种共同的方式，接口或抽象类。
 		 * 
 		 * */
 //		ArrayList al = (ArrayList)c;
@@ -43,10 +43,10 @@ public class Test {
 //			
 //		}
 		/**
-		 * ������ͳһ�Ľӿڣ�����ͳһ��ʵ�ַ�ʽ��ͳһ�ĵ�����ʽ���ڲ��ľ���ʵ�ֲ��ܡ�
+		 * 定义了统一的接口，就有统一的实现方式，统一的迭代方式，内部的具体实现不管。
 		 * **/
 		Iterator it = c.iterator();
-		while(it.hasNext())//���������һ����
+		while(it.hasNext())//如果你有下一个。
 		{
 			Object o = it.next();
 			System.out.println(o + " ");
@@ -54,7 +54,7 @@ public class Test {
 		
 		c.add(new Cat(15));
 		Iterator it2 = c.iterator();
-		while(it.hasNext())//���������һ����
+		while(it.hasNext())//如果你有下一个。
 		{
 			Object o = it2.next();
 			System.out.println(o + " ");

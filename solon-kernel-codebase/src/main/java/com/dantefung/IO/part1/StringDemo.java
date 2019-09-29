@@ -8,18 +8,18 @@ import java.io.IOException;
 import java.util.Arrays;
 
 /*
- * ÒÑÖªs.txtÎÄ¼þÖÐÓÐÕâÑùµÄÒ»¸ö×Ö·û´®£º"hcexfgijkamdnoqrzstuvwybpl"
- * ±àÐ´³ÌÐò¶ÁÈ¡Êý¾ÝÄÚÈÝ£¬°ÑÊý¾ÝÅÅÐòºóÐ´Èëss.txtÖÐ¡£
+ * å·²çŸ¥s.txtæ–‡ä»¶ä¸­æœ‰è¿™æ ·çš„ä¸€ä¸ªå­—ç¬¦ä¸²ï¼š"hcexfgijkamdnoqrzstuvwybpl"
+ * ç¼–å†™ç¨‹åºè¯»å–æ•°æ®å†…å®¹ï¼ŒæŠŠæ•°æ®æŽ’åºåŽå†™å…¥ss.txtä¸­ã€‚
  * 
- * ·ÖÎö£º
- *     A£º°Ñs.txtÕâ¸öÎÄ¼þ¸ø×ö³öÀ´¡£
- *     B£º¶ÁÈ¡¸ÃÎÄ¼þµÄÄÚÈÝ£¬´æ´¢µ½Ò»¸ö×Ö·û´®ÖÐ
- *     C£º°Ñ×Ö·û´®×ª»»Îª×Ö·ûÊý×é
- *     D£º¶Ô×Ö·ûÊý×é½øÐÐÅÅÐò
- *     E£º°ÑÅÅÐòºóµÄ×Ö·ûÊý×é×ª»»Îª×Ö·û´®
- *     F£º°Ñ×Ö·û´®ÔÙ´ÎÐ´Èëss.txtÖÐ
+ * åˆ†æžï¼š
+ *     Aï¼šæŠŠs.txtè¿™ä¸ªæ–‡ä»¶ç»™åšå‡ºæ¥ã€‚
+ *     Bï¼šè¯»å–è¯¥æ–‡ä»¶çš„å†…å®¹ï¼Œå­˜å‚¨åˆ°ä¸€ä¸ªå­—ç¬¦ä¸²ä¸­
+ *     Cï¼šæŠŠå­—ç¬¦ä¸²è½¬æ¢ä¸ºå­—ç¬¦æ•°ç»„
+ *     Dï¼šå¯¹å­—ç¬¦æ•°ç»„è¿›è¡ŒæŽ’åº
+ *     Eï¼šæŠŠæŽ’åºåŽçš„å­—ç¬¦æ•°ç»„è½¬æ¢ä¸ºå­—ç¬¦ä¸²
+ *     Fï¼šæŠŠå­—ç¬¦ä¸²å†æ¬¡å†™å…¥ss.txtä¸­
  * 
- *ÔËÐÐÍê³Éºó£¬µã»÷ÏîÄ¿dantefung ÓÒ¼ü-- refresh¼´¿É¿´µ½ÏîÄ¿¸ùÄ¿Â¼ÏÂÓÐss.txtÎÄ¼þÉú³É¡£
+ *è¿è¡Œå®ŒæˆåŽï¼Œç‚¹å‡»é¡¹ç›®dantefung å³é”®-- refreshå³å¯çœ‹åˆ°é¡¹ç›®æ ¹ç›®å½•ä¸‹æœ‰ss.txtæ–‡ä»¶ç”Ÿæˆã€‚
  * 
  * */
 public class StringDemo {
@@ -32,31 +32,31 @@ public class StringDemo {
 		// TODO Auto-generated method stub
         BufferedReader br = new BufferedReader(new FileReader("s.txt"));
         
-        //Ò»´Î¶ÁÐ´Ò»¸ö×Ö·û´®¡£
+        //ä¸€æ¬¡è¯»å†™ä¸€ä¸ªå­—ç¬¦ä¸²ã€‚
         String line = null;
         
         line = br.readLine();
         
-        //°Ñ×Ö·û´®×ª»»Îª×Ö·ûÊý×é¡£
+        //æŠŠå­—ç¬¦ä¸²è½¬æ¢ä¸ºå­—ç¬¦æ•°ç»„ã€‚
         char[] chs = line.toCharArray();
 
-        //ÊÍ·Å×ÊÔ´
+        //é‡Šæ”¾èµ„æº
         br.close();
         
-        //¶Ô×Ö·ûÊý×é½øÐÐÅÅÐò
+        //å¯¹å­—ç¬¦æ•°ç»„è¿›è¡ŒæŽ’åº
         Arrays.sort(chs);
         
-        //°ÑÅÅÐòºóµÄ×Ö·ûÊý×é×ª»»Îª×Ö·û´®
+        //æŠŠæŽ’åºåŽçš„å­—ç¬¦æ•°ç»„è½¬æ¢ä¸ºå­—ç¬¦ä¸²
         String s = new String(chs);
         
-        //°Ñ×Ö·û´®ÔÙ´ÎÐ´Èëss.txtÖÐ¡£
+        //æŠŠå­—ç¬¦ä¸²å†æ¬¡å†™å…¥ss.txtä¸­ã€‚
         BufferedWriter bw = new BufferedWriter(new FileWriter("ss.txt"));
         
         bw.write(chs);
         bw.newLine();
-        bw.flush();//õßÒ»½Å
+        bw.flush();//è¸¹ä¸€è„š
         
-        //ÊÍ·Å×ÊÔ´
+        //é‡Šæ”¾èµ„æº
         bw.close();
  
 	}

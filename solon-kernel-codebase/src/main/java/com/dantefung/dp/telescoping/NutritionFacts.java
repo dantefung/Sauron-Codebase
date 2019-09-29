@@ -2,7 +2,7 @@
  * Project Name:dantefung
  * File Name:NutritionFacts.java
  * Package Name:com.dantefung.dp.telescoping
- * Date:2016-3-16ÏÂÎç3:52:53
+ * Date:2016-3-16ä¸‹åˆ3:52:53
  * Copyright (c) 2016, fhlin0611@foxmail.com All Rights Reserved.
  *
 */
@@ -10,15 +10,15 @@
 package com.dantefung.dp.telescoping;
 /**
  *
- *  ±¾ÀıÊÇ¡¶Effective Java¡·µÚ¶şÕÂ ´´½¨ºÍÏú»Ù¶ÔÏó µÚ2Ìõ Óöµ½¶à¸ö¹¹Ôì
- * ²ÎÊıÊ±Òª¿¼ÂÇÊ¹ÓÃ¹¹ÔìÆ÷¡£
+ *  æœ¬ä¾‹æ˜¯ã€ŠEffective Javaã€‹ç¬¬äºŒç«  åˆ›å»ºå’Œé”€æ¯å¯¹è±¡ ç¬¬2æ¡ é‡åˆ°å¤šä¸ªæ„é€ 
+ * å‚æ•°æ—¶è¦è€ƒè™‘ä½¿ç”¨æ„é€ å™¨ã€‚
  * 
- * ÖØµş¹¹ÔìÆ÷(Telescoping constructor)
+ * é‡å æ„é€ å™¨(Telescoping constructor)
  * 
  * ClassName:NutritionFacts <br/>
  * Function: TODO ADD FUNCTION. <br/>
  * Reason:	 TODO ADD REASON. <br/>
- * Date:     2016-3-16 ÏÂÎç3:52:53 <br/>
+ * Date:     2016-3-16 ä¸‹åˆ3:52:53 <br/>
  * @author   Dante Fung
  * @version  
  * @since    JDK 1.6

@@ -7,8 +7,8 @@ import com.jacob.com.Dispatch;
   
 public class Word2PdfUtil {  
   
-    static final int wdDoNotSaveChanges = 0;// ²»±£´æ´ı¶¨µÄ¸ü¸Ä¡£  
-    static final int wdFormatPDF = 17;// word×ªPDF ¸ñÊ½  
+    static final int wdDoNotSaveChanges = 0;// ä¸ä¿å­˜å¾…å®šçš„æ›´æ”¹ã€‚  
+    static final int wdFormatPDF = 17;// wordè½¬PDF æ ¼å¼  
   
     public static void main(String[] args) throws IOException {  
         String source1 = "D:\\234_.doc";  
@@ -18,16 +18,16 @@ public class Word2PdfUtil {
     }  
   
     public static boolean word2pdf(String source, String target) {  
-        System.out.println("Word×ªPDF¿ªÊ¼Æô¶¯...");  
+        System.out.println("Wordè½¬PDFå¼€å§‹å¯åŠ¨...");  
         long start = System.currentTimeMillis();  
         ActiveXComponent app = null;  
         try {  
             app = new ActiveXComponent("Word.Application");  
             app.setProperty("Visible", false);  
             Dispatch docs = app.getProperty("Documents").toDispatch();  
-            System.out.println("´ò¿ªÎÄµµ£º" + source);  
+            System.out.println("æ‰“å¼€æ–‡æ¡£ï¼š" + source);  
             Dispatch doc = Dispatch.call(docs, "Open", source, false, true).toDispatch();  
-            System.out.println("×ª»»ÎÄµµµ½PDF£º" + target);  
+            System.out.println("è½¬æ¢æ–‡æ¡£åˆ°PDFï¼š" + target);  
             File tofile = new File(target);  
             if (tofile.exists()) {  
                 tofile.delete();  
@@ -35,10 +35,10 @@ public class Word2PdfUtil {
             Dispatch.call(doc, "SaveAs", target, wdFormatPDF);  
             Dispatch.call(doc, "Close", false);  
             long end = System.currentTimeMillis();  
-            System.out.println("×ª»»Íê³É£¬ÓÃÊ±£º" + (end - start) + "ms");  
+            System.out.println("è½¬æ¢å®Œæˆï¼Œç”¨æ—¶ï¼š" + (end - start) + "ms");  
             return true;  
         } catch (Exception e) {  
-            System.out.println("Word×ªPDF³ö´í£º" + e.getMessage());  
+            System.out.println("Wordè½¬PDFå‡ºé”™ï¼š" + e.getMessage());  
             return false;  
         } finally {  
             if (app != null) {  

@@ -2,7 +2,7 @@ package com.dantefung.test;
 
 import java.util.*;
 import java.io.*;
-//Ä£ÄâÑ¸À×ÏÂÔØ£¬µ¥Ïß³Ì£¬±¾µØ°æ¡£
+//æ¨¡æ‹Ÿè¿…é›·ä¸‹è½½ï¼Œå•çº¿ç¨‹ï¼Œæœ¬åœ°ç‰ˆã€‚
 public class XunLeiDemo {
 	public static void main(String[] args) throws IOException {
 		File file = new File("D:\\mysql-5.5.27-win32.msi");
@@ -22,13 +22,13 @@ public class XunLeiDemo {
 			}
 			Enumeration<InputStream> ert = vector.elements();
 			SequenceInputStream sis = new SequenceInputStream(ert);
-			fos = new FileOutputStream("D:\\ÏÂÔØ³É¹¦"+file.toString().substring(file.toString().lastIndexOf(".")));
+			fos = new FileOutputStream("D:\\ä¸‹è½½æˆåŠŸ"+file.toString().substring(file.toString().lastIndexOf(".")));
 			while((len = sis.read(by))!=-1){
 				fos.write(by, 0, len);
 			}
 			fos.close();
-			System.out.println("ÍÛÈû£¬ÎÄ¼şÏÂÔØ³É¹¦ÁË!");
+			System.out.println("å“‡å¡ï¼Œæ–‡ä»¶ä¸‹è½½æˆåŠŸäº†!");
 		}else
-			throw new RuntimeException("¶Ô²»Æğ£¬ÄúËùÏÂÔØµÄÎÄ¼ş²»´æÔÚ!");
+			throw new RuntimeException("å¯¹ä¸èµ·ï¼Œæ‚¨æ‰€ä¸‹è½½çš„æ–‡ä»¶ä¸å­˜åœ¨!");
 	}
 }

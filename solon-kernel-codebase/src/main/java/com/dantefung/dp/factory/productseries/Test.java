@@ -3,7 +3,7 @@ package com.dantefung.dp.factory.productseries;
 public class Test {
 
 	public static void main(String[] args) {
-		DefualtFactory defualtFactory = new MagicFactory();//Òª»»ÁíÒ»¸öÉú²ú²úÆ·ÏµÁĞµÄ¹¤³§ÔÚ´ËĞŞ¸Ä¼´¿É¡£
+		DefualtFactory defualtFactory = new MagicFactory();//è¦æ¢å¦ä¸€ä¸ªç”Ÿäº§äº§å“ç³»åˆ—çš„å·¥å‚åœ¨æ­¤ä¿®æ”¹å³å¯ã€‚
 		Moveable vehicle = defualtFactory.creatVehicle();
 		Food food = defualtFactory.creatFood();
 		Weapon weapon = defualtFactory.creatWeapon();

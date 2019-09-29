@@ -3,17 +3,17 @@ package com.dantefung.IO;
 import java.io.File;
 
 /*
- * �ж�e��Ŀ¼���Ƿ��к�׺Ϊ.jpg���ļ�������У���������ļ����ơ�
+ * 判断e盘目录下是否有后缀为.jpg的文件，如果有，就输出次文件名称。
  * 
- * ������
- * 		A����װe�ж�Ŀ¼
- * 		B����ȡ��Ŀ¼�������ļ������ļ��е�File����
- * 		C��������File���飬�õ�ÿһ��File����Ȼ���ж�
- * 		D���Ƿ����ļ�
- * 			�ǣ������ж��Ƿ�����.jpgΪ��׺��
- * 				�ǣ���������ļ�������
- * 				�񣺲���������
- * 			�񣺲���������
+ * 分析：
+ * 		A：封装e判断目录
+ * 		B：获取该目录下所有文件或者文件夹的File数组
+ * 		C：遍历该File数组，得到每一个File对象，然后判断
+ * 		D：是否是文件
+ * 			是：继续判断是否是以.jpg为后缀的
+ * 				是：就输出该文件的名称
+ * 				否：不搭理他。
+ * 			否：不搭理它。
  * ***/
 public class FileFilterDemo {
 
@@ -22,19 +22,19 @@ public class FileFilterDemo {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//��װe�ж�Ŀ¼
+		//封装e判断目录
 		File file = new File("e:\\");
 		
-		//��ȡ��Ŀ¼�������ļ������ļ��е�File���顣
+		//获取该目录下所有文件或者文件夹的File数组。
 		File[] fileArray = file.listFiles();
 		
-		//������File���飬�õ�ÿһ��File����Ȼ��
+		//遍历该File数组，得到每一个File对象，然后
 		for(File f : fileArray)
-		{   //�Ƿ����ļ�
+		{   //是否是文件
 			if(f.isFile())
-			{    //�����ж��Ƿ���.jpg��β��
+			{    //继续判断是否以.jpg结尾。
 				if(f.getName().endsWith(".jpg"))
-				{   //������ļ������֡�
+				{   //输出该文件的名字。
 					System.out.println(f.getName());
 				}
 			}

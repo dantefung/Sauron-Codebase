@@ -4,7 +4,7 @@ public class Car implements Moveable {
 
 	@Override
 	public void run() {
-		System.out.println("Ã°×ÅÑÌ±¼ÅÜÖĞCar¡£¡£¡£");
+		System.out.println("å†’ç€çƒŸå¥”è·‘ä¸­Carã€‚ã€‚ã€‚");
 	}
 
 }

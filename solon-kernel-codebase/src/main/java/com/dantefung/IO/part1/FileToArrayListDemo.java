@@ -6,17 +6,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /*
- *ĞèÇó£º´ÓÎÄ±¾ÎÄ¼şÖĞ¶ÁÈ¡Êı¾İ£¨Ã¿Ò»ĞĞÎªÒ»¸ö×Ö·û´®Êı¾İ£©µ½¼¯ºÏÖĞ£¬²¢±éÀú¼¯ºÏ
+ *éœ€æ±‚ï¼šä»æ–‡æœ¬æ–‡ä»¶ä¸­è¯»å–æ•°æ®ï¼ˆæ¯ä¸€è¡Œä¸ºä¸€ä¸ªå­—ç¬¦ä¸²æ•°æ®ï¼‰åˆ°é›†åˆä¸­ï¼Œå¹¶éå†é›†åˆ
  *
- * ·ÖÎö£º
- *     Í¨¹ıÌâÄ¿µÄÒâË¼ÎÒÃÇ¿ÉÒÔÖªµÀÈçÏÂµÄÒ»Ğ©ÄÚÈİ£¬
- *         Êı¾İÔ´ÊÇÒ»¸öÎÄ±¾ÎÄ¼ş¡£
- *         Ä¿µÄµØÊÇÒ»¸ö¼¯ºÏ¡£
- *         ¶øÇÒÔªËØÊÇ×Ö·û´®¡£
+ * åˆ†æï¼š
+ *     é€šè¿‡é¢˜ç›®çš„æ„æ€æˆ‘ä»¬å¯ä»¥çŸ¥é“å¦‚ä¸‹çš„ä¸€äº›å†…å®¹ï¼Œ
+ *         æ•°æ®æºæ˜¯ä¸€ä¸ªæ–‡æœ¬æ–‡ä»¶ã€‚
+ *         ç›®çš„åœ°æ˜¯ä¸€ä¸ªé›†åˆã€‚
+ *         è€Œä¸”å…ƒç´ æ˜¯å­—ç¬¦ä¸²ã€‚
  *         
- * Êı¾İÔ´£º
+ * æ•°æ®æºï¼š
  *     b.txt -- FileReader -- BufferedReader
- * Ä¿µÄµØ£º
+ * ç›®çš„åœ°ï¼š
  *     ArrayList<String>
  * 
  * 
@@ -31,23 +31,23 @@ public class FileToArrayListDemo {
 	public static void main(String[] args) throws IOException{
 		// TODO Auto-generated method stub
 
-		//·â×°Êı¾İÔ´
+		//å°è£…æ•°æ®æº
 		BufferedReader br = new BufferedReader(new FileReader("a.txt"));
 		
-		//·â×°Ä¿µÄµØ£¨´´½¨¼¯ºÏ¶ÔÏó£©
+		//å°è£…ç›®çš„åœ°ï¼ˆåˆ›å»ºé›†åˆå¯¹è±¡ï¼‰
 		ArrayList<String> array = new ArrayList<String>();
 		
-		//¶ÁÈ¡Êı¾İµ½¼¯ºÏÖĞ
+		//è¯»å–æ•°æ®åˆ°é›†åˆä¸­
 		String line = null;
 		while((line = br.readLine()) != null)
 		{
 		    array.add(line);	
 		}
 		
-		//ÊÍ·Å×ÊÔ´
+		//é‡Šæ”¾èµ„æº
 		br.close();
 		
-		//±éÀú¼¯ºÏ
+		//éå†é›†åˆ
 		for(String s : array)
 		{
 			System.out.println(s);

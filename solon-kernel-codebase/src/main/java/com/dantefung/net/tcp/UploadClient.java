@@ -8,7 +8,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 
 /**
- * TcpĞ­Òé£¬ÎÄ±¾ÎÄ¼şÉÏ´«¿Í»§¶Ë¡£
+ * Tcpåè®®ï¼Œæ–‡æœ¬æ–‡ä»¶ä¸Šä¼ å®¢æˆ·ç«¯ã€‚
  * @author Dante Fung
  *
  */
@@ -16,30 +16,30 @@ public class UploadClient
 {
 	public static void main(String[] args) throws Exception
     {
-	    // 1¡¢½¨Á¢tcpÍ¨Ñ¶²å×ù¡£
+	    // 1ã€å»ºç«‹tcpé€šè®¯æ’åº§ã€‚
 		Socket socket = new Socket(InetAddress.getLocalHost(),10005);
-		// 2¡¢´´½¨×Ö·ûÊäÈëÁ÷£¬¶ÁÈ¡±¾µØµÄÎÄ±¾ÎÄ¼ş¡£
+		// 2ã€åˆ›å»ºå­—ç¬¦è¾“å…¥æµï¼Œè¯»å–æœ¬åœ°çš„æ–‡æœ¬æ–‡ä»¶ã€‚
 		BufferedReader br = new BufferedReader(new FileReader("src\\com\\dantefung\\net\\tcp\\client.txt"));
-		// 3¡¢»ñÈ¡socketµÄÊä³öÁ÷£¬½«¸ÃÁ÷°ü×°³É´òÓ¡Á÷(´òÓ¡Á÷£¬¿ÉÖ¸¶¨×Ô¶¯Ë¢ĞÂºÍÊä³ö×Ô¶¯»»ĞĞ)¡£
+		// 3ã€è·å–socketçš„è¾“å‡ºæµï¼Œå°†è¯¥æµåŒ…è£…æˆæ‰“å°æµ(æ‰“å°æµï¼Œå¯æŒ‡å®šè‡ªåŠ¨åˆ·æ–°å’Œè¾“å‡ºè‡ªåŠ¨æ¢è¡Œ)ã€‚
 		PrintWriter out = new PrintWriter(socket.getOutputStream(),true);
 		
-		// 4¡¢²»¶ÏµØ¸ø·şÎñ¶ËĞ´Êı¾İ
+		// 4ã€ä¸æ–­åœ°ç»™æœåŠ¡ç«¯å†™æ•°æ®
 		String line = null;
 		while((line=br.readLine()) != null)
 		{
 			out.println(line);
 		}
-		// ¸æËß·şÎñ¶Ë£¬¿Í»§¶ËµÄÊı¾İĞ´ÍêÁË¡£
+		// å‘Šè¯‰æœåŠ¡ç«¯ï¼Œå®¢æˆ·ç«¯çš„æ•°æ®å†™å®Œäº†ã€‚
 		socket.shutdownOutput();
-//		out.println("over");// ½áÊø±ê¼Ç£¬Èí¼ş¿ª·¢ÖĞÒ»°ãÏÈ·¢ËÍÒ»¸öµ±Ç°Ê±¼äµÄºÁÃëÖµ¸ø·şÎñ¶Ë£¬·şÎñ¶Ëµ½Ê±¾ÍÖ±½ÓÒÔÕâ¸öºÁÃëÖµ×÷Îª¿Í»§¶Ë½áÊøĞ´Êı¾İµÄ±ê¼Ç
+//		out.println("over");// ç»“æŸæ ‡è®°ï¼Œè½¯ä»¶å¼€å‘ä¸­ä¸€èˆ¬å…ˆå‘é€ä¸€ä¸ªå½“å‰æ—¶é—´çš„æ¯«ç§’å€¼ç»™æœåŠ¡ç«¯ï¼ŒæœåŠ¡ç«¯åˆ°æ—¶å°±ç›´æ¥ä»¥è¿™ä¸ªæ¯«ç§’å€¼ä½œä¸ºå®¢æˆ·ç«¯ç»“æŸå†™æ•°æ®çš„æ ‡è®°
 		
-		// 5¡¢¶ÁÈ¡·şÎñ¶Ë·µ»ØµÄÊı¾İ¡£
+		// 5ã€è¯»å–æœåŠ¡ç«¯è¿”å›çš„æ•°æ®ã€‚
 		BufferedReader bufIn = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 		
 		String str = bufIn.readLine();
 		System.out.println(str);
 		
-		// 6¡¢ÊÍ·Å×ÊÔ´.
+		// 6ã€é‡Šæ”¾èµ„æº.
 		socket.close();
 		
     }

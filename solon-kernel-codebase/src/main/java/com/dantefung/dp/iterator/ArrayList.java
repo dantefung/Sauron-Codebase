@@ -1,24 +1,24 @@
 package com.dantefung.dp.iterator;
 import com.dantefung.dp.iterator.Collection;
-//Ä£ÄâJDKÖĞµÄArrayList
+//æ¨¡æ‹ŸJDKä¸­çš„ArrayList
 public class ArrayList implements Collection {
-	Object[] objects = new Object[10];//ÓÃÊı×éÀ´Ä£·Â×°ÈÎÒâ¶à¸ö¶ÔÏóµÄÈİÆ÷¡£
+	Object[] objects = new Object[10];//ç”¨æ•°ç»„æ¥æ¨¡ä»¿è£…ä»»æ„å¤šä¸ªå¯¹è±¡çš„å®¹å™¨ã€‚
 	private int index = 0;
 	public int getIndex() {
 		return index;
 	}
 
-	//ÀûÓÃ¶¯Ì¬Êı×éÊµÏÖ¡£
+	//åˆ©ç”¨åŠ¨æ€æ•°ç»„å®ç°ã€‚
 	public void add(Object o)
 	{
-		//ÏÈÅĞ¶ÏÊı×éÊÇ·ñÂúÁË¡£ÈôÂúÁË£¬¾Í½«Ô­À´µÄÊı×é×öÀ©Õ¹¡£
+		//å…ˆåˆ¤æ–­æ•°ç»„æ˜¯å¦æ»¡äº†ã€‚è‹¥æ»¡äº†ï¼Œå°±å°†åŸæ¥çš„æ•°ç»„åšæ‰©å±•ã€‚
 		if(index == objects.length)
 		{
-			/**´´½¨Ò»¸öĞÂµÄÊı×é**/
-			Object[] newObjects = new Object[objects.length * 2];//JDKÖĞÄÚ²¿Ëã·¨²»ÊÇÕâÑùµÄ£¬ÄÚ²¿ÊÇÓĞ¸ö¼ÓÈ¨Öµ£¬¸ù¾İ¼ÓÈ¨ÖµÀ´È·¶¨Òª¼Ó¶àÉÙ¡£
-			/**½«Ô­À´µÄÊı×éÄÚµÄÄÚÈİcopyµ½ĞÂµÄÊı×éÀï¡£**/
+			/**åˆ›å»ºä¸€ä¸ªæ–°çš„æ•°ç»„**/
+			Object[] newObjects = new Object[objects.length * 2];//JDKä¸­å†…éƒ¨ç®—æ³•ä¸æ˜¯è¿™æ ·çš„ï¼Œå†…éƒ¨æ˜¯æœ‰ä¸ªåŠ æƒå€¼ï¼Œæ ¹æ®åŠ æƒå€¼æ¥ç¡®å®šè¦åŠ å¤šå°‘ã€‚
+			/**å°†åŸæ¥çš„æ•°ç»„å†…çš„å†…å®¹copyåˆ°æ–°çš„æ•°ç»„é‡Œã€‚**/
 			System.arraycopy(objects, 0, newObjects, 0, objects.length);
-			/**Ô­À´µÄÊı×éµÄÒıÓÃÖ¸ÏòÁËĞÂµÄÊı×é¡£**/
+			/**åŸæ¥çš„æ•°ç»„çš„å¼•ç”¨æŒ‡å‘äº†æ–°çš„æ•°ç»„ã€‚**/
 			objects = newObjects;
 		}
 		objects[index] = o;
@@ -35,7 +35,7 @@ public class ArrayList implements Collection {
 		return new ArrayListIterator();
 	}
 	
-	//ÄÚ²¿µÄÒ»¸ö°ü×°Àà¡£
+	//å†…éƒ¨çš„ä¸€ä¸ªåŒ…è£…ç±»ã€‚
 	private class ArrayListIterator implements Iterator
 	{
 		private int currentIndex = 0;

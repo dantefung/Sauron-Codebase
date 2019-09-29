@@ -5,6 +5,6 @@ public class Broom extends Vehicle{
 	@Override
 	public void go(Address dest)
 	{
-		System.out.println("’ßÖøÍÁÈ¥" + dest.getName());
+		System.out.println("æƒè‘—åœŸå»" + dest.getName());
 	}
 }

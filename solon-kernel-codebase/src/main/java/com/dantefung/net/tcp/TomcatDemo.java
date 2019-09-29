@@ -7,9 +7,9 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
- * ĞèÇó£º
- * Ä£Äâ·şÎñÆ÷¸øä¯ÀÀÆ÷ÊäËÍÊı¾İ£¬Í¬Ê±Ö¤Ã÷ä¯ÀÀÆ÷Óë·şÎñÆ÷Ö®¼äµÄÍ¨Ñ¶ÊÇ
- * Ê¹ÓÃÁËtcpĞ­Òé
+ * éœ€æ±‚ï¼š
+ * æ¨¡æ‹ŸæœåŠ¡å™¨ç»™æµè§ˆå™¨è¾“é€æ•°æ®ï¼ŒåŒæ—¶è¯æ˜æµè§ˆå™¨ä¸æœåŠ¡å™¨ä¹‹é—´çš„é€šè®¯æ˜¯
+ * ä½¿ç”¨äº†tcpåè®®
  * @author Dante Fung
  *
  */
@@ -22,7 +22,7 @@ public class TomcatDemo extends Thread
 	    this.socket = socket;
     }
 	
-	// Ğ´¶àÏß³ÌµÄÈÎÎñ
+	// å†™å¤šçº¿ç¨‹çš„ä»»åŠ¡
 	@Override
 	public void run()
 	{
@@ -31,10 +31,10 @@ public class TomcatDemo extends Thread
 	    	InputStream in = socket.getInputStream();
 	    	byte[] buf = new byte[1024];
 			int length = in.read(buf);
-			System.out.println("tcpµÄ·şÎñ¶Ë½ÓÊÕµ½µÄÊı¾İ£º" + new String(buf,0,length));
+			System.out.println("tcpçš„æœåŠ¡ç«¯æ¥æ”¶åˆ°çš„æ•°æ®ï¼š" + new String(buf,0,length));
 		    OutputStream out = socket.getOutputStream();
-		    // Ïòä¯ÀÀÆ÷Êä³öÊı¾İ
-		    out.write("<font size='36px' color='red'>ÄãºÃ°¡£¬ä¯ÀÀÆ÷£¡£¡£¡</font>".getBytes());
+		    // å‘æµè§ˆå™¨è¾“å‡ºæ•°æ®
+		    out.write("<font size='36px' color='red'>ä½ å¥½å•Šï¼Œæµè§ˆå™¨ï¼ï¼ï¼</font>".getBytes());
 		    socket.close();
 	    }
 	    catch (Exception e)
@@ -46,7 +46,7 @@ public class TomcatDemo extends Thread
 	public static void main(String[] args) throws Exception
     {
 	    ServerSocket serverSocket = new ServerSocket(8080);
-	    // ²»¶Ï½ÓÊÕä¯ÀÀÆ÷µÄÇëÇó
+	    // ä¸æ–­æ¥æ”¶æµè§ˆå™¨çš„è¯·æ±‚
 	    while(true)
 	    {
 	    	Socket socket = serverSocket.accept();

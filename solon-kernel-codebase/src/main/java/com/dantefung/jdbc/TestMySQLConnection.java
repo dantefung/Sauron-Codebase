@@ -3,9 +3,9 @@ package com.dantefung.jdbc;
 import java.sql.*;
 /**
  * JDBC Test!
- * ½áºÏÉè¼ÆÄ£Ê½µÄË¼ÏëÀ´Àí½â´úÂëÎªºÎÒªÕâÑùµÄÊéĞ´¡£
- * Õ¾ÔÚÉè¼ÆÕßµÄ½Ç¶ÈÀ´Ë¼¿¼¡£
- * ÒÔÏÂµÄ×¢ÊÍÊÇÎÒ¸öÈËÌí¼ÓµÄ£¬Ä¿µÄÊÇÎªÁËÀíÇåÂöÂç£¬ÀíÇåÊéĞ´´úÂëµÄË¼Â·¡£
+ * ç»“åˆè®¾è®¡æ¨¡å¼çš„æ€æƒ³æ¥ç†è§£ä»£ç ä¸ºä½•è¦è¿™æ ·çš„ä¹¦å†™ã€‚
+ * ç«™åœ¨è®¾è®¡è€…çš„è§’åº¦æ¥æ€è€ƒã€‚
+ * ä»¥ä¸‹çš„æ³¨é‡Šæ˜¯æˆ‘ä¸ªäººæ·»åŠ çš„ï¼Œç›®çš„æ˜¯ä¸ºäº†ç†æ¸…è„‰ç»œï¼Œç†æ¸…ä¹¦å†™ä»£ç çš„æ€è·¯ã€‚
  * @author DanteFung
  * @since 2015.2.19
  * @version 0.1
@@ -19,16 +19,16 @@ public class TestMySQLConnection {
 		
 		try
 		{
-			//¼ÓÔØÊı¾İ¿âÇı¶¯¡£
+			//åŠ è½½æ•°æ®åº“é©±åŠ¨ã€‚
 			Class.forName("com.mysql.jdbc.Driver");
-			//Í¨¹ıÊı¾İ¿âÇı¶¯¹ÜÀíÈ¡µÃÊı¾İ¿âÁ¬½Ó¡£
+			//é€šè¿‡æ•°æ®åº“é©±åŠ¨ç®¡ç†å–å¾—æ•°æ®åº“è¿æ¥ã€‚
 			conn = DriverManager
 					.getConnection("jdbc:mysql://localhost/dantefung?user=root&password=");
-			//»ñµÃÒ»¸ö×Ö¶ÎµÄ¶ÔÏó
+			//è·å¾—ä¸€ä¸ªå­—æ®µçš„å¯¹è±¡
 			stmt = conn.createStatement();
-			//Í¨¹ısqlÓï¾äÈ¡µÃ²éÑ¯½á¹û·â×°ÔÚÒ»¸ö½á¹û¼¯¶ÔÏóÀïÃæ¡£
+			//é€šè¿‡sqlè¯­å¥å–å¾—æŸ¥è¯¢ç»“æœå°è£…åœ¨ä¸€ä¸ªç»“æœé›†å¯¹è±¡é‡Œé¢ã€‚
 			rs = stmt.executeQuery("select * from dept");
-			//ÑØÓÃÁËµü´úÆ÷µÄË¼Ïë¡£
+			//æ²¿ç”¨äº†è¿­ä»£å™¨çš„æ€æƒ³ã€‚
 			while(rs.next())
 			{
 				System.out.println(rs.getString("deptno"));
@@ -46,7 +46,7 @@ public class TestMySQLConnection {
 			System.out.println("VendorError:" + ex.getErrorCode());
 		}
 		finally
-		{//×îºóµ±È»ÊÇÒª¹Ø±ÕÊı¾İ¿âµÄ¸÷Ïî×ÊÔ´¡£
+		{//æœ€åå½“ç„¶æ˜¯è¦å…³é—­æ•°æ®åº“çš„å„é¡¹èµ„æºã€‚
 			try
 			{
 				if(rs != null)
