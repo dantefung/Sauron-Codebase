@@ -49,6 +49,7 @@ public class MyClassLoaderTest extends ClassLoader{
 			cypher(fis,bos);
 			fis.close();
 			byte[] bytes = bos.toByteArray();
+			// 组装Class对象
 		return  defineClass(bytes,0,bytes.length);//转成字节码。
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
