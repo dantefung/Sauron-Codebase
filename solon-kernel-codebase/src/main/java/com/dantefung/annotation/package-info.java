@@ -38,7 +38,7 @@ package com.dantefung.annotation;
  *
  * RetentionPolicy.SOURCE：当前注解编译期可见，不会写入 class 文件
  * RetentionPolicy.CLASS：类加载阶段丢弃，会写入 class 文件
- * RetentionPolicy.RUNTIME：永久保存，可以反射获取
+ * RetentionPolicy.RUNTIME：运行时，可以反射获取
  *
  * JAVA 的内置三大注解
  * @Override

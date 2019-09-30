@@ -1,10 +1,10 @@
-package com.dantefung.annotation.apt.shape.factorycompiler.processor;
+package com.dantefung.proccessor.factorycompiler.processor;
 
-import com.dantefung.annotation.apt.shape.Factory;
-import com.dantefung.annotation.apt.shape.factorycompiler.validator.FactoryAnnotationValidator;
-import com.dantefung.annotation.apt.shape.factorycompiler.exception.ProcessingException;
-import com.dantefung.annotation.apt.shape.factorycompiler.model.FactoryAnnotatedClass;
-import com.dantefung.annotation.apt.shape.factorycompiler.model.FactoryGroupedClasses;
+import com.dantefung.annotation.Factory;
+import com.dantefung.proccessor.factorycompiler.exception.ProcessingException;
+import com.dantefung.proccessor.factorycompiler.model.FactoryAnnotatedClass;
+import com.dantefung.proccessor.factorycompiler.model.FactoryGroupedClasses;
+import com.dantefung.proccessor.factorycompiler.validator.FactoryAnnotationValidator;
 import com.google.auto.service.AutoService;
 
 import javax.annotation.processing.*;
@@ -30,7 +30,7 @@ public class FactoryProcessor extends AbstractProcessor {
     private Messager messager;
     private Filer filer;
     private Elements elementUtils;
-    private Map<String, FactoryGroupedClasses> factoryClasses = new LinkedHashMap<>();
+    private Map<String, FactoryGroupedClasses> factoryClasses = new LinkedHashMap<String, FactoryGroupedClasses>();
 
     /**
      * 这个方法用于初始化处理器，方法中有一个ProcessingEnvironment类型的参数，ProcessingEnvironment是一个注解处理工具的集合。
@@ -42,13 +42,24 @@ public class FactoryProcessor extends AbstractProcessor {
      */
     @Override
     public synchronized void init(ProcessingEnvironment processingEnvironment) {
-        System.out.println("FactoryProcessor init");
+
+        System.out.println("+====================================init START==================================================+");
+
+        System.out.println(">>>>>>>>>>>>>>>>>>>> FactoryProcessor init ...");
         super.init(processingEnvironment);
 
         typeUtils = processingEnvironment.getTypeUtils();
         messager = processingEnvironment.getMessager();
         filer = processingEnvironment.getFiler();
         elementUtils = processingEnvironment.getElementUtils();
+
+
+        System.out.println(String.format("typeUtils:%s\r\nmessager:%s\r\nfiler:%s\r\nelementUtils:%s"
+                ,typeUtils
+                ,messager
+                ,filer
+                ,elementUtils));
+        System.out.println("+======================================init END=================================================+");
     }
 
 
@@ -58,7 +69,7 @@ public class FactoryProcessor extends AbstractProcessor {
      */
     @Override
     public Set<String> getSupportedAnnotationTypes() {
-        Set<String> annotations = new LinkedHashSet<>();
+        Set<String> annotations = new LinkedHashSet<String>();
         annotations.add(Factory.class.getCanonicalName());
         return annotations;
     }
@@ -107,7 +118,9 @@ public class FactoryProcessor extends AbstractProcessor {
      */
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
-        System.out.println("process");
+        System.out.println();
+        System.out.println("+====================================process START==================================================+");
+        System.out.println(">>>>>>>>>>>>>>>> process ...");
         try {
             //	扫描所有被@Factory注解的元素
             for (Element annotatedElement : roundEnvironment.getElementsAnnotatedWith(Factory.class)) {
@@ -148,6 +161,7 @@ public class FactoryProcessor extends AbstractProcessor {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+        System.out.println("+====================================process END==================================================+");
 
         return true;
     }

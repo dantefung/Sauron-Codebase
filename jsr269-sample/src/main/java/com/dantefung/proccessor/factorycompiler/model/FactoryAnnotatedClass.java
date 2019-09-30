@@ -1,6 +1,7 @@
-package com.dantefung.annotation.apt.shape.factorycompiler.model;
+package com.dantefung.proccessor.factorycompiler.model;
 
-import com.dantefung.annotation.apt.shape.Factory;
+
+import com.dantefung.annotation.Factory;
 
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.type.DeclaredType;
@@ -41,7 +42,13 @@ public class FactoryAnnotatedClass {
             mQualifiedSuperClassName = classTypeElement.getQualifiedName().toString();
             mSimpleTypeName = classTypeElement.getSimpleName().toString();
         }
-        System.out.println(MessageFormat.format("mId:{},mAnnotatedClassElement:{},mQualifiedSuperClassName:{},mSimpleTypeName:{}",mId,mAnnotatedClassElement,mQualifiedSuperClassName,mSimpleTypeName));
+        System.out.println("+---------------------------------------------------------------------------------------------+");
+        System.out.println(String.format("mId:%s\r\nmAnnotatedClassElement:%s\r\nmQualifiedSuperClassName:%s\r\nmSimpleTypeName:%s"
+                ,mId
+                ,mAnnotatedClassElement
+                ,mQualifiedSuperClassName
+                ,mSimpleTypeName));
+        System.out.println("+---------------------------------------------------------------------------------------------+");
     }
 
     public String getId() {

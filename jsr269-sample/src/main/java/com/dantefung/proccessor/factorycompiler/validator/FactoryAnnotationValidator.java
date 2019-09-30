@@ -1,20 +1,17 @@
-package com.dantefung.annotation.apt.shape.factorycompiler.validator;
+package com.dantefung.proccessor.factorycompiler.validator;
 
-import com.dantefung.annotation.apt.shape.Factory;
-import com.dantefung.annotation.apt.shape.factorycompiler.exception.ProcessingException;
-import com.dantefung.annotation.apt.shape.factorycompiler.model.FactoryAnnotatedClass;
+
+import com.dantefung.annotation.Factory;
+import com.dantefung.proccessor.factorycompiler.exception.ProcessingException;
+import com.dantefung.proccessor.factorycompiler.model.FactoryAnnotatedClass;
 
 import javax.annotation.processing.Filer;
 import javax.annotation.processing.Messager;
-import javax.lang.model.element.Element;
-import javax.lang.model.element.ElementKind;
-import javax.lang.model.element.ExecutableElement;
-import javax.lang.model.element.TypeElement;
+import javax.lang.model.element.*;
 import javax.lang.model.type.TypeKind;
 import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.Elements;
 import javax.lang.model.util.Types;
-import java.lang.reflect.Modifier;
 
 /**
  *

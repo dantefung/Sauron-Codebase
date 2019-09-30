@@ -1,4 +1,4 @@
-package com.dantefung.annotation.apt.shape.factorycompiler.exception;
+package com.dantefung.proccessor.factorycompiler.exception;
 
 import javax.lang.model.element.Element;
 
