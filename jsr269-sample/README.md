@@ -80,8 +80,11 @@ public class ShapeFactory {
 
 ### 指定Processor方式
 -[x] 1、直接使用编译参数指定，例如：javac -processor club.throwable.processor.AnnotationProcessor Main.java。
+
 -[x] 2、通过服务注册指定，就是META-INF/services/javax.annotation.processing.Processor文件中添加club.throwable.processor.AnnotationProcessor。
+
 -[x] 3、通过Maven的编译插件的配置指定如下:
+
 ```
     <plugin>
             <groupId>org.apache.maven.plugins</groupId>
