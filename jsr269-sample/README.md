@@ -153,6 +153,11 @@ mvnDebug clean compile
 ![使用mvnDebug](./doc/img/使用mvnDebug.png)
 
 ### 步骤五:debug启动远程调试
+先设置IDEA的mvnDebug
+```
+-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000
+```
+![](./doc/img/IDEA设置mvnDebug.png)
 ![](./doc/img/debug启动远程调试.png)
 ![](./doc/img/启动debug%20remote.png)
 ![](./doc/img/断点挂起.png)
