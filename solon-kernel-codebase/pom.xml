@@ -18,7 +18,7 @@
         <javamail.version>1.6.2</javamail.version>
         <org.json.version>20150729</org.json.version>
         <jodconverter.version>2.2.1</jodconverter.version>
-        <junit.version>4.11</junit.version>
+        <junit.version>4.13.1</junit.version>
         <springsource.httpclient.version>3.1.0</springsource.httpclient.version>
         <mysql.version>8.0.17</mysql.version>
     </properties>
