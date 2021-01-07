@@ -1,7 +1,12 @@
 package com.dantefung.annotation.customize;
 
+import cn.hutool.core.collection.CollectionUtil;
+import cn.hutool.core.util.ArrayUtil;
+
 import java.lang.annotation.Annotation;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.util.stream.Stream;
 
 /**
  * @Description: TODO
@@ -28,7 +33,16 @@ public class Test {
         // 执行该方法
         mEmpty.invoke(person, new Object[]{});
         iteratorAnnotations(mEmpty);
-    }
+
+		Field[] fields = c.getDeclaredFields();
+		if (!ArrayUtil.isEmpty(fields)) {
+			Stream.of(fields).filter(field -> field.isAnnotationPresent(MyAnnotation.class)).forEach(field -> {
+				MyAnnotation myAnnotation = field.getAnnotation(MyAnnotation.class);
+				String[] value = myAnnotation.value();
+				System.out.println("被@MyAnnotation修饰的字段: " + field.getName() + "注解值为:"+ ArrayUtil.toString(value));
+			});
+		}
+	}
 
     public static void iteratorAnnotations(Method method) {
 
