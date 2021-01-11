@@ -26,6 +26,10 @@ import java.lang.reflect.Method;
  *
  * -Dsun.misc.ProxyGenerator.saveGeneratedFiles=true
  *
+ * 或者
+ *
+ * System.setProperty("sun.misc.ProxyGenerator.saveGeneratedFiles","true");
+ *
  * 然后 main 函数。
  * @Author: DANTE FUNG
  * @Date:2019/9/29 15:07
@@ -34,6 +38,7 @@ public class Test {
 
     @Hello("hello")
     public static void main(String[] args) throws NoSuchMethodException {
+		System.setProperty("sun.misc.ProxyGenerator.saveGeneratedFiles","true");
         Class cls = Test.class;
         Method method = cls.getMethod("main", String[].class);
         /**
