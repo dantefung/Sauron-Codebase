@@ -3,7 +3,7 @@ package com.dantefung.concurrent.aqs;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * 程序入口
+ * 程序入口: 模拟秒杀场景
  * created at 2021年02月21日 11:48:25
  * @author DANTE FUNG
  */
