@@ -1,0 +1,61 @@
+package com.dantefung.concurrent.mcs;
+
+import lombok.extern.slf4j.Slf4j;
+
+/**
+ * 程序入口: 模拟秒杀场景
+ * created at 2021年02月21日 11:48:25
+ * @author DANTE FUNG
+ */
+@Slf4j
+public class ClientTest {
+	/**
+	 * 剩余库存
+	 */
+	private volatile int stock = 5;
+
+	/**
+	 * 模拟用户个数
+	 */
+	public static final long USER_COUNT = 100;
+
+	private static final MCSLock lock = new MCSLock();
+
+	public static void main(String[] args) {
+		//		DiyAqsDemo diyAqsDemo = new DiyAqsDemo();
+		//		for (int i = 0; i < USER_COUNT; i++) {
+		//				Thread thread = new Thread(() -> diyAqsDemo.buy(), String.format("第%d位顾客的线程", i + 1));
+		//				thread.start();
+		//		}
+		ClientTest diyAqsDemo = new ClientTest();
+		for (int i = 0; i < USER_COUNT; i++) {
+			Thread thread = new Thread(() -> {
+				try {
+					lock.lock();
+					diyAqsDemo.buy();
+				} finally {
+					lock.unlock();
+				}
+			}, String.format("第%d位顾客的线程", i + 1));
+			thread.start();
+		}
+	}
+
+	/**
+	 * 购买
+	 */
+	public void buy() {
+		try {
+			// 模拟购买的耗时
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		if (stock > 0) {
+			log.info("购买成功，剩余库存为：{}", this.stock);
+			stock--;
+		} else {
+			log.info("购买失败，库存不足，剩余库存为：{}", this.stock);
+		}
+	}
+}
