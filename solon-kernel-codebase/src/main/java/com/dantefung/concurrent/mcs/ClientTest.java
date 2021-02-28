@@ -47,7 +47,7 @@ public class ClientTest {
 	public void buy() {
 		try {
 			// 模拟购买的耗时
-			Thread.sleep(1000);
+			Thread.sleep(10);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
