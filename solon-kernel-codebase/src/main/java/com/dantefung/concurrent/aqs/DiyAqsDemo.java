@@ -19,10 +19,24 @@ public class DiyAqsDemo {
 	 */
 	public static final long USER_COUNT = 100;
 
+	private static final DiyAqsLock lock = new DiyAqsLock();
+
 	public static void main(String[] args) {
+		//		DiyAqsDemo diyAqsDemo = new DiyAqsDemo();
+		//		for (int i = 0; i < USER_COUNT; i++) {
+		//				Thread thread = new Thread(() -> diyAqsDemo.buy(), String.format("第%d位顾客的线程", i + 1));
+		//				thread.start();
+		//		}
 		DiyAqsDemo diyAqsDemo = new DiyAqsDemo();
 		for (int i = 0; i < USER_COUNT; i++) {
-			Thread thread = new Thread(() -> diyAqsDemo.buy(), String.format("第%d位顾客的线程", i + 1));
+			Thread thread = new Thread(() -> {
+				try {
+					lock.lock();
+					diyAqsDemo.buy();
+				} finally {
+					lock.unlock();
+				}
+			}, String.format("第%d位顾客的线程", i + 1));
 			thread.start();
 		}
 	}
