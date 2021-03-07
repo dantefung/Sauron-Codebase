@@ -186,6 +186,13 @@
             <artifactId>cglib</artifactId>
             <version>3.2.5</version>
         </dependency>
+
+        <!--简单理解，支持切入点表达式等等。​aspectjweaver包含aspectjrt，所以我们只需要引入aspectjweaver依赖包就可以了-->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.5</version>
+        </dependency>
     </dependencies>
 
     <build>
