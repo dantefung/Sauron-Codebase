@@ -1,4 +1,4 @@
-package com.dantefung.dp.factory.common;
+package com.dantefung.dp.factory.facotrymethod;
 
 public class CarFactory implements VehicleFactory {
 	private static Car car = new Car();//由于是静态的，所以在内存中是恒定不变的。

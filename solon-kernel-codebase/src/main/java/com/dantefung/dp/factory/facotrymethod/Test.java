@@ -1,4 +1,4 @@
-package com.dantefung.dp.factory.common;
+package com.dantefung.dp.factory.facotrymethod;
 //面向接口编程测试。  普通工厂，针对具体的单个产品而言。
 public class Test {
 

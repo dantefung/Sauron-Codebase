@@ -4,7 +4,7 @@ package com.dantefung.annotation;
  *注解的本质
  * 「java.lang.annotation.Annotation」接口中有这么一句话，用来描述『注解』。
  *
- * The common interface extended by all annotation types
+ * The facotrymethod interface extended by all annotation types
  *
  * 所有的注解类型都继承自这个普通的接口（Annotation）
  *

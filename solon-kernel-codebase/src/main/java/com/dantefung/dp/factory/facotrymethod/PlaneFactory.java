@@ -1,4 +1,4 @@
-package com.dantefung.dp.factory.common;
+package com.dantefung.dp.factory.facotrymethod;
 
 public class PlaneFactory implements VehicleFactory {
 	private static Plane plane = new Plane();
