@@ -1,4 +1,4 @@
-package com.dantefung.IO.part2;
+package com.dantefung.io.part2;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -7,15 +7,15 @@ import java.io.IOException;
 /**
  * @since 2015-4-4
  * 
- * ÄÚ´æ²Ù×÷Á÷£ºÓÃÓÚ´¦ÀíÁÙÊ±´æ´¢ÐÅÏ¢µÄ£¬³ÌÐò½áÊø£¬Êý¾Ý¾Í´ÓÄÚ´æÖÐÏûÊ§¡£
+ * ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½æ´¢ï¿½ï¿½Ï¢ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¾Í´ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½
  * 
- * ×Ö½ÚÊý×é£º
+ * ï¿½Ö½ï¿½ï¿½ï¿½ï¿½é£º
  *     ByteArrayInputStream
  *     ByteArrayOutputStream
- * ×Ö·ûÊý×é£º
+ * ï¿½Ö·ï¿½ï¿½ï¿½ï¿½é£º
  *     CharArrayReader
  *     CharArrayWriter
- * ×Ö·û´®£º
+ * ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½
  *     StringReader
  *     StringWriter
  */
@@ -26,24 +26,24 @@ public class ByteArrayStreamDemo {
 	 */
 	public static void main(String[] args) throws IOException{
 		// TODO Auto-generated method stub
-        //Ð´Êý¾Ý
+        //Ð´ï¿½ï¿½ï¿½ï¿½
 		//ByteArrayOutputStream
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		
-		//Ð´Êý¾Ý
+		//Ð´ï¿½ï¿½ï¿½ï¿½
 		for(int x = 0; x < 10; x++)
 		{
 			 baos.write(("hello" + x).getBytes());
 		}
 		
-		//ÊÍ·Å×ÊÔ´ 
-		//Í¨¹ý²é¿´Ô´ÂëÎÒÃÇÖªµÀÕâÀïÊ²Ã´¶¼Ã»ÓÐ×ö£¬ËùÒÔ¸ù±¾²»ÐèÒªclose()
+		//ï¿½Í·ï¿½ï¿½ï¿½Ô´ 
+		//Í¨ï¿½ï¿½ï¿½é¿´Ô´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê²Ã´ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªclose()
 		//baos.close();
 		
 		//public byte[] toByteArray()
 		byte[] bys = baos.toByteArray();
 		
-		//¶ÁÊý¾Ý
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		//ByteArrayInputStream(byte[] buf)
 		ByteArrayInputStream bais = new ByteArrayInputStream(bys);
 		
@@ -53,7 +53,7 @@ public class ByteArrayStreamDemo {
 			System.out.print((char)by);
 		}
 		
-		//ÊÍ·Å×ÊÔ´
+		//ï¿½Í·ï¿½ï¿½ï¿½Ô´
 		bais.close();
 	}
 
