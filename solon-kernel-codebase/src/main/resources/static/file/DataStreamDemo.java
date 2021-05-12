@@ -1,4 +1,4 @@
-package com.dantefung.IO.part2;
+package com.dantefung.io.part2;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -10,11 +10,11 @@ import java.io.IOException;
  * 
  * @since 2015-4-4
  * 
- *¿ÉÒÔ¶ÁÐ´»ù±¾Êý¾ÝÀàÐÍµÄÊý¾Ý
+ *ï¿½ï¿½ï¿½Ô¶ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½
  *
- * Êý¾ÝÊäÈëÁ÷£ºDataInputStream
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½DataInputStream
  *         DataInputStream(InputStream in)
- * Êý¾ÝÊä³öÁ÷£ºDataOoutputStream
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½DataOoutputStream
  *         DataOutputStream(OutputStream out)
  * 
  */
@@ -28,7 +28,7 @@ public class DataStreamDemo {
 		// TODO Auto-generated method stub
         //Ð´
 		write();
-		//¶Á
+		//ï¿½ï¿½
 		read();
 	}
 
@@ -36,10 +36,10 @@ public class DataStreamDemo {
 		// TODO Auto-generated method stub
 		
 		//DataInputStream
-		//´´½¨Êý¾ÝÊäÈëÁ÷¶ÔÏó¡£
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		DataInputStream dis = new DataInputStream(new FileInputStream("dos.txt"));
 		
-		//¶ÁÊý¾Ý
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		byte b = dis.readByte();
 		short s = dis.readShort();
 		int i = dis.readInt();
@@ -49,10 +49,10 @@ public class DataStreamDemo {
 		char c = dis.readChar();
 		boolean bb = dis.readBoolean();
 		
-		//ÊÍ·Å×ÊÔ´
+		//ï¿½Í·ï¿½ï¿½ï¿½Ô´
 		dis.close();
 		
-		//¿ØÖÆÌ¨´òÓ¡Êä³ö
+		//ï¿½ï¿½ï¿½ï¿½Ì¨ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½
 		System.out.println(b);
 		System.out.println(s);
 		System.out.println(i);
@@ -67,10 +67,10 @@ public class DataStreamDemo {
 	private static void write() throws IOException{
 		// TODO Auto-generated method stub
 		//DataOutputStream(OutputStream out)
-		//´´½¨Êý¾ÝÊä³öÁ÷¶ÔÏó¡£
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	    DataOutputStream dos = new DataOutputStream(new FileOutputStream("dos.txt"));
 	    
-	    //Ð´Êý¾ÝÁË
+	    //Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	    dos.writeByte(10); 
 	    dos.writeShort(100); 
 	    dos.writeInt(10000); 
@@ -80,7 +80,7 @@ public class DataStreamDemo {
 	    dos.writeChar('a'); 
 	    dos.writeBoolean(true); 
 	    
-	    //ÊÍ·Å×ÊÔ´
+	    //ï¿½Í·ï¿½ï¿½ï¿½Ô´
 	    dos.close();
 	    
 	}
