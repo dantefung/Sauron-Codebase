@@ -150,10 +150,10 @@ public class StatsDemo {
 
 	public static void main(String[] args) {
 		StatsDemo statsDemo = new StatsDemo();
-		statsDemo.testCompletionService();
+		//statsDemo.testCompletionService();
 		//statsDemo.testCountDownLatch();
 		//statsDemo.testCyclicBarrier();
-		//statsDemo.testCompletableFuture();
+		statsDemo.testCompletableFuture();
 	}
 }
 
