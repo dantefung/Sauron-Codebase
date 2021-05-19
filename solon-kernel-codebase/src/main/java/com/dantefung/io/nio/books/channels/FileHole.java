@@ -10,6 +10,14 @@ import java.io.IOException;
 /**
  * Create a file with holes in it.
  *
+ *    linux下读文件的时候，如果lseek指定的读偏移量超过了文件结尾，此时read调用返回的是0，标识文件结尾。
+ *
+ *    但是对于write调用，却可以继续写入数据。
+ *
+ *    从文件结尾后到新写入的数据间这段空间称为文件空洞。
+ *
+ *    参见: com/dantefung/io/nio/assets/图3-8有两个空洞的磁盘文件.png
+ *
  * Created April 2002
  * @author Ron Hitchens (ron@ronsoft.com)
  * @version $Id: FileHole.java,v 1.2 2002/05/19 04:55:45 ron Exp $
@@ -46,7 +54,7 @@ public class FileHole
 		throws IOException
 	{
 		String string = "*<-- location " + position;
-
+		System.out.println(string.getBytes("US-ASCII").length);
 		buffer.clear();
 		buffer.put (string.getBytes ("US-ASCII"));
 		buffer.flip();
