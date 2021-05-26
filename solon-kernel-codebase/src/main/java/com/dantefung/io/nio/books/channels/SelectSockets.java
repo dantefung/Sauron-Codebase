@@ -11,9 +11,18 @@ import java.nio.channels.SelectableChannel;
 import java.net.Socket;
 import java.net.ServerSocket;
 import java.net.InetSocketAddress;
+import java.nio.charset.Charset;
 import java.util.Iterator;
+import java.util.StringJoiner;
 
 /**
+ *
+ * 这种框架提供了很多灵活性。通常的做法是在选择器上调用一次 select 操作(这将更新已选择的
+ *  键的集合)，然后遍历 selectKeys( )方法返回的键的集合。在按顺序进行检查每个键的过程中，相关
+ *  的通道也根据键的就绪集合进行处理。然后键将从已选择的键的集合中被移除（通过在 Iterator
+ *  对象上调用 remove( )方法），然后检查下一个键。完成后，通过再次调用 select( )方法重复这个循
+ *  环。
+ *
  * Simple echo-back server which listens for incoming stream connections
  * and echoes back whatever it reads.  A single Selector object is used to
  * listen to the server socket (to accept new connections) and all the
@@ -79,8 +88,9 @@ public class SelectSockets
 				if (key.isAcceptable()) {
 					ServerSocketChannel server =
 						(ServerSocketChannel) key.channel();
+					// 返回一个客户端通道
 					SocketChannel channel = server.accept();
-
+					// 注册客户端可读事件到多路复用器
 					registerChannel (selector, channel,
 						SelectionKey.OP_READ);
 
@@ -147,7 +157,18 @@ public class SelectSockets
 
 			// send the data, don't assume it goes all at once
 			while (buffer.hasRemaining()) {
-				socketChannel.write (buffer);
+				//制定解码集utf-8，对读buffer解码打印
+				Charset charset = Charset.forName("utf-8");
+				String recMsg = String.valueOf(charset.decode(buffer).array());
+				System.out.println("收到来自客户端消息:" + recMsg);
+				StringJoiner stringJoiner = new StringJoiner("");
+				stringJoiner.add("您好，客户端我已收到你的消息:");
+				stringJoiner.add(recMsg);
+				ByteBuffer respBuffer = ByteBuffer.allocate(1024);
+				respBuffer.put(stringJoiner.toString().getBytes("UTF-8"));
+				respBuffer.flip();
+				// 回写收到客户端的消息
+				socketChannel.write (respBuffer);
 			}
 			// WARNING: the above loop is evil.  Because
 			// it's writing back to the same non-blocking

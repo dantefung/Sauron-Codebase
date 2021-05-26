@@ -54,7 +54,7 @@ public class TimeServer
 		// zero the whole buffer to be sure
 		longBuffer.putLong (0, 0);
 		// position to first byte of the low-order 32 bits
-		longBuffer.position (4);
+		longBuffer.position (4);// 4*8=32
 
 		// slice the buffer, gives view of the low-order 32 bits
 		ByteBuffer buffer = longBuffer.slice();	
