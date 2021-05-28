@@ -1,5 +1,8 @@
 package com.dantefung.thread;
 
+/**
+ * 这个示例可能有问题 -- 2021-05-28 23:58:47
+ */
 public class JoinDemo extends Thread {
 	int i;
 	Thread previousThread; //上一个线程

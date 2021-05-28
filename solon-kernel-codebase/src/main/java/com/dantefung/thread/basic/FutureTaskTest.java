@@ -1,4 +1,4 @@
-package com.dantefung.thread;
+package com.dantefung.thread.basic;
 
 import java.util.concurrent.*;
 

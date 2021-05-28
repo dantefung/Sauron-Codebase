@@ -24,6 +24,32 @@ package com.dantefung.thread;
  */
 public class ThreadSort02  {
 
+	/**
+	 * synchronized关键字，我们一般称之为”同步锁“，用它来修饰需要同步的方法和需要同步代码块，默认是当前对象作为锁的对象
+	 *
+	 * public final synchronized void join(long millis, int nanos)
+	 * throws InterruptedException {
+	 *
+	 *     if (millis < 0) {
+	 *         throw new IllegalArgumentException("timeout value is negative");
+	 *     }
+	 *
+	 *     if (nanos < 0 || nanos > 999999) {
+	 *         throw new IllegalArgumentException(
+	 *                             "nanosecond timeout value out of range");
+	 *     }
+	 *
+	 *     if (nanos >= 500000 || (nanos != 0 && millis == 0)) {
+	 *         millis++;
+	 *     }
+	 *
+	 *     join(millis);
+	 * }
+	 *
+	 *
+	 * @param args
+	 * @throws InterruptedException
+	 */
 	public static void main(String[] args) throws InterruptedException {
 		Thread thread1 = new Thread(() -> {
 			System.out.println("thread1");
@@ -36,6 +62,8 @@ public class ThreadSort02  {
 		});
 
 		thread1.start();
+		// 主线程调用thread1.join，故主线程拥有该锁，等thread1执行完再执行
+		// 表示调用thread1.wait()这句代码的线程加入等待队列，即并不是thread1线程进入等待，而是调用这句话的线程进入等待。
 		thread1.join();
 
 		thread2.start();

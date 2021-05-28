@@ -9,7 +9,7 @@
  * 作者姓名           修改时间           版本号              描述
  * DANTE FUNG        2021/5/28 15:41   V1.0.0
  */
-package com.dantefung.thread;
+package com.dantefung.thread.basic;
 
 import java.util.concurrent.*;
 
