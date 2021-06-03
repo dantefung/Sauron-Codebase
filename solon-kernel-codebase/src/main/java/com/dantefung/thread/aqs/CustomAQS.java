@@ -21,7 +21,6 @@ import sun.reflect.CallerSensitive;
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.security.PrivilegedExceptionAction;
-import java.util.Arrays;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.LockSupport;
 
@@ -636,8 +635,4 @@ public abstract class CustomAQS implements Serializable {
 		return unsafe.compareAndSwapObject(node, nextOffset, expect, update);
 	}
 
-	public static void main(String[] args) {
-		String a ="abc";
-		System.out.println(StringUtils.rightPad(a,7, "ddd"));
-	}
 }
