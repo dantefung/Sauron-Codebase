@@ -14,12 +14,14 @@ package com.dantefung.thread.aqs;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import sun.misc.Unsafe;
 import sun.reflect.CallerSensitive;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.security.PrivilegedExceptionAction;
+import java.util.Arrays;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.LockSupport;
 
@@ -163,6 +165,7 @@ public abstract class CustomAQS implements Serializable {
 					setHead(node);
 					p.next = null; // help GC
 					failed = false;
+					printSyncronizedQueue();
 					return interrupted;
 				}
 				// 获取锁失败就应该阻塞了.
@@ -186,7 +189,7 @@ public abstract class CustomAQS implements Serializable {
 	 */
 	private void setHead(Node node) {
 		head = node;
-		node.thread = null;
+		node.thread = null;// 当前节点的持有线程置为null
 		node.prev = null;
 	}
 	/**
@@ -385,23 +388,78 @@ public abstract class CustomAQS implements Serializable {
 	}
 
 	protected void printSyncronizedQueue() {
-		String CLRF = "\r\n";
-		String ARROW = "--------->";
-		String nodeInfoTpl = "------------------"+CLRF
-							+"| prev: %s       |"+CLRF
-							+"| waitStatus: %s |"+CLRF
-							+"| thread: %s     |"+ARROW+CLRF
-							+"| nextWaiter: %s |"+CLRF
-							+"| next: %s       |"+CLRF
-							+"-------------------";
-		StringBuffer sb = new StringBuffer();
-		for (Node t = head; t != null && t != tail; t = t.next) {
-			sb.append(String.format(nodeInfoTpl, t.prev, t.waitStatus, t.thread, t.nextWaiter, t.next));
+		String INDENT = "  ";
+		String BOUNDARY = "|";
+		String[] tplArr = {  "  ------------------"
+							,"  |==>%s<==        |"
+							,"  | prev: %s       "
+							,"  | waitStatus: %s "
+							,"  | thread: %s     "
+							,"  | nextWaiter: %s "
+							,"  | next: %s       "
+							,"  |-------------------"};
+		int colLength = 0;
+		for (Node t = head; t != null; t = t.next) {
+			colLength++;
 		}
-		String tailNodePrintStr = String.format(nodeInfoTpl, tail.prev, tail.waitStatus, tail.thread, tail.nextWaiter, tail.next);
-		tailNodePrintStr = tailNodePrintStr.replace(ARROW, "");
-		sb.append(tailNodePrintStr);
-		log.info(sb.toString());
+		String[][] printArr = new String[8][colLength];
+		String tmp = "";
+		for (int rowIdx = 0; rowIdx < 8; rowIdx++) {
+			int colIdx = 0;
+			for (Node t = head; t != null; t = t.next) {
+				String tpl = tplArr[rowIdx];
+				String msg = "";
+				if (rowIdx > 1) {
+					msg = StringUtils.contains(tpl, "%s") ?
+							StringUtils.rightPad(String.format(tpl, getVal(rowIdx, t)),tmp.length(), " ").concat(BOUNDARY) :
+							StringUtils.rightPad(tpl,tmp.length()," ").concat(BOUNDARY);
+				} else {
+					msg = StringUtils.contains(tpl, "%s") ?
+							String.format(tpl, getVal(rowIdx, t)):
+							tpl;
+					tmp = msg;
+				}
+				printArr[rowIdx][colIdx] = msg;
+				++colIdx;
+			}
+		}
+		for (String[] strings : printArr) {
+			for (String string : strings) {
+				System.out.print(string);
+			}
+			System.out.println();
+		}
+	}
+
+	private Object getVal(int rowIdx, Node node) {
+		Object obj = null;
+		switch (rowIdx) {
+			case 0:
+				obj = "";
+				break;
+			case 1:
+				obj = node;
+				break;
+			case 2:
+				obj = node.prev;
+				break;
+			case 3:
+				obj = node.waitStatus;
+				break;
+			case 4:
+				obj = node.thread;
+				break;
+			case 5:
+				obj = node.nextWaiter;
+				break;
+			case 6:
+				obj = node.next;
+				break;
+			default:
+				obj = "";
+				break;
+		}
+		return obj;
 	}
 
 
@@ -576,5 +634,10 @@ public abstract class CustomAQS implements Serializable {
 			CustomAQS.Node expect,
 			CustomAQS.Node update) {
 		return unsafe.compareAndSwapObject(node, nextOffset, expect, update);
+	}
+
+	public static void main(String[] args) {
+		String a ="abc";
+		System.out.println(StringUtils.rightPad(a,7, "ddd"));
 	}
 }
