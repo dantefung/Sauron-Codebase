@@ -13,6 +13,7 @@ package com.dantefung.thread.aqs;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import sun.misc.Unsafe;
 import sun.reflect.CallerSensitive;
 
@@ -29,6 +30,7 @@ import java.util.concurrent.locks.LockSupport;
  * @date 2021/06/01 16/54
  * @since JDK1.8
  */
+@Slf4j
 public abstract class CustomAQS implements Serializable {
 
 	/**
@@ -112,9 +114,11 @@ public abstract class CustomAQS implements Serializable {
 	 * @return the value returned from {@link #tryRelease}
 	 */
 	public final boolean release(int arg) {
+		//实际操作就是cas把AQS的state状态arg
 		if (tryRelease(arg)) {
 			Node h = head;
 			if (h != null && h.waitStatus != 0)
+				//核心方法，见后面详解
 				unparkSuccessor(h);
 			return true;
 		}
@@ -155,6 +159,7 @@ public abstract class CustomAQS implements Serializable {
 				// 如果上一个节点是 head ，就尝试获取锁
 				// 如果 获取成功，就将当前节点设置为 head，注意 head 节点是永远不会唤醒的。
 				if (p == head && tryAcquire(arg)) {
+					log.info(Thread.currentThread().getName()+"被唤醒尝试获取锁成功!");
 					setHead(node);
 					p.next = null; // help GC
 					failed = false;
@@ -285,7 +290,7 @@ public abstract class CustomAQS implements Serializable {
 
 	/**
 	 * Wakes up node's successor, if one exists.
-	 *
+	 * 释放锁核心方法
 	 * @param node the node
 	 */
 	private void unparkSuccessor(Node node) {
@@ -296,6 +301,7 @@ public abstract class CustomAQS implements Serializable {
 		 */
 		int ws = node.waitStatus;
 		if (ws < 0)
+			// 将 head 节点的 ws 改成 0，清除信号。表示，他已经释放过了。不能重复释放。
 			compareAndSetWaitStatus(node, ws, 0);
 
 		/*
@@ -304,13 +310,20 @@ public abstract class CustomAQS implements Serializable {
 		 * traverse backwards from tail to find the actual
 		 * non-cancelled successor.
 		 */
+		// 如果 next 是 null，或者 next 被取消了。就从 tail 开始向上找节点。
 		Node s = node.next;
 		if (s == null || s.waitStatus > 0) {
 			s = null;
+			// 从尾部开始，向前寻找未被取消的节点，直到这个节点是 null，或者是 head。
+			// 也就是说，如果 head 的 next 是 null，那么就从尾部开始寻找，直到不是 null 为止，找到这个 head 就不管了。
+			// 如果是 head 的 next 不是 null，但是被取消了，那这个节点也会被略过。
 			for (Node t = tail; t != null && t != node; t = t.prev)
 				if (t.waitStatus <= 0)
 					s = t;
 		}
+		// 唤醒 head.next 这个节点。
+		// 通常这个节点是 head 的 next。
+		// 但如果 head.next 被取消了，就会从尾部开始找。
 		if (s != null)
 			LockSupport.unpark(s.thread);
 	}
@@ -369,6 +382,26 @@ public abstract class CustomAQS implements Serializable {
 				}
 			}
 		}
+	}
+
+	protected void printSyncronizedQueue() {
+		String CLRF = "\r\n";
+		String ARROW = "--------->";
+		String nodeInfoTpl = "------------------"+CLRF
+							+"| prev: %s       |"+CLRF
+							+"| waitStatus: %s |"+CLRF
+							+"| thread: %s     |"+ARROW+CLRF
+							+"| nextWaiter: %s |"+CLRF
+							+"| next: %s       |"+CLRF
+							+"-------------------";
+		StringBuffer sb = new StringBuffer();
+		for (Node t = head; t != null && t != tail; t = t.next) {
+			sb.append(String.format(nodeInfoTpl, t.prev, t.waitStatus, t.thread, t.nextWaiter, t.next));
+		}
+		String tailNodePrintStr = String.format(nodeInfoTpl, tail.prev, tail.waitStatus, tail.thread, tail.nextWaiter, tail.next);
+		tailNodePrintStr = tailNodePrintStr.replace(ARROW, "");
+		sb.append(tailNodePrintStr);
+		log.info(sb.toString());
 	}
 
 

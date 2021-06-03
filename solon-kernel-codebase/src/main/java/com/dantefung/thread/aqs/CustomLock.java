@@ -37,6 +37,10 @@ public class CustomLock {
         sync.release(1);
     }
 
+	public void print() {
+    	sync.printSyncronizedQueue();
+	}
+
 	public static void main(String[] args) throws InterruptedException {
 		CustomLock lock = new CustomLock();
 		lock.lock();
@@ -74,7 +78,8 @@ public class CustomLock {
 		t2.start();
 
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(5000);
+			lock.print();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -91,6 +96,6 @@ public class CustomLock {
 		t3.start();
 */
 
-		//lock.unlock();
+		lock.unlock();
 	}
 }
