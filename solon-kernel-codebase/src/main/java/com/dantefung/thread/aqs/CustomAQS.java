@@ -105,6 +105,146 @@ public abstract class CustomAQS implements Serializable {
 	}
 
 	/**
+	 * 共享模式释放同步状态
+	 * Releases in shared mode.  Implemented by unblocking one or more
+	 * threads if {@link #tryReleaseShared} returns true.
+	 *
+	 * @param arg the release argument.  This value is conveyed to
+	 *        {@link #tryReleaseShared} but is otherwise uninterpreted
+	 *        and can represent anything you like.
+	 * @return the value returned from {@link #tryReleaseShared}
+	 */
+	public final boolean releaseShared(int arg) {
+		if (tryReleaseShared(arg)) {
+			doReleaseShared();
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * 共享模式获取同步状态
+	 * @param arg
+	 */
+	public final void acquireShared(int arg) {
+		// 获取共享锁成功本方就执行完
+		if (tryAcquireShared(arg) < 0)
+			// 获取失败则入列
+			doAcquireShared(arg);
+	}
+
+	/**
+	 * Acquires in shared uninterruptible mode.
+	 * @param arg the acquire argument
+	 */
+	private void doAcquireShared(int arg) {
+		final Node node = addWaiter(Node.SHARED);
+		printSyncronizedQueue();// 在addWaiter后打印会有多线程问题.
+		boolean failed = true;
+		try {
+			boolean interrupted = false;
+			for (;;) {
+				// 获取当前节点的前驱节点
+				final Node p = node.predecessor();
+				// 前驱节点是头节点
+				if (p == head) {
+					// 当前节点尝试获取共享锁，返回剩余共享锁的数量
+					// 剩余共享锁的数量意味着，传播唤醒的线程数量
+					int r = tryAcquireShared(arg);
+					if (r >= 0) {
+						setHeadAndPropagate(node, r);
+						p.next = null; // help GC
+						if (interrupted)
+							selfInterrupt();
+						failed = false;
+						return;
+					}
+				}
+				// 第一次循环，更新waitStatus状态
+				if (shouldParkAfterFailedAcquire(p, node) &&
+						parkAndCheckInterrupt())// 第二次循环，如果自己的前驱节点不是Head节点就乖乖在阻塞。
+					interrupted = true;
+			}
+		} finally {
+			if (failed)
+				cancelAcquire(node);
+		}
+	}
+
+	/**
+	 * Sets head of queue, and checks if successor may be waiting
+	 * in shared mode, if so propagating if either propagate > 0 or
+	 * PROPAGATE status was set.
+	 *
+	 * @param node the node
+	 * @param propagate the return value from a tryAcquireShared
+	 */
+	private void setHeadAndPropagate(Node node, int propagate) {
+		Node h = head; // Record old head for check below
+		// 将当前节点设置为头节点
+		setHead(node);
+		/*
+		 * Try to signal next queued node if:
+		 *   Propagation was indicated by caller,
+		 *     or was recorded (as h.waitStatus either before
+		 *     or after setHead) by a previous operation
+		 *     (note: this uses sign-check of waitStatus because
+		 *      PROPAGATE status may transition to SIGNAL.)
+		 * and
+		 *   The next node is waiting in shared mode,
+		 *     or we don't know, because it appears null
+		 *
+		 * The conservatism in both of these checks may cause
+		 * unnecessary wake-ups, but only when there are multiple
+		 * racing acquires/releases, so most need signals now or soon
+		 * anyway.
+		 */
+		if (propagate > 0 || h == null || h.waitStatus < 0 ||
+				(h = head) == null || h.waitStatus < 0) {
+			Node s = node.next;
+			if (s == null || s.isShared())
+				doReleaseShared();// 将后继全部的节点唤醒
+		}
+	}
+
+	/**
+	 * Release action for shared mode -- signals successor and ensures
+	 * propagation. (Note: For exclusive mode, release just amounts
+	 * to calling unparkSuccessor of head if it needs signal.)
+	 */
+	private void doReleaseShared() {
+		/*
+		 * Ensure that a release propagates, even if there are other
+		 * in-progress acquires/releases.  This proceeds in the usual
+		 * way of trying to unparkSuccessor of head if it needs
+		 * signal. But if it does not, status is set to PROPAGATE to
+		 * ensure that upon release, propagation continues.
+		 * Additionally, we must loop in case a new node is added
+		 * while we are doing this. Also, unlike other uses of
+		 * unparkSuccessor, we need to know if CAS to reset status
+		 * fails, if so rechecking.
+		 */
+		for (;;) {
+			Node h = head;
+			if (h != null && h != tail) {
+				int ws = h.waitStatus;
+				if (ws == Node.SIGNAL) {
+					if (!compareAndSetWaitStatus(h, Node.SIGNAL, 0))
+						continue;            // loop to recheck cases
+					unparkSuccessor(h);
+				}
+				else if (ws == 0 &&
+						!compareAndSetWaitStatus(h, 0, Node.PROPAGATE))
+					continue;                // loop on failed CAS
+			}
+			if (h == head)                   // loop if head changed
+				break;
+		}
+	}
+
+
+	/**
+	 * 独占模式释放同步状态
 	 * Releases in exclusive mode.  Implemented by unblocking one or
 	 * more threads if {@link #tryRelease} returns true.
 	 * This method can be used to implement method {@link Lock#unlock}.
@@ -127,6 +267,7 @@ public abstract class CustomAQS implements Serializable {
 	}
 
 	/**
+	 * 独占模式获取同步状态
 	 * 子类锁，加锁时调用此方法
 	 * @param arg
 	 */
@@ -397,15 +538,19 @@ public abstract class CustomAQS implements Serializable {
 							,"  | nextWaiter: %s "
 							,"  | next: %s       "
 							,"  |-------------------"};
+
+		Node snapshotHead = head;
+		Node snapshotTail = tail;
+
 		int colLength = 0;
-		for (Node t = head; t != null; t = t.next) {
+		for (Node t = snapshotHead; (t != null && t != snapshotTail) || (t == snapshotTail); t = t.next) {
 			colLength++;
 		}
 		String[][] printArr = new String[8][colLength];
 		String tmp = "";
 		for (int rowIdx = 0; rowIdx < 8; rowIdx++) {
 			int colIdx = 0;
-			for (Node t = head; t != null; t = t.next) {
+			for (Node t = snapshotHead; t != null && colIdx < colLength; t = t.next) {
 				String tpl = tplArr[rowIdx];
 				String msg = "";
 				if (rowIdx > 1) {

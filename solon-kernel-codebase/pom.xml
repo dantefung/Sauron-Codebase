@@ -22,6 +22,7 @@
         <springsource.httpclient.version>3.1.0</springsource.httpclient.version>
         <mysql.version>8.0.17</mysql.version>
         <guava.version>19.0</guava.version>
+        <modelmapper.version>2.3.0</modelmapper.version>
         <fastjson.version>1.2.58</fastjson.version>
     </properties>
 
@@ -219,6 +220,12 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>${modelmapper.version}</version>
         </dependency>
     </dependencies>
 
