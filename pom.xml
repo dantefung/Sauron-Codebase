@@ -13,6 +13,7 @@
         <module>SheetCopy</module>
         <module>solon-kernel-codebase</module>
         <module>jsr269-sample</module>
+        <module>leetcode-kata</module>
     </modules>
 
     <build>
