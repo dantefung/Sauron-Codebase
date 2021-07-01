@@ -151,7 +151,7 @@ public class BitMap {
 		int index = (int) n >> 5;
 		int offset = (int) n & 31;
 		int bits = (int) bitsMap[index];
-		bitsMap[index] = bits & (~BIT_VALUE[offset]);
+		//bitsMap[index] = bits & (~BIT_VALUE[offset]);  <=> bitsMap[index] = bits & (~(1 << offset))
 		bitsMap[index] = bits & (~(1 << offset));
 		System.out.println(
 				"n=" + n + ",index=" + index + ",offset=" + offset + ",bits=" + Integer.toBinaryString(bitsMap[index])
