@@ -20,52 +20,61 @@ package com.dantefung.thread.aqs;
 public class DoubleLock {
 
 
-    private static class Sync extends CustomAQS {
+	private static class Sync extends CustomAQS {
 
-        public Sync() {
-            super();
-            setState(2);    //设置同步状态的值
-        }
+		public Sync() {
+			super();
+			setState(2);    //设置同步状态的值
+		}
 
-        @Override
-        protected int tryAcquireShared(int arg) {
-            while (true) {
-                int cur = getState();
-                int next = getState() - arg;
-                if (compareAndSetState(cur, next)) {
-                    return next;
-                }
-            }
-        }
+		@Override
+		protected int tryAcquireShared(int arg) {
+			System.out.println(Thread.currentThread().getName() + "尝试获取共享锁!");
+			while (true) {
+				int cur = getState();
+				int next = getState() - arg;
+				if (compareAndSetState(cur, next)) {
+					return next;
+				}
+			}
+		}
 
-        @Override
-        protected boolean tryReleaseShared(int arg) {
-            while (true) {
-                int cur = getState();
-                int next = cur + arg;
-                if (compareAndSetState(cur, next)) {
-                    return true;
-                }
-            }
-        }
-    }
+		@Override
+		protected boolean tryReleaseShared(int arg) {
+			System.out.println(Thread.currentThread().getName() + "尝试释放共享锁!");
+			printSyncronizedQueue();
+			while (true) {
+				int cur = getState();
+				int next = cur + arg;
+				if (compareAndSetState(cur, next)) {
+					if (next <= 0) continue;// next 至少等于1会跳出循环.
+					return true;
+				}
+			}
+		}
+	}
 
-    private Sync sync = new Sync();
-    
-    public void lock() {
-        sync.acquireShared(1);     
-    }
-    
-    public void unlock() {
-        sync.releaseShared(1);
-    }
+	private Sync sync = new Sync();
+
+	public void lock() {
+		sync.acquireShared(1);
+	}
+
+	public void unlock() {
+		sync.releaseShared(1);
+	}
 
 	public void print() {
 		sync.printSyncronizedQueue();
 	}
 
+	public int getSharedLockCount() {
+		return sync.getState();
+	}
+
 	public static void main(String[] args) {
 		DoubleLock lock = new DoubleLock();
+		System.out.println("初始化的共享锁数量:" + lock.getSharedLockCount());
 		lock.lock();
 		try {
 			Thread.sleep(2000);
@@ -73,7 +82,7 @@ public class DoubleLock {
 			e.printStackTrace();
 		}
 
-		Thread t1 = new Thread(()->{
+		Thread t1 = new Thread(() -> {
 			lock.lock();
 			try {
 				Thread.sleep(2000);
@@ -92,27 +101,29 @@ public class DoubleLock {
 
 		// -------------------  t2, t3 会入列 -----------------------
 
-		Thread t2 = new Thread(()->{
+		Thread t2 = new Thread(() -> {
 			lock.lock();
 			try {
 				Thread.sleep(2000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			//lock.unlock();
+			lock.unlock();
 		}, "t2");
 		t2.start();
 
-		Thread t3 =	new Thread(()->{
+		Thread t3 = new Thread(() -> {
 			lock.lock();
 			try {
 				Thread.sleep(2000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			//lock.unlock();
+			lock.unlock();
 		}, "t3");
 		t3.start();
+
+		System.out.println("剩余共享锁数量: " + lock.getSharedLockCount());
 
 		try {
 			Thread.sleep(5000);
@@ -121,7 +132,8 @@ public class DoubleLock {
 			e.printStackTrace();
 		}
 
-		//lock.unlock();
+		lock.unlock();
+		System.out.println("剩余共享锁数量: " + lock.getSharedLockCount());
 
 	}
 }

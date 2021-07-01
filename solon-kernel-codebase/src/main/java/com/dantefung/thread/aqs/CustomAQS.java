@@ -128,6 +128,7 @@ public abstract class CustomAQS implements Serializable {
 	 */
 	public final void acquireShared(int arg) {
 		// 获取共享锁成功本方就执行完
+		System.out.println(Thread.currentThread().getName()+"首次进入acquireShared尝试获取共享锁!");
 		if (tryAcquireShared(arg) < 0)
 			// 获取失败则入列
 			doAcquireShared(arg);
@@ -138,8 +139,8 @@ public abstract class CustomAQS implements Serializable {
 	 * @param arg the acquire argument
 	 */
 	private void doAcquireShared(int arg) {
+		// 当前节点设置为共享模式，即将nextWaiter设置为Node.SHARED对象
 		final Node node = addWaiter(Node.SHARED);
-		printSyncronizedQueue();// 在addWaiter后打印会有多线程问题.
 		boolean failed = true;
 		try {
 			boolean interrupted = false;
@@ -150,7 +151,8 @@ public abstract class CustomAQS implements Serializable {
 				if (p == head) {
 					// 当前节点尝试获取共享锁，返回剩余共享锁的数量
 					// 剩余共享锁的数量意味着，传播唤醒的线程数量
-					int r = tryAcquireShared(arg);
+					System.out.println(Thread.currentThread().getName()+"的前驱节点是Head, 尝试获取共享锁!");
+					int r = tryAcquireShared(arg); // t2会在此走两次，第二次才阻塞 (加上第一次进入acquireShared尝tryAcquireShared), 共3次
 					if (r >= 0) {
 						setHeadAndPropagate(node, r);
 						p.next = null; // help GC
@@ -164,6 +166,50 @@ public abstract class CustomAQS implements Serializable {
 				if (shouldParkAfterFailedAcquire(p, node) &&
 						parkAndCheckInterrupt())// 第二次循环，如果自己的前驱节点不是Head节点就乖乖在阻塞。
 					interrupted = true;
+			}
+		} finally {
+			if (failed)
+				cancelAcquire(node);
+		}
+	}
+
+	/**
+	 * 可中断地获取同步锁
+	 * @param arg
+	 * @throws InterruptedException
+	 */
+	public final void acquireSharedInterruptibly(int arg)
+			throws InterruptedException {
+		if (Thread.interrupted())
+			throw new InterruptedException();
+		if (tryAcquireShared(arg) < 0)
+			doAcquireSharedInterruptibly(arg);
+	}
+
+	/**
+	 * Acquires in shared interruptible mode.
+	 * @param arg the acquire argument
+	 */
+	private void doAcquireSharedInterruptibly(int arg)
+			throws InterruptedException {
+		final Node node = addWaiter(Node.SHARED);
+		boolean failed = true;
+		try {
+			for (;;) {
+				final Node p = node.predecessor();
+				if (p == head) {
+					int r = tryAcquireShared(arg);
+					if (r >= 0) {
+						setHeadAndPropagate(node, r);
+						p.next = null; // help GC
+						failed = false;
+						return;
+					}
+				}
+				if (shouldParkAfterFailedAcquire(p, node) &&
+						parkAndCheckInterrupt())
+					// 可中断地，就是这里抛出异常
+					throw new InterruptedException();
 			}
 		} finally {
 			if (failed)
@@ -202,7 +248,7 @@ public abstract class CustomAQS implements Serializable {
 		if (propagate > 0 || h == null || h.waitStatus < 0 ||
 				(h = head) == null || h.waitStatus < 0) {
 			Node s = node.next;
-			if (s == null || s.isShared())
+			if (s == null || s.isShared())// s.isShared()方法将节点的nextWaiter设置为SHARED对象
 				doReleaseShared();// 将后继全部的节点唤醒
 		}
 	}
