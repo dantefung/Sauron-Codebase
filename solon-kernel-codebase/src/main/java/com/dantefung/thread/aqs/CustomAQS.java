@@ -21,6 +21,7 @@ import sun.reflect.CallerSensitive;
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.security.PrivilegedExceptionAction;
+import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.LockSupport;
 
@@ -57,6 +58,13 @@ public abstract class CustomAQS implements Serializable {
 	@Getter
 	@Setter
 	private volatile int state;
+
+	/**
+	 * The number of nanoseconds for which it is faster to spin
+	 * rather than to use timed park. A rough estimate suffices
+	 * to improve responsiveness with very short timeouts.
+	 */
+	static final long spinForTimeoutThreshold = 1000L;
 
 	protected CustomAQS() {
 
@@ -102,6 +110,71 @@ public abstract class CustomAQS implements Serializable {
 
 	protected boolean isHeldExclusively() {
 		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * Attempts to acquire in shared mode, aborting if interrupted, and
+	 * failing if the given timeout elapses.  Implemented by first
+	 * checking interrupt status, then invoking at least once {@link
+	 * #tryAcquireShared}, returning on success.  Otherwise, the
+	 * thread is queued, possibly repeatedly blocking and unblocking,
+	 * invoking {@link #tryAcquireShared} until success or the thread
+	 * is interrupted or the timeout elapses.
+	 *
+	 * @param arg the acquire argument.  This value is conveyed to
+	 *        {@link #tryAcquireShared} but is otherwise uninterpreted
+	 *        and can represent anything you like.
+	 * @param nanosTimeout the maximum number of nanoseconds to wait
+	 * @return {@code true} if acquired; {@code false} if timed out
+	 * @throws InterruptedException if the current thread is interrupted
+	 */
+	public final boolean tryAcquireSharedNanos(int arg, long nanosTimeout)
+			throws InterruptedException {
+		if (Thread.interrupted())
+			throw new InterruptedException();
+		return tryAcquireShared(arg) >= 0 ||
+				doAcquireSharedNanos(arg, nanosTimeout);
+	}
+
+	/**
+	 * Acquires in shared timed mode.
+	 *
+	 * @param arg the acquire argument
+	 * @param nanosTimeout max wait time
+	 * @return {@code true} if acquired
+	 */
+	private boolean doAcquireSharedNanos(int arg, long nanosTimeout)
+			throws InterruptedException {
+		if (nanosTimeout <= 0L)
+			return false;
+		final long deadline = System.nanoTime() + nanosTimeout;
+		final Node node = addWaiter(Node.SHARED);
+		boolean failed = true;
+		try {
+			for (;;) {
+				final Node p = node.predecessor();
+				if (p == head) {
+					int r = tryAcquireShared(arg);
+					if (r >= 0) {
+						setHeadAndPropagate(node, r);
+						p.next = null; // help GC
+						failed = false;
+						return true;
+					}
+				}
+				nanosTimeout = deadline - System.nanoTime();
+				if (nanosTimeout <= 0L)
+					return false;
+				if (shouldParkAfterFailedAcquire(p, node) &&
+						nanosTimeout > spinForTimeoutThreshold)
+					LockSupport.parkNanos(this, nanosTimeout);
+				if (Thread.interrupted())
+					throw new InterruptedException();
+			}
+		} finally {
+			if (failed)
+				cancelAcquire(node);
+		}
 	}
 
 	/**
