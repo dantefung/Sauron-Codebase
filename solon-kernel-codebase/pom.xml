@@ -24,6 +24,7 @@
         <guava.version>19.0</guava.version>
         <modelmapper.version>2.3.0</modelmapper.version>
         <fastjson.version>1.2.58</fastjson.version>
+        <yamlbeans.version>1.09</yamlbeans.version>
     </properties>
 
     <dependencies>
@@ -226,6 +227,17 @@
             <artifactId>junit-jupiter</artifactId>
             <version>5.7.0</version>
             <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.esotericsoftware.yamlbeans</groupId>
+            <artifactId>yamlbeans</artifactId>
+            <version>${yamlbeans.version}</version>
         </dependency>
     </dependencies>
 
