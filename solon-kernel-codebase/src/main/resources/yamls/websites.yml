@@ -1,0 +1,6 @@
+!com.dantefung.yaml.WebSites
+websites: 
+   python: python.org
+   java: java.org
+   ruby: ruby.org
+   yaml: yaml.org

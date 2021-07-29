@@ -47,6 +47,7 @@ public class YamlDemo {
 //		System.out.println(YamlDemo.class.getResource("/"));
 //		System.out.println(YamlDemo.class.getResource("/yamls/contact.yml"));
 		read();
+		read2();
 //		write();
 //		write2();
 		write3();
@@ -59,6 +60,13 @@ public class YamlDemo {
 		System.out.println(object);
 		Map map = (Map)object;
 		System.out.println(map.get("address"));
+	}
+
+	private static void read2() throws URISyntaxException, FileNotFoundException, YamlException {
+		YamlReader yamlReader = new YamlReader(
+				new FileReader(new File(YamlDemo.class.getResource("/yamls/websites.yml").toURI())));
+		WebSites webSites = yamlReader.read(WebSites.class);
+		System.out.println(webSites);
 	}
 
 	private static void write() throws IOException, URISyntaxException {
