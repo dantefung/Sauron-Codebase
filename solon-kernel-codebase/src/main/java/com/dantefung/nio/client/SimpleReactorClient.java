@@ -1,4 +1,6 @@
-package com.dantefung.io.nio.books.channels;
+package com.dantefung.nio.client;
+
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,8 +18,9 @@ import java.util.concurrent.Executors;
 /**
  * 连接SelectSockets的客户端
  */
-public class SelectSocketsClient {
-	public static int PORT_NUMBER = 1234;
+@Slf4j
+public class SimpleReactorClient {
+	public static int PORT_NUMBER = 9090;
 
 	public static void main(String[] args) throws IOException {
 		//打开客户端channel
@@ -45,21 +48,32 @@ public class SelectSocketsClient {
 						//拿到SelectionKey的客户端channel
 						SocketChannel client = (SocketChannel) selectionKey.channel();
 						if (client.isConnectionPending()) {
-							//完成连接
-							client.finishConnect();
+							// 调用finishConnect方法来完成连接,该方法任何时候都可以安全地调用。
+							while (!client.finishConnect()) {
+								// do something else ...
+								log.info("客户端连接中...");
+							}
+							log.info("connection established!!");
+							// Do something with the connected socket
+							// The SocketChannel is still nonblocking
 							//新建一个写buffer
 							ByteBuffer writeBuffer = ByteBuffer.allocate(1024);
 							//写入客户端连接成功消息
 							writeBuffer.put((client.toString() + ":连接成功!").getBytes());
 							//翻转读写操作 执行写操作
 							writeBuffer.flip();
-							//写入buffer数据刅客户端
+							//写入buffer数据客户端
 							client.write(writeBuffer);
 							//开辟一个线程写，因为标准输入是阻塞的，当前线程不能阻塞写
 							ExecutorService executorService = Executors.newSingleThreadExecutor();
 							executorService.submit(() -> {
 								while (true) {
+									log.info("position before clear: " + writeBuffer.position() + " limit before clear:"
+											+ writeBuffer.limit());
 									writeBuffer.clear();
+									log.info(
+											"position after clear: " + writeBuffer.position() + " limit after clear:"
+													+ writeBuffer.limit());
 									InputStreamReader reader = new InputStreamReader(System.in);
 									BufferedReader br = new BufferedReader(reader);
 									String msg = br.readLine();
@@ -77,7 +91,8 @@ public class SelectSocketsClient {
 						//拿到SelectionKey触发相应事件对应的客户端channel，执行读操作
 						SocketChannel client = (SocketChannel) selectionKey.channel();
 						//创建一个新的读buffer，
-						ByteBuffer readBuffer = ByteBuffer.allocate(1024);
+						//						ByteBuffer readBuffer = ByteBuffer.allocate(1024);// 如果一次Buffer满了没读完，就等下次就绪接着读.
+						ByteBuffer readBuffer = ByteBuffer.allocate(2048);
 						//从准备好读操作的channel中读取数据
 						int count = client.read(readBuffer);
 						if (count > 0) {
