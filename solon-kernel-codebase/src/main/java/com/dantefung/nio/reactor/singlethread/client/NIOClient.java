@@ -1,4 +1,4 @@
-package com.dantefung.nio.reactor.siglethread.client;
+package com.dantefung.nio.reactor.singlethread.client;
 
 
 import java.io.IOException;

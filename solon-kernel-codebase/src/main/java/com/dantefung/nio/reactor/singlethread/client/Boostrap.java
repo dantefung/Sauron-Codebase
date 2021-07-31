@@ -9,7 +9,7 @@
  * 作者姓名           修改时间           版本号              描述
  * DANTE FUNG        2021/7/31 上午2:32   V1.0.0
  */
-package com.dantefung.nio.reactor.siglethread.client;
+package com.dantefung.nio.reactor.singlethread.client;
 
 /**
  * @Title: Boostrap

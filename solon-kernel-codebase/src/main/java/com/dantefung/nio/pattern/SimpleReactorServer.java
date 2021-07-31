@@ -93,13 +93,37 @@ public class SimpleReactorServer {
 					// 14、读取数据
 					ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
 					int length = 0;
-					length = socketChannel.read(byteBuffer);
-					//					while ((length = socketChannel.read(byteBuffer)) != -1) {
-					byteBuffer.flip();
-					log.info("收到来自客户端消息:" + new String(byteBuffer.array(), 0, length));
-					byteBuffer.clear();
-					//					}
-					//					socketChannel.close();
+					int count = 0;
+					while ((length = socketChannel.read(byteBuffer)) > 0) {
+						byteBuffer.flip();
+						log.info("收到来自客户端消息:" + new String(byteBuffer.array(), 0, length));
+						byteBuffer.clear();
+						count++;
+					}
+					if (count > 0) {
+						selectedKey.interestOps(SelectionKey.OP_WRITE);
+					} else {
+						selectedKey.cancel();
+						socketChannel.close();
+					}
+				} else if (selectedKey.isWritable()) {
+					if (selectedKey.isValid()) {
+						log.info(" 处理写就绪事件[{}]...", selectedKey);
+						SocketChannel socketChannel = (SocketChannel) selectedKey.channel();
+						ByteBuffer outputBuffer = ByteBuffer.allocate(1024);
+						outputBuffer.clear();
+						String resMsg = String.format("你好啊！%s", socketChannel.getRemoteAddress());
+						log.info(" 准备写出内容: {}", resMsg);
+						outputBuffer.put(resMsg.getBytes());
+						outputBuffer.flip();
+						int count = socketChannel.write(outputBuffer); //write方法结束，意味着本次写就绪变为写完毕，标记着一次事件的结束
+						selectedKey.interestOps(SelectionKey.OP_READ);
+						if (count < 0) {
+							selectedKey.cancel();
+							socketChannel.close();
+							log.info("write时-------连接关闭");
+						}
+					}
 				}
 
 				// 15、移除选择键
