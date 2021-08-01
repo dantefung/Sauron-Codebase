@@ -70,6 +70,11 @@ import java.util.Set;
  *  关键点: SelectionKey[附件回调处理类] --注册--> Selector
  *  则可实现遍历Selector的就绪事件上可以从就绪的key中找到相应的处理类。
  *
+ * 消息处理流程:
+ * 1. Reactor对象通过epoll监控连接事件，收到事件后通过回调函数进行转发。
+ * 2. 如果是连接建立的事件，则由acceptor接受连接，并创建handler处理后续事件。
+ * 3. 如果不是建立连接事件，如read事件，则Reactor会分发调用Handler来响应。
+ * 4. handler会完成read->业务处理->send的完整业务流程。
  *
  */
 @Slf4j
