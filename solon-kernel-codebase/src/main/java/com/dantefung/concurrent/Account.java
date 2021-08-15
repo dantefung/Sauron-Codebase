@@ -8,7 +8,7 @@ package com.dantefung.concurrent;
  * 在银行转账的操作中也有中间状态（账户 A 减少了 100，账户 B 还没来得及发生变化）。
  * 所以解决原子性问题，是要保证中间状态对外不可见。
  * @Author: DANTE FUNG
- * @Date: 2021/2/28 17:28
+ * @Date: 2021/2/28 17:29
  * @since JDK 1.8
  * @return:
  */
