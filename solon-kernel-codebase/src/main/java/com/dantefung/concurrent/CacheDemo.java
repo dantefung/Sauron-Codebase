@@ -75,7 +75,7 @@ public class CacheDemo {
 				rwl.writeLock().lock();
 				try {
 					// 再次验证
-					// 其他线程可能已经查询过数据库
+					// 其他线程可能已经查询过数据库,就没必要再查询数据库了.
 					if (value == null) {
 						value = "aaaa";// 实际是去查询数据数据库
 					}
