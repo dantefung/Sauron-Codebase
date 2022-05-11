@@ -12,6 +12,7 @@
 package com.dantefung.java8.stream;
 
 import com.google.common.collect.Lists;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Collection;
@@ -33,5 +34,25 @@ public class Demo2 {
 		List<String> result = Stream.of(Lists.newArrayList("A", "B", "C"), Lists.newArrayList("A", "B"))
 				.flatMap(Collection::stream).distinct().collect(Collectors.toList());
 		log.info(result.toString());
+
+		OrderListIndexDO o1 = new OrderListIndexDO();
+		o1.setId(1L);
+		OrderListIndexDO o2 = new OrderListIndexDO();
+		o2.setId(2L);
+
+		OrderListIndexDO o3 = new OrderListIndexDO();
+		o3.setId(3L);
+		OrderListIndexDO o4 = new OrderListIndexDO();
+		o4.setId(1L);
+		List<OrderListIndexDO> sortList = Lists.newArrayList(o1, o2);
+		List<OrderListIndexDO> noSortList = Lists.newArrayList(o3, o4);
+		List<?> r = Stream.of(sortList, noSortList)
+				.flatMap(Collection::stream).distinct().collect(Collectors.toList());
+		System.out.println(r);
+	}
+
+	@Data
+	static class OrderListIndexDO {
+		private Long id;
 	}
 }
