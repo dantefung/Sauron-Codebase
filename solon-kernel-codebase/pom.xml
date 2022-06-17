@@ -23,7 +23,7 @@
         <mysql.version>8.0.17</mysql.version>
         <guava.version>19.0</guava.version>
         <modelmapper.version>2.3.0</modelmapper.version>
-        <fastjson.version>1.2.58</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <yamlbeans.version>1.09</yamlbeans.version>
         <json.path.version>2.4.0</json.path.version>
     </properties>
