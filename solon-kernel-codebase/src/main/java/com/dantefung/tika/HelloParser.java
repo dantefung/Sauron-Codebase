@@ -2,6 +2,7 @@ package com.dantefung.tika;
 
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.ClassUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.tika.exception.TikaException;
 import org.apache.tika.metadata.HttpHeaders;
 import org.apache.tika.metadata.Metadata;
@@ -18,6 +19,11 @@ import java.io.InputStream;
 import java.util.HashMap;
 
 public class HelloParser {
+
+	/**
+	 * 限制接口返回图片附件mime类型
+	 */
+	public static String limitImageMimeType = "image/png,image/jpeg,image/jpg";
 
 	public static String getMimeType(InputStream inputStream){
 		AutoDetectParser parser = new AutoDetectParser();
@@ -40,7 +46,10 @@ public class HelloParser {
 		String classPath = ClassUtil.getClassPath();
 		File folder = FileUtil.file(classPath + File.separator + "tika");
 		for (File file : folder.listFiles()) {
-			System.out.println(file.getName() + "==" + getMimeType(FileUtil.getInputStream(file)));
+			String mimeType = getMimeType(FileUtil.getInputStream(file));
+			System.out.println(
+					file.getName() + "==" + mimeType + "==" + StringUtils
+							.contains(limitImageMimeType, mimeType));
 		}
 	}
 
