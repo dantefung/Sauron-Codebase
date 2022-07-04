@@ -51,6 +51,15 @@ public class HelloParser {
 					file.getName() + "==" + mimeType + "==" + StringUtils
 							.contains(limitImageMimeType, mimeType));
 		}
+
+		System.out.println("=========HUTOOL =========");
+		for (File file : folder.listFiles()) {
+			String mimeType = FileUtil.getMimeType(file.getName());// 这种不准确!
+			System.out.println(
+					file.getName() + "==" + mimeType + "==" + StringUtils
+							.contains(limitImageMimeType, mimeType));
+		}
+
 	}
 
 }
