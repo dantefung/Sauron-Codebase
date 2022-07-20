@@ -1,4 +1,4 @@
-package com.dantefung.tool.Pool;
+package com.dantefung.tool.pool;
 
 import org.apache.commons.pool2.BasePooledObjectFactory;
 import org.apache.commons.pool2.PooledObject;

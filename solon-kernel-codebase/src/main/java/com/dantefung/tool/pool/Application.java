@@ -1,4 +1,4 @@
-package com.dantefung.tool.Pool;
+package com.dantefung.tool.pool;
 
 import org.apache.commons.pool2.impl.GenericObjectPool;
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
