@@ -27,6 +27,7 @@
         <yamlbeans.version>1.09</yamlbeans.version>
         <json.path.version>2.4.0</json.path.version>
         <ttl.version>2.12.1</ttl.version>
+        <swagger.version>2.6.1</swagger.version>
     </properties>
 
     <dependencies>
@@ -279,21 +280,54 @@
             <version>4.4</version>
         </dependency>
 
-        <dependency>
+       <!-- <dependency>
             <groupId>org.apache.tika</groupId>
             <artifactId>tika-core</artifactId>
             <version>1.26</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.apache.tika</groupId>
             <artifactId>tika-parsers</artifactId>
             <version>1.26</version>
+            <exclusions>
+                <!-- XML解组基准：JAXB，STAx，Woodstox-->
+                <exclusion>
+                    <artifactId>woodstox-core</artifactId>
+                    <groupId>com.fasterxml.woodstox</groupId>
+                </exclusion>
+                <!--情感分析-->
+                <exclusion>
+                    <artifactId>sentiment-analysis-parser</artifactId>
+                    <groupId>edu.usc.ir</groupId>
+                </exclusion>
+                <!--机器学习工具包-->
+                <exclusion>
+                    <artifactId>opennlp-tools</artifactId>
+                    <groupId>org.apache.opennlp</groupId>
+                </exclusion>
+                <!--HTML正文提取库-->
+                <exclusion>
+                    <artifactId>boilerpipe</artifactId>
+                    <groupId>de.l3s.boilerpipe</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>transmittable-thread-local</artifactId>
             <version>${ttl.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${swagger.version}</version>
         </dependency>
 
     </dependencies>
