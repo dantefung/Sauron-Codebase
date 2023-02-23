@@ -1,4 +1,4 @@
-package com.dantefung.tool.Pool;
+package com.dantefung.tool.pool;
 
 public class Person {
 
