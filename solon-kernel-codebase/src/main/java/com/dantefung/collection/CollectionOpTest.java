@@ -18,9 +18,11 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.Accessors;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.collections4.ListUtils;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -33,7 +35,52 @@ import java.util.List;
 public class CollectionOpTest {
 
 	public static void main(String[] args) {
-		intersectionTest();
+		// 测试交集
+//		intersectionTest();
+		// 比较两个集合是否相等
+//		equalCollectionTest();
+
+		equalCollectionTest2();
+
+	}
+
+	private static void equalCollectionTest2() {
+		List<User> users = Lists.newArrayList(User.of("james", "1234", "男"), User.of("ben", "123", "男"));
+		List<User> users1 = Lists.newArrayList(User.of("james1", "1234", "男"), User.of("ben1", "123", "男"));
+		List<User> users2 = Lists.newArrayList(User.of("james", "1234", "男"), User.of("ben", "123", "男"));
+		System.out.println(ListUtils.isEqualList(users, users1));
+		System.out.println(ListUtils.isEqualList(users, users2));
+	}
+
+	private static void equalCollectionTest() {
+		ArrayList<String> listA = new ArrayList<String>() {{
+			add("a");
+			add("b");
+			add("c");
+		}};
+		ArrayList<String> listB = new ArrayList<String>() {{
+			add("b");
+			add("c");
+			add("a");
+		}};
+		System.out.println(listA.equals(listB));// false,缺点：需要先对集合进行排序
+
+		System.out.println(listA.containsAll(listB) && listB.containsAll(listA));// true,交叉包含判断，缺点：无法判断集合包含相同元素的情况[a,b,c]和[a,a,b,c]
+
+		/**
+		 * iff the collections contain the same elements with the same cardinalities.
+		 * 1. 集合大小是否相同
+		 * 2. 比较元素的个数
+		 * 3. 比较元素出现的频次
+		 * 总体来说这种方式比使用原生的相等性判断要方便，且算法复杂度较低。
+		 */
+		System.out.println(CollectionUtils.isEqualCollection(listA, listB));// true，推荐，使用简单入参非空即可，算法复杂度低，不用排序
+
+		System.out.println(ListUtils.isEqualList(listA, listB));
+
+		Collections.sort(listA);
+		Collections.sort(listB);
+		System.out.println(listA.equals(listB));// true，用于佐证集合排序后可以使用该API判断相等
 	}
 
 	private static void intersectionTest() {
