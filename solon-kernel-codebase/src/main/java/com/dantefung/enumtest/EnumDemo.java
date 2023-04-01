@@ -15,6 +15,7 @@ public class EnumDemo {
 	public enum WeekDay {//class   SUN 星期天   天气：晴 ；   MON 星期一  天气：阴天  ； TUE 想起二  天气：多云    ； THI 星期三  天气：小雨 ； FRI 星期五  天气：晴转阴    ； SAT  星期六  天气：大雨
 		SUN("星期天")
 		{//匿名内部类，为WeekDay的子类
+			   @Override
 			   public String localValue()
 			   {
 				    return "天气：晴";
@@ -22,6 +23,7 @@ public class EnumDemo {
 		}
 		, MON("星期一")
 		{
+			@Override
 			public String localValue()
 			{
 				return "天气：阴天";
@@ -30,6 +32,7 @@ public class EnumDemo {
 
 		, TUE("星期二")
 		{
+			@Override
 			public String localValue()
 			{
 				return "天气：多云";
@@ -37,6 +40,7 @@ public class EnumDemo {
 		}
 		, THI("星期三")
 		{
+			@Override
 			public String localValue()
 			{
 				return "天气：小雨";
@@ -44,6 +48,7 @@ public class EnumDemo {
 		}
 		, FRI("星期五")
 		{
+			@Override
 			public String localValue()
 			{
 				return "天气：晴转阴";
@@ -51,6 +56,7 @@ public class EnumDemo {
 		}
 		, SAT("星期六")//object 通过构造方法实例化对象
 		{
+			@Override
 			public String localValue()
 			{
 				return "天气：大雨";
