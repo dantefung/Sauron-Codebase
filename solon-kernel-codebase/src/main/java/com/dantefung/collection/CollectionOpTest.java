@@ -11,6 +11,8 @@
  */
 package com.dantefung.collection;
 
+import cn.hutool.Hutool;
+import cn.hutool.core.collection.ListUtil;
 import com.google.common.collect.Lists;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -42,6 +44,25 @@ public class CollectionOpTest {
 
 		equalCollectionTest2();
 
+		pageInMemoryTest();
+	}
+
+	private static void pageInMemoryTest() {
+		List<Integer> list = Lists.newArrayList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
+		List<Integer> pageList1 = ListUtil.page(0, 3, list);
+		List<Integer> pageList2 = ListUtil.page(1, 3, list);
+		List<Integer> pageList3 = ListUtil.page(2, 3, list);
+		List<Integer> pageList4 = ListUtil.page(3, 3, list);
+		System.out.println(pageList1);
+		System.out.println(pageList2);
+		System.out.println(pageList3);
+		System.out.println(pageList4);
+		/*
+		[1, 2, 3]
+		[4, 5, 6]
+		[7, 8, 9]
+		[10, 11, 12]
+		 */
 	}
 
 	private static void equalCollectionTest2() {
