@@ -7,7 +7,9 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;
+import java.text.MessageFormat;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @Title: CodeSnippetGenerator
@@ -87,5 +89,20 @@ public class CodeSnippetGenerator {
 		}
 		codeStrList.add("list();");
 		return StringUtils.join(codeStrList, ".");
+	}
+
+	/**
+	 * 	private static final String COL_BOOK_START_TIME = "bookStartTime";
+	 * @param aClass
+	 */
+	public void genStaticColStr(Class<?> aClass) {
+		Field[] fields = aClass.getDeclaredFields();
+		for (Field field : fields) {
+			if (!StringUtils.equalsIgnoreCase("serialVersionUID", field.getName())) {
+				String message = "private static final String COL_{0} = \"{1}\";";
+				System.out.println(MessageFormat
+						.format(message, StringUtils.upperCase(StrUtil.toUnderlineCase(field.getName())), field.getName()));
+			}
+		}
 	}
 }
