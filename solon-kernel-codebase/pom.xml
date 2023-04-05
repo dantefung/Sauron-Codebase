@@ -341,6 +341,20 @@
             <artifactId>okhttp</artifactId>
             <version>4.9.3</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.xk72</groupId>
+            <artifactId>pherialize</artifactId>
+            <version>1.2.4</version>
+        </dependency>
+
+        <!--反序列化 php-->
+        <dependency>
+            <groupId>org.sction</groupId>
+            <artifactId>phprpc</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+
     </dependencies>
 
     <build>

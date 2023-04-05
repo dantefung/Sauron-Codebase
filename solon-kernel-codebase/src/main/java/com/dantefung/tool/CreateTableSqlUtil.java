@@ -7,7 +7,6 @@ import java.util.Map;
 import java.util.Objects;
 
 import cn.hutool.core.date.DateUtil;
-import com.dantefung.tmp.OrderCommissionDO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.apache.commons.lang3.StringUtils;
@@ -21,7 +20,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class CreateTableSqlUtil {
  
-    private static final Class<?> CLS = OrderCommissionDO.class;
+    private static final Class<?> CLS = null;// 填写Bean的class
     private static final String LINE = "\r\n";
     private static Map<String, String> map = new LinkedHashMap<String, String>();
  
