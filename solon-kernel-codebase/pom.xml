@@ -10,7 +10,7 @@
     <properties>
         <poi.version>3.13</poi.version>
         <common.io.version>2.5</common.io.version>
-        <hutool.version>5.7.17</hutool.version>
+        <hutool.version>5.8.22</hutool.version>
         <jacob.version>1.14.3</jacob.version>
         <httpclient.version>4.4.1</httpclient.version>
         <jdom.version>2.0.5</jdom.version>
