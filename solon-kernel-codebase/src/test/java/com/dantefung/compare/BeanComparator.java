@@ -212,12 +212,12 @@ public class BeanComparator {
             // 比较字段值
             if (isNumericType(field.getType())) {
                 if (!compareNumericValues(oldValue, newValue)) {
-                    DiffReport report = createDiffReport(field, oldValue, newValue, id);
+                    DiffReport report = createDiffReport(clazz, field, oldValue, newValue, id);
                     reports.add(report);
                 }
             } else {
                 if (!Objects.equals(oldValue, newValue)) {
-                    DiffReport report = createDiffReport(field, oldValue, newValue, id);
+                    DiffReport report = createDiffReport(clazz, field, oldValue, newValue, id);
                     reports.add(report);
                 }
             }
@@ -243,8 +243,9 @@ public class BeanComparator {
         return false;
     }
 
-    private static DiffReport createDiffReport(Field field, Object oldValue, Object newValue, Object uniqueId) throws IllegalAccessException {
+    private static DiffReport createDiffReport(Class<?> clazz, Field field, Object oldValue, Object newValue, Object uniqueId) throws IllegalAccessException {
         DiffReport report = new DiffReport();
+        report.setClazz(clazz);
         report.setId(uniqueId);
         report.setFieldName(field.getName());
         report.setOldValue(oldValue);
@@ -342,6 +343,7 @@ public class BeanComparator {
         private static final long serialVersionUID = -6097599861579972420L;
 
         private Object id;
+        private Class<?> clazz;
         private String fieldName;
         private Object oldValue;
         private Object newValue;
@@ -349,6 +351,15 @@ public class BeanComparator {
         public DiffReport() {}
 
         public DiffReport(Object id, String fieldName, Object oldValue, Object newValue) {
+            this.clazz = clazz;
+            this.id = id;
+            this.fieldName = fieldName;
+            this.oldValue = oldValue;
+            this.newValue = newValue;
+        }
+
+        public DiffReport(Class<?> clazz, Object id, String fieldName, Object oldValue, Object newValue) {
+            this.clazz = clazz;
             this.id = id;
             this.fieldName = fieldName;
             this.oldValue = oldValue;
@@ -360,6 +371,7 @@ public class BeanComparator {
             // append DiffReport所有字段
             sb.append("--------------" + fieldName + "-------------------").append("\r\n");
             sb.append("id: ").append(id).append("\r\n");
+            sb.append("class: ").append(clazz).append("\r\n");
             sb.append("fieldName: ").append(fieldName).append("\r\n");
             sb.append("oldValue: ").append(oldValue).append("\r\n");
             sb.append("newValue: ").append(newValue).append("\r\n");
