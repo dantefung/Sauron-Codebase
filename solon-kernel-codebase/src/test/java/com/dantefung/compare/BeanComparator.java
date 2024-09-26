@@ -163,7 +163,7 @@ public class BeanComparator {
                 newItem = createEmptyObject(emptyObjectSupplier.get());
             }
 
-            List<DiffReport> itemReports = compareFields(idExtractor, oldItem, newItem, interestFields, excludeFields);
+            List<DiffReport> itemReports = compareFields(id, oldItem, newItem, interestFields, excludeFields);
             reports.addAll(itemReports);
         }
 
@@ -186,7 +186,7 @@ public class BeanComparator {
     }
 
     @SneakyThrows
-    public static <T, ID> List<DiffReport> compareFields(Function<T, ID> idExtractor, T oldItem, T newItem, List<String> interestFields, List<String> excludeFields) {
+    public static <T, ID> List<DiffReport> compareFields(ID uniqueId, T oldItem, T newItem, List<String> interestFields, List<String> excludeFields) {
         List<DiffReport> reports = new ArrayList<>();
 
         // 最外层已经做了数据对齐
@@ -196,12 +196,9 @@ public class BeanComparator {
         Field[] fields = clazz.getDeclaredFields();
 
         Object id = null;
-        if (Objects.nonNull(idExtractor)) {
+        if (Objects.nonNull(uniqueId)) {
 
-            id = idExtractor.apply(newItem);
-            if (Objects.isNull(id)) {
-                id = idExtractor.apply(oldItem);
-            }
+            id = uniqueId;
 
         } else {
 
