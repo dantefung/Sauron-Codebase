@@ -1,15 +1,15 @@
 package com.dantefung.tool;
 
-import cn.hutool.core.util.StrUtil;
-import lombok.Data;
-import org.apache.commons.compress.utils.Lists;
-import org.apache.commons.lang3.StringUtils;
-
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.text.MessageFormat;
 import java.util.List;
-import java.util.Objects;
+
+import org.apache.commons.compress.utils.Lists;
+import org.apache.commons.lang3.StringUtils;
+
+import cn.hutool.core.util.StrUtil;
+import lombok.Data;
 
 /**
  * @Title: CodeSnippetGenerator
