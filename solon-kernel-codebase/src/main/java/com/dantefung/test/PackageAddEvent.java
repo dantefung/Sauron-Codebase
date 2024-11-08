@@ -47,6 +47,9 @@ public class PackageAddEvent extends ApplicationEvent implements Serializable {
 	}
 
     public static void main(String[] args) {
+
+        // PackageAddEvent的无参构造函数必须要有, 否则无法反序列化
+
         String json = "{\n" + "  \"companyId\": 96,\n" + "  \"id\": 6,\n" + "  \"rateCode\": \"test_4d48cb2e63dd\",\n"
                 + "  \"timestamp\": 38,\n" + "  \"source\": {}\n" + "}";
 
