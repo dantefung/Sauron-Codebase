@@ -12,7 +12,7 @@
         <common.io.version>2.5</common.io.version>
         <hutool.version>5.8.22</hutool.version>
         <jacob.version>1.14.3</jacob.version>
-        <httpclient.version>4.4.1</httpclient.version>
+        <httpclient.version>4.5.13</httpclient.version>
         <jdom.version>2.0.5</jdom.version>
         <dom4j.version>1.6.1</dom4j.version>
         <javamail.version>1.6.2</javamail.version>
