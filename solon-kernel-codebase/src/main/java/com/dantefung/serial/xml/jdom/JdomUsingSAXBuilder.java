@@ -1,6 +1,5 @@
-package com.dantefung.xml.jdom;
+package com.dantefung.serial.xml.jdom;
 
-import java.io.File;
 import java.io.IOException;
  
 import org.jdom2.Comment;
@@ -21,7 +20,7 @@ import org.jdom2.util.IteratorIterable;
 public class JdomUsingSAXBuilder {
  
     private static String file1 = "tomcat-web-dtd.xml";
-    private static String fileName = "com/dantefung/xml/jdom/tomcat-web-app-dtd.xml";
+    private static String fileName = "com/dantefung/serial/xml/jdom/tomcat-web-app-dtd.xml";
  
     public static void main(String[] args) throws JDOMException, IOException {
  

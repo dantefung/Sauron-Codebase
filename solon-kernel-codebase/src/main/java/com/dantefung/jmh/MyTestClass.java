@@ -2,10 +2,15 @@ package com.dantefung.jmh;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.common.base.Preconditions;
 import lombok.Data;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 
 // 假设的类用于测试
 @Data
@@ -117,5 +122,27 @@ public class MyTestClass implements Serializable {
         myTestClass.setCode("KeEWznaF");
         return myTestClass;
     }
+
+    public static void main(String[] args) {
+        String dateStr = "2024-05-01 00:00:00";
+        DateTimeFormatter LOCALDATETIME_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String timeZone = "Asia/Hong_Kong";
+        System.out.println((LocalDateTime.parse(dateStr, LOCALDATETIME_FORMAT).atZone(ZoneId.of(timeZone)).toInstant().toEpochMilli()) / 1000);
+        System.out.println(ceil(new BigDecimal("28.35"),0));
+    }
+
+    /**
+     * CEIL
+     * 向上取整
+     *
+     * @param num       数字
+     * @param precision 精度
+     * @return {@link BigDecimal}
+     */
+    public static BigDecimal ceil(BigDecimal num, int precision) {
+        Preconditions.checkNotNull(num);
+        return num.setScale(precision, RoundingMode.CEILING);
+    }
+
 
 }

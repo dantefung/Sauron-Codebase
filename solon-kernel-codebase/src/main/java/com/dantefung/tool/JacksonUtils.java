@@ -1,4 +1,4 @@
-package com.dantefung.jmh;
+package com.dantefung.tool;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
