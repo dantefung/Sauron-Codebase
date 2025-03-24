@@ -1,0 +1,29 @@
+@startuml
+interface Data {
+    + getContent(): String
+}
+
+class FutureData {
+    - RealData realData
+    - boolean isReady
+    + setRealData(realData: RealData)
+    + getContent(): String
+}
+
+class RealData {
+    - String content
+    + RealData(content: String)
+    + getContent(): String
+}
+
+class Host {
+    + request(content: String): Data
+}
+
+Main --> Host : Requests now
+Host --> FutureData : Creates
+FutureData --> RealData : Creates
+FutureData ..|> Data
+RealData ..|> Data
+
+@enduml

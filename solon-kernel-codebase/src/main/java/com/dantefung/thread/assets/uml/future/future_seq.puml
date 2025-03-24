@@ -1,0 +1,17 @@
+@startuml
+participant "Main" as Main
+participant "Host" as Host
+participant "FutureData" as FutureData
+participant "RealData" as RealData
+participant "Thread" as Thread
+
+Main -> Host: new Host()
+Main -> Host: request(content)
+Host -> FutureData: new FutureData()
+Host -> Thread: new Thread()
+Thread -> RealData: new RealData(content)
+RealData -> FutureData: setRealData()
+Main -> FutureData: getContent()
+FutureData -> RealData: getContent()
+
+@enduml
