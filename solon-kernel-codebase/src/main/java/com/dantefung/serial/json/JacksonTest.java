@@ -34,6 +34,26 @@ public class JacksonTest {
         chargeDTO.setAmount5(new BigDecimal("1234.5678"));
         System.out.println(JacksonUtils.objectToString(chargeDTO));
 
+        ReSerialDemo reSerialDemo = new ReSerialDemo();
+        reSerialDemo.setAmount(new BigDecimal("0.00"));
+        reSerialDemo.setAmount1(new BigDecimal("0"));
+        String json = JacksonUtils.objectToString(reSerialDemo);
+        System.out.println(JacksonUtils.stringToObject(json, ReSerialDemo.class));
+    }
+
+    @Data
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public static class ReSerialDemo implements Serializable {
+
+        private static final long serialVersionUID = 3699472848660448434L;
+
+        @JsonFormat(pattern = "0.00")
+        @JsonSerialize(using = SerializerStringBigDecimal.class)
+        private BigDecimal amount;
+
+        @JsonFormat(pattern = "#.00")
+        @JsonSerialize(using = SerializerStringBigDecimal.class)
+        private BigDecimal amount1;
     }
 
     @Data
